@@ -1,0 +1,105 @@
+﻿@model AIA.Models.tbl_m_setting_aplikasi
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">MASTER - @ViewBag.Title</h6>
+    </div>
+    <div class="card-body">
+        <form id="formBS">
+            @Html.HiddenFor(Model => Model.id)
+            @Html.HiddenFor(Model => Model.insert_by)
+            @Html.HiddenFor(Model => Model.ip)
+            @Html.HiddenFor(Model => Model.created_at)
+            @Html.HiddenFor(Model => Model.updated_at)
+            <div class="form-group">
+                <label for="nama">Nama Aplikasi</label>
+                <input type="text" class="form-control" id="nama" name="nama">
+            </div>
+            <div class="form-group">
+                <label for="description">Deskripsi Aplikasi</label>
+                <input type="text" class="form-control" id="description" name="description">
+            </div>
+            <div class="form-group">
+                <label for="icon">Icon Aplikasi</label>
+                <input type="text" class="form-control" id="icon" name="icon">
+            </div>
+            <div class="form-group">
+                <label for="theme">Theme Aplikasi</label>
+                <input type="text" class="form-control" id="theme" name="theme">
+            </div>
+            <button type="button" onclick="updateData()" id="btnSave" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+
+@section styles {
+    <link href="~/Assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+}
+
+@section scripts {
+    <script src="~/Assets/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Assets/js/demo/datatables-demo.js"></script>
+    <script>
+        var link = '@Url.Action("Function", "Controller")'
+        var controller_name = "@ViewBag.Controller"
+        var a
+        var dataTable
+
+        $(document).ready(function () {
+            getCredentials()
+            getData()
+        })
+
+        function getCredentials() {
+            //GetNRP
+            $('#insert_by').val("@Html.Raw(ViewBag.insert_by)")
+        }
+
+        function getData() {
+            link = link.replace("Controller", controller_name);
+            link = link.replace("Function", "Get");
+
+            $.ajax({
+                type: "GET",
+                url: link,
+                success: function (data) {
+                    if (data.status) {
+                        $('#id').val(data.data.id)
+                        $('#nama').val(data.data.nama)
+                        $('#description').val(data.data.description)
+                        $('#icon').val(data.data.icon)
+                        $('#theme').val(data.data.theme)
+                    } else {
+                        alert(data.data)
+                    }
+                }
+            })
+            link = '@Url.Action("Function", "Controller")'
+        }
+
+        function updateData(id) {
+            link = link.replace("Controller", controller_name);
+            link = link.replace("Function", "Update");
+
+            $.ajax({
+                type: "POST",
+                url: link,
+                data: $('#formBS').serialize(),
+                success: function (data) {
+                    if (data.status) {
+                        alertify.notify('Data berhasil diubah', 'success', 5)
+                        location.reload()
+                    } else {
+                        alert(data.data)
+                    }
+                }
+            })
+            link = '@Url.Action("Function", "Controller")'
+        }
+    </script>
+}

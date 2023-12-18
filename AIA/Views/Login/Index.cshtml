@@ -1,0 +1,152 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Setting.nama</title>
+    <!-- Custom fonts for this template-->
+    <link href="~/Assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="~/Assets/css/sb-admin-2.min.css" rel="stylesheet" />
+</head>
+<body style="background-color: @ViewBag.Setting.theme;">
+    <div class="container">
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-6 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <div class="sidebar-brand-icon">
+                                            <img src="~/Assets/AIA.png" alt="HTML5 Icon" style="width:200px;height:100px;">
+
+                                        </div>
+                                    </div>
+                                    <form class="user" id="formBS">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" id="pnrp" name="pnrp" aria-describedby="emailHelp" placeholder="Masukkan PNRP">
+                                            <input type="text" class="form-control form-control-user" id="ip" name="ip" placeholder="Masukkan ip" hidden>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Masukkan Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control form-control-md" id="kategori_user_id" name="kategori_user_id" onchange="pilihKategoriUser()" disabled>
+                                                <option value="">- Pilih kategori user -</option>
+                                            </select>
+                                        </div>
+                                        <button id="login" type="button" onclick="btnLogin()" class="btn btn-user btn-block" style="background-color:@ViewBag.Setting.theme;color: #fff;">
+                                            Login
+                                        </button>
+                                    </form>
+                                    <hr>
+                                    <h6 class="text-center">@ViewBag.Setting.description</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="~/Assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="~/Assets/js/sb-admin-2.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            getCredentials()
+        })
+
+        $('.form-control-user').keypress(function (e) {
+            if (e.which == 13) {
+                btnLogin()
+                return false;
+            }
+        });
+
+        function getCredentials() {
+            //GetIP
+            window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;//compatibility for Firefox and chrome
+            var pc = new RTCPeerConnection({ iceServers: [] }), noop = function () { };
+            pc.createDataChannel('');//bogus data channel
+            pc.createOffer(pc.setLocalDescription.bind(pc), noop);// create offer and set local description
+            pc.onicecandidate = function (ice) {
+                if (ice && ice.candidate && ice.candidate.candidate) {
+                    var myIP = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/.exec(ice.candidate.candidate)[1]
+                    $('#ip').val(myIP)
+                    pc.onicecandidate = noop
+                }
+            }
+        }
+
+        function btnLogin() {
+            $('#login').text('Loading...')
+            $('#login').prop('disabled', true)
+            var urlTo = '@Url.Action("Index", "Dashboard")'
+            var options = $("#kategori_user_id");
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ProsesLogin", "Login")',
+                data: $('#formBS').serialize(),
+                success: function (data) {
+                    if (data.status == true) {
+                        $('#login').text('Pilih kategori user')
+                        $('#kategori_user_id').prop('disabled', false)
+                        for (a = 0; a < data.data.length; a++) {
+                            options.append($("<option />").val(data.data[a].kategori_user_id).text(data.data[a].kategori_user_id));
+                        }
+                    } else {
+                        $('#login').text('Login')
+                        $('#login').prop('disabled', false)
+                        alert('Invalid username or password')
+                    }
+                },
+                error: function (error) {
+                    $('#login').text('Login')
+                    $('#login').prop('disabled', false)
+                    alert('Invalid username or password')
+                }
+            })
+        }
+
+        function pilihKategoriUser() {
+            var kategori_user_id = $("#kategori_user_id").val()
+            $('#login').text('Loading...')
+
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("CekKategoriUser", "Login")?kategori_user_id=' + kategori_user_id,
+                success: function (data) {
+                    var link = '@Url.Action("Function", "Controller")';
+                    link = link.replace("Controller", data.data.login_controller);
+                    link = link.replace("Function", data.data.login_function);
+                    if (data.status) {
+                        location.href = link
+                    } else {
+                        alert(data.data)
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+</html>

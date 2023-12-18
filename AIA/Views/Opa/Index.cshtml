@@ -1,0 +1,540 @@
+﻿@model AIA.Models.tbl_operator_fatigue_need_followup
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="margin-bottom: 20px;">
+    <button onclick="btnAdd()" class="btn btn-primary btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-search"></i>
+        </span>
+        <span class="text">Cari Data</span>
+    </button>
+</div>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">DATA KARYAWAN</h6>
+    </div>
+    <div class="card-body">
+        <form id="formBS">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group row">
+                        <label for="nrp" class="col-sm-3 col-form-label">TANGGAL</label>
+                        <div class="col-sm-9">
+
+                            <input type="text" class="form-control" id="tanggal" name="tanggal" placeholder="tanggal" required readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nrp" class="col-sm-3 col-form-label">NRP</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="nrp" name="nrp" placeholder="NRP" required readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nama" class="col-sm-3 col-form-label">NAMA</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama" required readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nama" class="col-sm-3 col-form-label">DEPT.</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Departemen" name="Departemen" placeholder="DEPT" required readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nama" class="col-sm-3 col-form-label">FTW VIA</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="created_by" name="created_by" placeholder="JENIS FTW" required readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group row">
+                        <label for="jabatan_id" class="col-sm-3 col-form-label">JAM TIDUR</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="jamtidur" name="jamtidur" placeholder="JAM TIDUR" required readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="dept_code" class="col-sm-3 col-form-label">PUNYA MASALAH</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="is_masalah" name="is_masalah" placeholder="PUNYA MASALAH" required readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="jabatan_id" class="col-sm-3 col-form-label">MINUM OBAT</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="is_minumoabt" name="is_minumoabt" placeholder="MINUM OBAT" required readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="jabatan_id" class="col-sm-3 col-form-label">STATUS FTW</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="statusfatigue" name="statusfatigue" placeholder="STATUS FTW" required readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">FORM FOLLOW UP - KONSELING</h6>
+    </div>
+    <div class="card-body">
+        <form id="formBS">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group row">
+                        <label for="nama" class="col-sm-3 col-form-label">KATEGORI FATIGUE</label>
+                        <div class="col-sm-9">
+                            <select class="form-control form-control-md" id="Kategory_problem_fatigue" name="Kategory_problem_fatigue" required>
+                                <option value="">- Pilih kategori Fatique -</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nrp" class="col-sm-3 col-form-label">REMARKS FATIGUE</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="remarksCNC" name="remarksCNC" placeholder="REMARKS CNC">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nama" class="col-sm-3 col-form-label">NEXT ACTION</label>
+                        <div class="col-sm-9">
+                            <select class="form-control form-control-md" id="Next_action" name="Next_action" required>
+                                <option value="">- Pilih NEXT ACTION -</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group row">
+                        <label for="jabatan_id" class="col-sm-3 col-form-label">STATUS AKUMULASI</label>
+                        <div class="col-sm-9">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="Status_akumulasi" name="Status_akumulasi">
+                                <label class="form-check-label" for="Status_akumulasi">Klik Jika 'IYA'</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="dept_code" class="col-sm-3 col-form-label">STATUS CNC</label>
+                        <div class="col-sm-9">
+                            <select class="form-control form-control-md" id="Status_CNC" name="Status_CNC" required>
+                                <option value="">- Pilih STATUS CNC -</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="jabatan_id" class="col-sm-3 col-form-label">KOMITMENT OPERATOR</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Komitment" name="Komitment" placeholder="KOMITMENT OPERATOR">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group row">
+                        <label for="nrp" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <button onclick="insertData()" type="button" id="btnSave" class="btn btn-success btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-save"></i>
+                                </span>
+                                <span class="text">SAVE</span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">HISTORY FATIGUE FOLLOW UP</h6>
+    </div>
+    <div class="card-body">
+        <hr />
+        <div class="table-responsive">
+            <table class="table table-bordered" width="100%" id="tableHistory" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>JAM TIDUR</th>
+                        <th>MINUM OBAT</th>
+                        <th>PUNYA MASALAH</th>
+                        <th>FTW VIA</th>
+                        <th>FATIGUE KE</th>
+                        <th>KATEGORI</th>
+                        <th>REMARKS</th>
+                        <th>STATUS AKUMULASI</th>
+                        <th>STATUS SANKSI</th>
+                        <th>NEED ACTION</th>
+                        <th>-</th>
+                        <th>OLEH</th>
+                        <th>TANGGAL</th>
+
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Add/Update -->
+<div class="modal fade modalBS" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Data Karyawan Need Follow UP</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" id="tableBS" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>NRP</th>
+                                <th>NAMA</th>
+                                <th>TANGGAL</th>
+                                <th>STATUS</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* End Modal *@
+
+@section styles {
+    <link href="~/Assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+}
+
+@section scripts {
+    <script src="~/Assets/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script>
+        var link = '@Url.Action("Function", "Controller")'
+        var controller_name = "@ViewBag.Controller"
+        var a
+        var dataTable
+        $(document).ready(function () {
+            getAll()
+            getKategoriFatigue()
+            getNext_action()
+            getStatus()
+        })
+        function btnAdd() {
+            $('.modalBS').modal('show');
+            $('#formBS').trigger("reset")
+        }
+
+
+        function convertToReadableDate(unixTimestamp) {
+            // Ubah Unix timestamp menjadi objek Date
+            var date = new Date(parseInt(unixTimestamp.substr(6)));
+
+            // Dapatkan komponen tanggal, bulan, dan tahun
+            var day = date.getDate();
+            var month = date.getMonth() + 1; // Perhatikan bahwa bulan dimulai dari 0
+            var year = date.getFullYear();
+
+            // Format tanggal agar sesuai (contoh: "12/31/2022")
+            var formattedDate = day + '/' + month + '/' + year;
+
+            return formattedDate;
+        }
+        function getAll() {
+            link = link.replace("Controller", "Karyawan");
+            link = link.replace("Function", "GetAll");
+
+            dataTable = $("#tableBS").DataTable({
+                "ajax": {
+                    "url": link,
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "nrp" },
+                    { "data": "nama" },
+                    {
+                        "data": "tanggal",
+                        "render": function (data) {
+                            return convertToReadableDate(data);
+                        }
+                    },
+                    { "data": "statusfatigue" },
+                    {
+                        "data": "pid",
+                        "render": function (data) {
+                            var a = '<button onclick="btnCheck(\'' + data + '\')" class="btn btn-primary btn-circle btn-sm">'
+                            a += '  <i class="fas fa-check"></i>'
+                            a += '</button>'
+                            return a
+                        },
+                        "orderable": false,
+                        "width": "180px",
+                        "searchable": false
+                    }
+                ],
+                "language": {
+                    "emptyTable": "Tidak ada data"
+                }
+            })
+            link = '@Url.Action("Function", "Controller")'
+        }
+
+          function btnCheck(pid) {
+              link = link.replace("Controller", "Karyawan");
+              link = link.replace("Function", "Get");
+              $.ajax({
+                  type: "GET",
+                  url: link + '?pid=' + pid,
+                  success: function (data) {
+                      if (data.status) {
+                          $('#pid').val(data.data.pid)
+                          $('#tanggal').val(convertToReadableDate(data.data.tanggal));
+                          $('#nrp').val(data.data.nrp).attr('readonly', true);
+                          $('#nama').val(data.data.nama)
+                          $('#jabatan').val(data.data.jabatan)
+                          $('#Departemen').val(data.data.Departemen)
+                          $('#jamtidur').val(data.data.jamtidur)
+                          $('#is_masalah').val(data.data.is_masalah === 0 ? 'tidak' : 'iya');
+                          $('#is_minumoabt').val(data.data.is_minumoabt === 0 ? 'tidak' : 'iya');
+                          $('#statusfatigue').val(data.data.statusfatigue)
+                          $('#created_by').val(data.data.created_by)
+                          var nrp = $('#nrp').val();
+                          getAllHistory(nrp);
+                      }
+                      else {
+                          alert(data.data)
+                      }
+                  }
+              })
+              $('.modalBS').modal('hide')
+
+              link = '@Url.Action("Function", "Controller")'
+          }
+
+        function getKategoriFatigue() {
+            var options = $("#Kategory_problem_fatigue");
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetAllKategori", "Opa")',
+                success: function (data) {
+                    if (data.status) {
+                        for (var a = 0; a < data.data.length; a++) {
+                            options.append($("<option />").text(data.data[a].remarks));
+                        }
+                    } else {
+                        alert(data.data);
+                    }
+                },
+                error: function (error) {
+                    console.log("Error fetching categories: " + error);
+                }
+            });
+        }
+
+        function getNext_action() {
+              var options = $("#Next_action");
+              $.ajax({
+                  type: 'GET',
+                  url: '@Url.Action("GetAllNextFollowup", "Opa")',
+                  success: function (data) {
+                      if (data.status) {
+                          for (var a = 0; a < data.data.length; a++) {
+                              options.append($("<option />").text(data.data[a].next_followup));
+                          }
+                      } else {
+                          alert(data.data);
+                      }
+                  },
+                  error: function (error) {
+                      console.log("Error fetching categories: " + error);
+                  }
+              });
+        }
+
+        function getStatus() {
+            var options = $("#Status_CNC");
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetAllStatusCNC", "Opa")',
+                success: function (data) {
+                    if (data.status) {
+                        for (var a = 0; a < data.data.length; a++) {
+                            options.append($("<option />").text(data.data[a].status_sanksi));
+                        }
+                    } else {
+                        alert(data.data);
+                    }
+                },
+                error: function (error) {
+                    console.log("Error fetching categories: " + error);
+                }
+            });
+        }
+
+function insertData() {
+    var link = '@Url.Action("Function", "Controller")';
+    link = link.replace("Controller", controller_name);
+    link = link.replace("Function", "Insert");
+
+    // Ambil nilai dari sesi (contoh: nama)
+    var nama = '@Session["nama"]';
+    console.log (nama)
+    var formData = {
+        nrp: $('#nrp').val(),
+        tanggal: $('#tanggal').val(),
+        Jam_tidur: $('#jamtidur').val(),
+        is_masalah: $('#is_masalah').prop('checked') ? 1 : 0,
+        is_minumobat: $('#is_minumoabt').prop('checked') ? 1 : 0,
+        Status_ftw: $('#statusfatigue').val(),
+        ftw_via: $('#created_by').val(),
+        Kategory_problem_fatigue: $('#Kategory_problem_fatigue').val(),
+        Status_CNC: $('#Status_CNC').val(),
+        remarksCNC: $('#remarksCNC').val(),
+        Next_action: $('#Next_action').val(),
+        Komitment: $('#Komitment').val(),
+        Status_akumulasi: $('#Status_akumulasi').prop('checked') ? 1 : 0,
+        CNC_by: nama
+    };
+
+    $.ajax({
+        type: "POST",
+        url: link,
+        data: formData,
+        success: function (data) {
+            if (data.status) {
+                alertify.notify('Data berhasil disimpan', 'success', 10);
+                dataTable.ajax.reload();
+                location.reload();
+            } else {
+                alert(data.data);
+            }
+        }
+    });
+}
+
+        function getAllHistory(nrp) {
+            var nrp = $("#nrp").val(); // Mengambil nilai dari elemen dengan ID nrp
+            console.log("Nilai NRP:", nrp);
+            link = link.replace("Controller", controller_name);
+            link = link.replace("Function", "GetAllHistory");
+
+            if ($.fn.DataTable.isDataTable('#tableHistory')) {
+                $('#tableHistory').DataTable().destroy();
+            }
+
+            dataTable = $("#tableHistory").DataTable({
+                "ajax": {
+                    "url": link,
+                    "type": "GET",
+                    "datatype": "json",
+                    "data": { nrp: nrp } // Meneruskan nilai nrp sebagai parameter
+                },
+                "columns": [
+            {
+            "data": "No",
+            "render": function (data, type, row, meta) {
+                // Menampilkan nomor urut
+                return meta.row + 1;
+            }
+                },
+                { "data": "jamtidur" },
+                {
+                    "data": function (data, type, dataToSet) {
+                        if (data.cek_kesehatan == '0') {
+                            return '<span class="badge badge-success">Tidak</span>'
+                        } else {
+                            return '<span class="badge badge-danger">iya</span>'
+                        }
+                    }, "name": "is_minumobat"
+                },
+                {
+                "data": function (data, type, dataToSet) {
+                if (data.cek_kesehatan == '0') {
+                    return '<span class="badge badge-success">Tidak</span>'
+                } else {
+                    return '<span class="badge badge-danger">iya</span>'
+                }
+            }, "name": "is_masalah"
+            },
+                { "data": "ftw_via" },
+                { "data": "Status_ftw" },
+                { "data": "Kategory_problem_fatigue" },
+                { "data": "remarksCNC" },
+                 {
+                     "data": function (data, type, dataToSet) {
+                         if (data.cek_kesehatan == '1') {
+                             return '<span class="badge badge-success">Iya</span>'
+                         } else {
+                             return '<span class="badge badge-danger">Tidak</span>'
+                         }
+                     }, "name": "Status_akumulasi"
+                 },
+                { "data": "Status_CNC" },
+                { "data": "Next_action" },
+                { "data": "Status_ftw_site" },
+                { "data": "CNC_by" },
+                { "data": "tanggal" },
+
+
+            ],
+            "language": {
+                "emptyTable": "Tidak ada data"
+            }
+        })
+
+        link = '@Url.Action("Function", "Controller")';
+
+        }
+
+
+        function getSessionData() {
+            $.ajax({
+                type: "GET",
+                url: "/Login/GetSessionData",
+                success: function (data) {
+                    console.log("Data Sesi:", data);
+
+                    var isLogin = data.isLogin;
+                    var nrp = data.nrp;
+                    var nama = data.nama;
+                    var dept = data.dept;
+                    var ip = data.ip;
+
+                },
+                error: function () {
+                    console.error("Gagal mengambil data sesi.");
+                }
+            });
+        }
+        getSessionData();
+
+
+
+    </script>
+}

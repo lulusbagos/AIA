@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_AIA" Class="DtClsDB_AIADataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=asmisqbd402;Initial Catalog=DB_AIA;User ID=asmiapps" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_AIAConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbl_m_setting_aplikasi" Member="tbl_m_setting_aplikasis">
+    <Type Name="tbl_m_setting_aplikasi">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nama" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="icon" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="theme" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="insert_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ip" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="created_at" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="updated_at" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_t_konseling_fatigue" Member="tbl_t_konseling_fatigues">
+    <Type Name="tbl_t_konseling_fatigue">
+      <Column Name="pid" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tanggal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="nrp" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Jam_tidur" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="is_minumobat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="is_masalah" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status_ftw" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ftw_via" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Kategory_problem_fatigue" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="remarksCNC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Next_action" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Status_akumulasi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status_CNC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Komitment" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CNC_by" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="CNC_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_m_user_login" Member="tbl_m_user_logins">
+    <Type Name="tbl_m_user_login">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kategori_user_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="dept_code" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nrp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nama" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="insert_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ip" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="created_at" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="updated_at" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_operator_fatigue_need_followup" Member="tbl_operator_fatigue_need_followups">
+    <Type Name="tbl_operator_fatigue_need_followup">
+      <Column Name="pid" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="tanggal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="nrp" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="nama" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Departemen" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="unit" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="jamtidur" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="jaminput" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="is_minumoabt" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="is_masalah" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="statusfatigue" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ftw_result" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="created_by" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_r_alasan_fatigue" Member="tbl_r_alasan_fatigues">
+    <Type Name="tbl_r_alasan_fatigue">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="remarks" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="kategory" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_r_dept" Member="tbl_r_depts">
+    <Type Name="tbl_r_dept">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dept_code" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="departemen" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="insert_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ip" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="created_at" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="updated_at" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_r_kategori_user" Member="tbl_r_kategori_users">
+    <Type Name="tbl_r_kategori_user">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kategori" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="login_controller" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="login_function" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="insert_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ip" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="created_at" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="updated_at" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_r_menu" Member="tbl_r_menus">
+    <Type Name="tbl_r_menu">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kategori_user_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="title" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="link_controller" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="link_function" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hidden" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="new_tab" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="insert_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ip" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="created_at" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="updated_at" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_r_next_followup" Member="tbl_r_next_followups">
+    <Type Name="tbl_r_next_followup">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="next_followup" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_r_status_sanksi" Member="tbl_r_status_sanksis">
+    <Type Name="tbl_r_status_sanksi">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="status_sanksi" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_history_followup_operator_fatigue" Member="vw_history_followup_operator_fatigues">
+    <Type Name="vw_history_followup_operator_fatigue">
+      <Column Name="pid" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="tanggal" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="nrp" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Nama" Type="System.String" DbType="VarChar(201)" CanBeNull="true" />
+      <Column Name="Departemen" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="unit" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="jamtidur" Type="System.String" DbType="VarChar(71)" CanBeNull="true" />
+      <Column Name="jaminput" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="is_minumobat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="is_masalah" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status_ftw" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ftw_via" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Kategory_problem_fatigue" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="remarksCNC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Next_action" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Status_akumulasi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status_CNC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Komitment" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CNC_by" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="CNC_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CNC_Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Status_ftw_site" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_t_user_kategori" Member="vw_t_user_kategoris">
+    <Type Name="vw_t_user_kategori">
+      <Column Name="nrp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nama" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="kategori_user_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="dept_code" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="login_controller" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="login_function" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_operator_fatigue_need_followup" Member="vw_operator_fatigue_need_followups">
+    <Type Name="vw_operator_fatigue_need_followup">
+      <Column Name="pid" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="tanggal" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="nrp" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Nama" Type="System.String" DbType="VarChar(201)" CanBeNull="true" />
+      <Column Name="Departemen" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="unit" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="jamtidur" Type="System.String" DbType="VarChar(71)" CanBeNull="true" />
+      <Column Name="jaminput" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="is_minumoabt" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="is_masalah" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="statusfatigue" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="ftw_result" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="created_by" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
