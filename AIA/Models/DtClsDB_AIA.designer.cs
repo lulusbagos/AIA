@@ -59,12 +59,6 @@ namespace AIA.Models
     partial void Deletetbl_r_status_sanksi(tbl_r_status_sanksi instance);
     #endregion
 		
-		public DtClsDB_AIADataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DB_AIAConnectionString"].ConnectionString, mappingSource)
-		{
-			OnCreated();
-		}
-		
 		public DtClsDB_AIADataContext(string connection) : 
 				base(connection, mappingSource)
 		{
@@ -87,6 +81,54 @@ namespace AIA.Models
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<ASM_TBL_OPT_STB_NOTSET> ASM_TBL_OPT_STB_NOTSETs
+		{
+			get
+			{
+				return this.GetTable<ASM_TBL_OPT_STB_NOTSET>();
+			}
+		}
+		
+		public System.Data.Linq.Table<vw_t_user_kategori> vw_t_user_kategoris
+		{
+			get
+			{
+				return this.GetTable<vw_t_user_kategori>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ASM_TBL_UNIT_NOOPT> ASM_TBL_UNIT_NOOPTs
+		{
+			get
+			{
+				return this.GetTable<ASM_TBL_UNIT_NOOPT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ASM_VW_KARYAWAN_FOLLOW_UP> ASM_VW_KARYAWAN_FOLLOW_UPs
+		{
+			get
+			{
+				return this.GetTable<ASM_VW_KARYAWAN_FOLLOW_UP>();
+			}
+		}
+		
+		public System.Data.Linq.Table<vw_history_followup_operator_fatigue> vw_history_followup_operator_fatigues
+		{
+			get
+			{
+				return this.GetTable<vw_history_followup_operator_fatigue>();
+			}
+		}
+		
+		public System.Data.Linq.Table<vw_operator_fatigue_need_followup> vw_operator_fatigue_need_followups
+		{
+			get
+			{
+				return this.GetTable<vw_operator_fatigue_need_followup>();
+			}
 		}
 		
 		public System.Data.Linq.Table<tbl_m_setting_aplikasi> tbl_m_setting_aplikasis
@@ -169,27 +211,1386 @@ namespace AIA.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<vw_history_followup_operator_fatigue> vw_history_followup_operator_fatigues
+		public System.Data.Linq.Table<ASM_summary_catur> ASM_summary_caturs
 		{
 			get
 			{
-				return this.GetTable<vw_history_followup_operator_fatigue>();
+				return this.GetTable<ASM_summary_catur>();
 			}
 		}
 		
-		public System.Data.Linq.Table<vw_t_user_kategori> vw_t_user_kategoris
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_update_bandara_catur")]
+		public int sp_update_bandara_catur([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TGL", DbType="VarChar(50)")] string tGL, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string shift, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string cn_unit, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pengganti", DbType="VarChar(50)")] string pengganti, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Validasi", DbType="VarChar(50)")] string validasi, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string validate_by)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tGL, shift, cn_unit, pengganti, validasi, validate_by);
+			return ((int)(result.ReturnValue));
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_TBL_OPT_STB_NOTSET")]
+	public partial class ASM_TBL_OPT_STB_NOTSET
+	{
+		
+		private System.DateTime _Tanggal;
+		
+		private string _Shift;
+		
+		private string _Status;
+		
+		private string _NRP;
+		
+		private string _Nama;
+		
+		private string _StatusFatigue;
+		
+		private string _EGI;
+		
+		public ASM_TBL_OPT_STB_NOTSET()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tanggal", DbType="Date NOT NULL")]
+		public System.DateTime Tanggal
 		{
 			get
 			{
-				return this.GetTable<vw_t_user_kategori>();
+				return this._Tanggal;
+			}
+			set
+			{
+				if ((this._Tanggal != value))
+				{
+					this._Tanggal = value;
+				}
 			}
 		}
 		
-		public System.Data.Linq.Table<vw_operator_fatigue_need_followup> vw_operator_fatigue_need_followups
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Shift", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string Shift
 		{
 			get
 			{
-				return this.GetTable<vw_operator_fatigue_need_followup>();
+				return this._Shift;
+			}
+			set
+			{
+				if ((this._Shift != value))
+				{
+					this._Shift = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(50)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string NRP
+		{
+			get
+			{
+				return this._NRP;
+			}
+			set
+			{
+				if ((this._NRP != value))
+				{
+					this._NRP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(100)")]
+		public string Nama
+		{
+			get
+			{
+				return this._Nama;
+			}
+			set
+			{
+				if ((this._Nama != value))
+				{
+					this._Nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusFatigue", DbType="VarChar(50)")]
+		public string StatusFatigue
+		{
+			get
+			{
+				return this._StatusFatigue;
+			}
+			set
+			{
+				if ((this._StatusFatigue != value))
+				{
+					this._StatusFatigue = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EGI", DbType="VarChar(50)")]
+		public string EGI
+		{
+			get
+			{
+				return this._EGI;
+			}
+			set
+			{
+				if ((this._EGI != value))
+				{
+					this._EGI = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vw_t_user_kategori")]
+	public partial class vw_t_user_kategori
+	{
+		
+		private string _nrp;
+		
+		private string _nama;
+		
+		private string _kategori_user_id;
+		
+		private string _dept_code;
+		
+		private string _login_controller;
+		
+		private string _login_function;
+		
+		public vw_t_user_kategori()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="VarChar(50)")]
+		public string nrp
+		{
+			get
+			{
+				return this._nrp;
+			}
+			set
+			{
+				if ((this._nrp != value))
+				{
+					this._nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama", DbType="VarChar(50)")]
+		public string nama
+		{
+			get
+			{
+				return this._nama;
+			}
+			set
+			{
+				if ((this._nama != value))
+				{
+					this._nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kategori_user_id", DbType="VarChar(50)")]
+		public string kategori_user_id
+		{
+			get
+			{
+				return this._kategori_user_id;
+			}
+			set
+			{
+				if ((this._kategori_user_id != value))
+				{
+					this._kategori_user_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dept_code", DbType="VarChar(50)")]
+		public string dept_code
+		{
+			get
+			{
+				return this._dept_code;
+			}
+			set
+			{
+				if ((this._dept_code != value))
+				{
+					this._dept_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_login_controller", DbType="VarChar(50)")]
+		public string login_controller
+		{
+			get
+			{
+				return this._login_controller;
+			}
+			set
+			{
+				if ((this._login_controller != value))
+				{
+					this._login_controller = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_login_function", DbType="VarChar(50)")]
+		public string login_function
+		{
+			get
+			{
+				return this._login_function;
+			}
+			set
+			{
+				if ((this._login_function != value))
+				{
+					this._login_function = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_TBL_UNIT_NOOPT")]
+	public partial class ASM_TBL_UNIT_NOOPT
+	{
+		
+		private System.DateTime _TGL;
+		
+		private string _SHIFT;
+		
+		private string _SEKTOR;
+		
+		private string _CN_UNIT;
+		
+		private string _NRP;
+		
+		private string _STATUS;
+		
+		private string _EGI;
+		
+		private string _Pengganti;
+		
+		private System.Nullable<int> _Validasi;
+		
+		private string _validate_by;
+		
+		private System.Nullable<System.DateTime> _validate_time;
+		
+		public ASM_TBL_UNIT_NOOPT()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TGL", DbType="Date NOT NULL")]
+		public System.DateTime TGL
+		{
+			get
+			{
+				return this._TGL;
+			}
+			set
+			{
+				if ((this._TGL != value))
+				{
+					this._TGL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIFT", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string SHIFT
+		{
+			get
+			{
+				return this._SHIFT;
+			}
+			set
+			{
+				if ((this._SHIFT != value))
+				{
+					this._SHIFT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEKTOR", DbType="VarChar(15)")]
+		public string SEKTOR
+		{
+			get
+			{
+				return this._SEKTOR;
+			}
+			set
+			{
+				if ((this._SEKTOR != value))
+				{
+					this._SEKTOR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CN_UNIT", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string CN_UNIT
+		{
+			get
+			{
+				return this._CN_UNIT;
+			}
+			set
+			{
+				if ((this._CN_UNIT != value))
+				{
+					this._CN_UNIT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="VarChar(15)")]
+		public string NRP
+		{
+			get
+			{
+				return this._NRP;
+			}
+			set
+			{
+				if ((this._NRP != value))
+				{
+					this._NRP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="VarChar(50)")]
+		public string STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this._STATUS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EGI", DbType="VarChar(15)")]
+		public string EGI
+		{
+			get
+			{
+				return this._EGI;
+			}
+			set
+			{
+				if ((this._EGI != value))
+				{
+					this._EGI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pengganti", DbType="VarChar(50)")]
+		public string Pengganti
+		{
+			get
+			{
+				return this._Pengganti;
+			}
+			set
+			{
+				if ((this._Pengganti != value))
+				{
+					this._Pengganti = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Validasi", DbType="Int")]
+		public System.Nullable<int> Validasi
+		{
+			get
+			{
+				return this._Validasi;
+			}
+			set
+			{
+				if ((this._Validasi != value))
+				{
+					this._Validasi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_validate_by", DbType="VarChar(50)")]
+		public string validate_by
+		{
+			get
+			{
+				return this._validate_by;
+			}
+			set
+			{
+				if ((this._validate_by != value))
+				{
+					this._validate_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_validate_time", DbType="DateTime")]
+		public System.Nullable<System.DateTime> validate_time
+		{
+			get
+			{
+				return this._validate_time;
+			}
+			set
+			{
+				if ((this._validate_time != value))
+				{
+					this._validate_time = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_VW_KARYAWAN_FOLLOW_UP")]
+	public partial class ASM_VW_KARYAWAN_FOLLOW_UP
+	{
+		
+		private string _pid;
+		
+		private System.Nullable<System.DateTime> _tanggal;
+		
+		private string _nrp;
+		
+		private string _nama;
+		
+		private string _Departemen;
+		
+		private string _unit;
+		
+		private string _jamtidur;
+		
+		private string _jaminput;
+		
+		private System.Nullable<bool> _is_minumoabt;
+		
+		private System.Nullable<bool> _is_masalah;
+		
+		private string _statusfatigue;
+		
+		private string _ftw_result;
+		
+		private string _created_by;
+		
+		public ASM_VW_KARYAWAN_FOLLOW_UP()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pid", DbType="NVarChar(255)")]
+		public string pid
+		{
+			get
+			{
+				return this._pid;
+			}
+			set
+			{
+				if ((this._pid != value))
+				{
+					this._pid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="Date")]
+		public System.Nullable<System.DateTime> tanggal
+		{
+			get
+			{
+				return this._tanggal;
+			}
+			set
+			{
+				if ((this._tanggal != value))
+				{
+					this._tanggal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="NVarChar(255)")]
+		public string nrp
+		{
+			get
+			{
+				return this._nrp;
+			}
+			set
+			{
+				if ((this._nrp != value))
+				{
+					this._nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama", DbType="NVarChar(255)")]
+		public string nama
+		{
+			get
+			{
+				return this._nama;
+			}
+			set
+			{
+				if ((this._nama != value))
+				{
+					this._nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Departemen", DbType="NVarChar(255)")]
+		public string Departemen
+		{
+			get
+			{
+				return this._Departemen;
+			}
+			set
+			{
+				if ((this._Departemen != value))
+				{
+					this._Departemen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unit", DbType="NVarChar(255)")]
+		public string unit
+		{
+			get
+			{
+				return this._unit;
+			}
+			set
+			{
+				if ((this._unit != value))
+				{
+					this._unit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jamtidur", DbType="VarChar(50)")]
+		public string jamtidur
+		{
+			get
+			{
+				return this._jamtidur;
+			}
+			set
+			{
+				if ((this._jamtidur != value))
+				{
+					this._jamtidur = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jaminput", DbType="VarChar(50)")]
+		public string jaminput
+		{
+			get
+			{
+				return this._jaminput;
+			}
+			set
+			{
+				if ((this._jaminput != value))
+				{
+					this._jaminput = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_minumoabt", DbType="Bit")]
+		public System.Nullable<bool> is_minumoabt
+		{
+			get
+			{
+				return this._is_minumoabt;
+			}
+			set
+			{
+				if ((this._is_minumoabt != value))
+				{
+					this._is_minumoabt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_masalah", DbType="Bit")]
+		public System.Nullable<bool> is_masalah
+		{
+			get
+			{
+				return this._is_masalah;
+			}
+			set
+			{
+				if ((this._is_masalah != value))
+				{
+					this._is_masalah = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_statusfatigue", DbType="NVarChar(255)")]
+		public string statusfatigue
+		{
+			get
+			{
+				return this._statusfatigue;
+			}
+			set
+			{
+				if ((this._statusfatigue != value))
+				{
+					this._statusfatigue = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ftw_result", DbType="NVarChar(255)")]
+		public string ftw_result
+		{
+			get
+			{
+				return this._ftw_result;
+			}
+			set
+			{
+				if ((this._ftw_result != value))
+				{
+					this._ftw_result = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="NVarChar(255)")]
+		public string created_by
+		{
+			get
+			{
+				return this._created_by;
+			}
+			set
+			{
+				if ((this._created_by != value))
+				{
+					this._created_by = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vw_history_followup_operator_fatigue")]
+	public partial class vw_history_followup_operator_fatigue
+	{
+		
+		private System.Nullable<System.Guid> _pid;
+		
+		private string _tanggal;
+		
+		private string _nrp;
+		
+		private string _Nama;
+		
+		private string _Departemen;
+		
+		private string _unit;
+		
+		private string _jamtidur;
+		
+		private string _jaminput;
+		
+		private System.Nullable<int> _is_minumobat;
+		
+		private System.Nullable<int> _is_masalah;
+		
+		private string _Status_ftw;
+		
+		private string _ftw_via;
+		
+		private string _Kategory_problem_fatigue;
+		
+		private string _remarksCNC;
+		
+		private string _Next_action;
+		
+		private System.Nullable<int> _Status_akumulasi;
+		
+		private string _Status_CNC;
+		
+		private string _Komitment;
+		
+		private string _CNC_by;
+		
+		private System.Nullable<System.DateTime> _CNC_date;
+		
+		private System.Nullable<int> _status;
+		
+		private string _CNC_Name;
+		
+		private string _Status_ftw_site;
+		
+		public vw_history_followup_operator_fatigue()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pid", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> pid
+		{
+			get
+			{
+				return this._pid;
+			}
+			set
+			{
+				if ((this._pid != value))
+				{
+					this._pid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="NVarChar(50)")]
+		public string tanggal
+		{
+			get
+			{
+				return this._tanggal;
+			}
+			set
+			{
+				if ((this._tanggal != value))
+				{
+					this._tanggal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="NVarChar(50)")]
+		public string nrp
+		{
+			get
+			{
+				return this._nrp;
+			}
+			set
+			{
+				if ((this._nrp != value))
+				{
+					this._nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(201)")]
+		public string Nama
+		{
+			get
+			{
+				return this._Nama;
+			}
+			set
+			{
+				if ((this._Nama != value))
+				{
+					this._Nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Departemen", DbType="VarChar(10)")]
+		public string Departemen
+		{
+			get
+			{
+				return this._Departemen;
+			}
+			set
+			{
+				if ((this._Departemen != value))
+				{
+					this._Departemen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unit", DbType="VarChar(100)")]
+		public string unit
+		{
+			get
+			{
+				return this._unit;
+			}
+			set
+			{
+				if ((this._unit != value))
+				{
+					this._unit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jamtidur", DbType="VarChar(71)")]
+		public string jamtidur
+		{
+			get
+			{
+				return this._jamtidur;
+			}
+			set
+			{
+				if ((this._jamtidur != value))
+				{
+					this._jamtidur = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jaminput", DbType="VarChar(30)")]
+		public string jaminput
+		{
+			get
+			{
+				return this._jaminput;
+			}
+			set
+			{
+				if ((this._jaminput != value))
+				{
+					this._jaminput = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_minumobat", DbType="Int")]
+		public System.Nullable<int> is_minumobat
+		{
+			get
+			{
+				return this._is_minumobat;
+			}
+			set
+			{
+				if ((this._is_minumobat != value))
+				{
+					this._is_minumobat = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_masalah", DbType="Int")]
+		public System.Nullable<int> is_masalah
+		{
+			get
+			{
+				return this._is_masalah;
+			}
+			set
+			{
+				if ((this._is_masalah != value))
+				{
+					this._is_masalah = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status_ftw", DbType="VarChar(50)")]
+		public string Status_ftw
+		{
+			get
+			{
+				return this._Status_ftw;
+			}
+			set
+			{
+				if ((this._Status_ftw != value))
+				{
+					this._Status_ftw = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ftw_via", DbType="VarChar(100)")]
+		public string ftw_via
+		{
+			get
+			{
+				return this._ftw_via;
+			}
+			set
+			{
+				if ((this._ftw_via != value))
+				{
+					this._ftw_via = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Kategory_problem_fatigue", DbType="VarChar(25)")]
+		public string Kategory_problem_fatigue
+		{
+			get
+			{
+				return this._Kategory_problem_fatigue;
+			}
+			set
+			{
+				if ((this._Kategory_problem_fatigue != value))
+				{
+					this._Kategory_problem_fatigue = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_remarksCNC", DbType="VarChar(100)")]
+		public string remarksCNC
+		{
+			get
+			{
+				return this._remarksCNC;
+			}
+			set
+			{
+				if ((this._remarksCNC != value))
+				{
+					this._remarksCNC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Next_action", DbType="VarChar(25)")]
+		public string Next_action
+		{
+			get
+			{
+				return this._Next_action;
+			}
+			set
+			{
+				if ((this._Next_action != value))
+				{
+					this._Next_action = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status_akumulasi", DbType="Int")]
+		public System.Nullable<int> Status_akumulasi
+		{
+			get
+			{
+				return this._Status_akumulasi;
+			}
+			set
+			{
+				if ((this._Status_akumulasi != value))
+				{
+					this._Status_akumulasi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status_CNC", DbType="VarChar(50)")]
+		public string Status_CNC
+		{
+			get
+			{
+				return this._Status_CNC;
+			}
+			set
+			{
+				if ((this._Status_CNC != value))
+				{
+					this._Status_CNC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Komitment", DbType="VarChar(100)")]
+		public string Komitment
+		{
+			get
+			{
+				return this._Komitment;
+			}
+			set
+			{
+				if ((this._Komitment != value))
+				{
+					this._Komitment = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNC_by", DbType="VarChar(25)")]
+		public string CNC_by
+		{
+			get
+			{
+				return this._CNC_by;
+			}
+			set
+			{
+				if ((this._CNC_by != value))
+				{
+					this._CNC_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNC_date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CNC_date
+		{
+			get
+			{
+				return this._CNC_date;
+			}
+			set
+			{
+				if ((this._CNC_date != value))
+				{
+					this._CNC_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int")]
+		public System.Nullable<int> status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this._status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNC_Name", DbType="VarChar(100)")]
+		public string CNC_Name
+		{
+			get
+			{
+				return this._CNC_Name;
+			}
+			set
+			{
+				if ((this._CNC_Name != value))
+				{
+					this._CNC_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status_ftw_site", DbType="VarChar(50)")]
+		public string Status_ftw_site
+		{
+			get
+			{
+				return this._Status_ftw_site;
+			}
+			set
+			{
+				if ((this._Status_ftw_site != value))
+				{
+					this._Status_ftw_site = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vw_operator_fatigue_need_followup")]
+	public partial class vw_operator_fatigue_need_followup
+	{
+		
+		private System.Nullable<System.Guid> _pid;
+		
+		private string _tanggal;
+		
+		private string _nrp;
+		
+		private string _Nama;
+		
+		private string _Departemen;
+		
+		private string _unit;
+		
+		private string _jamtidur;
+		
+		private string _jaminput;
+		
+		private int _is_minumoabt;
+		
+		private int _is_masalah;
+		
+		private string _statusfatigue;
+		
+		private string _ftw_result;
+		
+		private string _created_by;
+		
+		public vw_operator_fatigue_need_followup()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pid", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> pid
+		{
+			get
+			{
+				return this._pid;
+			}
+			set
+			{
+				if ((this._pid != value))
+				{
+					this._pid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="NVarChar(50)")]
+		public string tanggal
+		{
+			get
+			{
+				return this._tanggal;
+			}
+			set
+			{
+				if ((this._tanggal != value))
+				{
+					this._tanggal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="NVarChar(50)")]
+		public string nrp
+		{
+			get
+			{
+				return this._nrp;
+			}
+			set
+			{
+				if ((this._nrp != value))
+				{
+					this._nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(201)")]
+		public string Nama
+		{
+			get
+			{
+				return this._Nama;
+			}
+			set
+			{
+				if ((this._Nama != value))
+				{
+					this._Nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Departemen", DbType="VarChar(10)")]
+		public string Departemen
+		{
+			get
+			{
+				return this._Departemen;
+			}
+			set
+			{
+				if ((this._Departemen != value))
+				{
+					this._Departemen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unit", DbType="VarChar(100)")]
+		public string unit
+		{
+			get
+			{
+				return this._unit;
+			}
+			set
+			{
+				if ((this._unit != value))
+				{
+					this._unit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jamtidur", DbType="VarChar(71)")]
+		public string jamtidur
+		{
+			get
+			{
+				return this._jamtidur;
+			}
+			set
+			{
+				if ((this._jamtidur != value))
+				{
+					this._jamtidur = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jaminput", DbType="VarChar(30)")]
+		public string jaminput
+		{
+			get
+			{
+				return this._jaminput;
+			}
+			set
+			{
+				if ((this._jaminput != value))
+				{
+					this._jaminput = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_minumoabt", DbType="Int NOT NULL")]
+		public int is_minumoabt
+		{
+			get
+			{
+				return this._is_minumoabt;
+			}
+			set
+			{
+				if ((this._is_minumoabt != value))
+				{
+					this._is_minumoabt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_masalah", DbType="Int NOT NULL")]
+		public int is_masalah
+		{
+			get
+			{
+				return this._is_masalah;
+			}
+			set
+			{
+				if ((this._is_masalah != value))
+				{
+					this._is_masalah = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_statusfatigue", DbType="VarChar(16)")]
+		public string statusfatigue
+		{
+			get
+			{
+				return this._statusfatigue;
+			}
+			set
+			{
+				if ((this._statusfatigue != value))
+				{
+					this._statusfatigue = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ftw_result", DbType="VarChar(9)")]
+		public string ftw_result
+		{
+			get
+			{
+				return this._ftw_result;
+			}
+			set
+			{
+				if ((this._ftw_result != value))
+				{
+					this._ftw_result = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="VarChar(9) NOT NULL", CanBeNull=false)]
+		public string created_by
+		{
+			get
+			{
+				return this._created_by;
+			}
+			set
+			{
+				if ((this._created_by != value))
+				{
+					this._created_by = value;
+				}
 			}
 		}
 	}
@@ -593,7 +1994,7 @@ namespace AIA.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Jam_tidur", DbType="VarChar(25)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Jam_tidur", DbType="VarChar(50)")]
 		public string Jam_tidur
 		{
 			get
@@ -693,7 +2094,7 @@ namespace AIA.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Kategory_problem_fatigue", DbType="VarChar(25)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Kategory_problem_fatigue", DbType="VarChar(100)")]
 		public string Kategory_problem_fatigue
 		{
 			get
@@ -733,7 +2134,7 @@ namespace AIA.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Next_action", DbType="VarChar(25)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Next_action", DbType="VarChar(100)")]
 		public string Next_action
 		{
 			get
@@ -813,7 +2214,7 @@ namespace AIA.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNC_by", DbType="VarChar(25)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNC_by", DbType="VarChar(100)")]
 		public string CNC_by
 		{
 			get
@@ -2459,784 +3860,82 @@ namespace AIA.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vw_history_followup_operator_fatigue")]
-	public partial class vw_history_followup_operator_fatigue
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_summary_catur")]
+	public partial class ASM_summary_catur
 	{
 		
-		private System.Nullable<System.Guid> _pid;
+		private System.Nullable<int> _jml_opr_siap_diseeting;
 		
-		private string _tanggal;
+		private System.Nullable<int> _operator_terseeting;
 		
-		private string _nrp;
+		private System.Nullable<int> _unit_kosong;
 		
-		private string _Nama;
+		private string _SHIFT;
 		
-		private string _Departemen;
-		
-		private string _unit;
-		
-		private string _jamtidur;
-		
-		private string _jaminput;
-		
-		private System.Nullable<int> _is_minumobat;
-		
-		private System.Nullable<int> _is_masalah;
-		
-		private string _Status_ftw;
-		
-		private string _ftw_via;
-		
-		private string _Kategory_problem_fatigue;
-		
-		private string _remarksCNC;
-		
-		private string _Next_action;
-		
-		private System.Nullable<int> _Status_akumulasi;
-		
-		private string _Status_CNC;
-		
-		private string _Komitment;
-		
-		private string _CNC_by;
-		
-		private System.Nullable<System.DateTime> _CNC_date;
-		
-		private System.Nullable<int> _status;
-		
-		private string _CNC_Name;
-		
-		private string _Status_ftw_site;
-		
-		public vw_history_followup_operator_fatigue()
+		public ASM_summary_catur()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pid", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> pid
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jml_opr_siap_diseeting", DbType="Int")]
+		public System.Nullable<int> jml_opr_siap_diseeting
 		{
 			get
 			{
-				return this._pid;
+				return this._jml_opr_siap_diseeting;
 			}
 			set
 			{
-				if ((this._pid != value))
+				if ((this._jml_opr_siap_diseeting != value))
 				{
-					this._pid = value;
+					this._jml_opr_siap_diseeting = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="NVarChar(50)")]
-		public string tanggal
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_operator_terseeting", DbType="Int")]
+		public System.Nullable<int> operator_terseeting
 		{
 			get
 			{
-				return this._tanggal;
+				return this._operator_terseeting;
 			}
 			set
 			{
-				if ((this._tanggal != value))
+				if ((this._operator_terseeting != value))
 				{
-					this._tanggal = value;
+					this._operator_terseeting = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="NVarChar(50)")]
-		public string nrp
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unit_kosong", DbType="Int")]
+		public System.Nullable<int> unit_kosong
 		{
 			get
 			{
-				return this._nrp;
+				return this._unit_kosong;
 			}
 			set
 			{
-				if ((this._nrp != value))
+				if ((this._unit_kosong != value))
 				{
-					this._nrp = value;
+					this._unit_kosong = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(201)")]
-		public string Nama
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIFT", DbType="VarChar(10)")]
+		public string SHIFT
 		{
 			get
 			{
-				return this._Nama;
+				return this._SHIFT;
 			}
 			set
 			{
-				if ((this._Nama != value))
+				if ((this._SHIFT != value))
 				{
-					this._Nama = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Departemen", DbType="VarChar(10)")]
-		public string Departemen
-		{
-			get
-			{
-				return this._Departemen;
-			}
-			set
-			{
-				if ((this._Departemen != value))
-				{
-					this._Departemen = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unit", DbType="VarChar(100)")]
-		public string unit
-		{
-			get
-			{
-				return this._unit;
-			}
-			set
-			{
-				if ((this._unit != value))
-				{
-					this._unit = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jamtidur", DbType="VarChar(71)")]
-		public string jamtidur
-		{
-			get
-			{
-				return this._jamtidur;
-			}
-			set
-			{
-				if ((this._jamtidur != value))
-				{
-					this._jamtidur = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jaminput", DbType="VarChar(30)")]
-		public string jaminput
-		{
-			get
-			{
-				return this._jaminput;
-			}
-			set
-			{
-				if ((this._jaminput != value))
-				{
-					this._jaminput = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_minumobat", DbType="Int")]
-		public System.Nullable<int> is_minumobat
-		{
-			get
-			{
-				return this._is_minumobat;
-			}
-			set
-			{
-				if ((this._is_minumobat != value))
-				{
-					this._is_minumobat = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_masalah", DbType="Int")]
-		public System.Nullable<int> is_masalah
-		{
-			get
-			{
-				return this._is_masalah;
-			}
-			set
-			{
-				if ((this._is_masalah != value))
-				{
-					this._is_masalah = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status_ftw", DbType="VarChar(50)")]
-		public string Status_ftw
-		{
-			get
-			{
-				return this._Status_ftw;
-			}
-			set
-			{
-				if ((this._Status_ftw != value))
-				{
-					this._Status_ftw = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ftw_via", DbType="VarChar(100)")]
-		public string ftw_via
-		{
-			get
-			{
-				return this._ftw_via;
-			}
-			set
-			{
-				if ((this._ftw_via != value))
-				{
-					this._ftw_via = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Kategory_problem_fatigue", DbType="VarChar(25)")]
-		public string Kategory_problem_fatigue
-		{
-			get
-			{
-				return this._Kategory_problem_fatigue;
-			}
-			set
-			{
-				if ((this._Kategory_problem_fatigue != value))
-				{
-					this._Kategory_problem_fatigue = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_remarksCNC", DbType="VarChar(100)")]
-		public string remarksCNC
-		{
-			get
-			{
-				return this._remarksCNC;
-			}
-			set
-			{
-				if ((this._remarksCNC != value))
-				{
-					this._remarksCNC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Next_action", DbType="VarChar(25)")]
-		public string Next_action
-		{
-			get
-			{
-				return this._Next_action;
-			}
-			set
-			{
-				if ((this._Next_action != value))
-				{
-					this._Next_action = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status_akumulasi", DbType="Int")]
-		public System.Nullable<int> Status_akumulasi
-		{
-			get
-			{
-				return this._Status_akumulasi;
-			}
-			set
-			{
-				if ((this._Status_akumulasi != value))
-				{
-					this._Status_akumulasi = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status_CNC", DbType="VarChar(50)")]
-		public string Status_CNC
-		{
-			get
-			{
-				return this._Status_CNC;
-			}
-			set
-			{
-				if ((this._Status_CNC != value))
-				{
-					this._Status_CNC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Komitment", DbType="VarChar(100)")]
-		public string Komitment
-		{
-			get
-			{
-				return this._Komitment;
-			}
-			set
-			{
-				if ((this._Komitment != value))
-				{
-					this._Komitment = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNC_by", DbType="VarChar(25)")]
-		public string CNC_by
-		{
-			get
-			{
-				return this._CNC_by;
-			}
-			set
-			{
-				if ((this._CNC_by != value))
-				{
-					this._CNC_by = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNC_date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CNC_date
-		{
-			get
-			{
-				return this._CNC_date;
-			}
-			set
-			{
-				if ((this._CNC_date != value))
-				{
-					this._CNC_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int")]
-		public System.Nullable<int> status
-		{
-			get
-			{
-				return this._status;
-			}
-			set
-			{
-				if ((this._status != value))
-				{
-					this._status = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNC_Name", DbType="VarChar(100)")]
-		public string CNC_Name
-		{
-			get
-			{
-				return this._CNC_Name;
-			}
-			set
-			{
-				if ((this._CNC_Name != value))
-				{
-					this._CNC_Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status_ftw_site", DbType="VarChar(50)")]
-		public string Status_ftw_site
-		{
-			get
-			{
-				return this._Status_ftw_site;
-			}
-			set
-			{
-				if ((this._Status_ftw_site != value))
-				{
-					this._Status_ftw_site = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vw_t_user_kategori")]
-	public partial class vw_t_user_kategori
-	{
-		
-		private string _nrp;
-		
-		private string _nama;
-		
-		private string _kategori_user_id;
-		
-		private string _dept_code;
-		
-		private string _login_controller;
-		
-		private string _login_function;
-		
-		public vw_t_user_kategori()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="VarChar(50)")]
-		public string nrp
-		{
-			get
-			{
-				return this._nrp;
-			}
-			set
-			{
-				if ((this._nrp != value))
-				{
-					this._nrp = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama", DbType="VarChar(50)")]
-		public string nama
-		{
-			get
-			{
-				return this._nama;
-			}
-			set
-			{
-				if ((this._nama != value))
-				{
-					this._nama = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kategori_user_id", DbType="VarChar(50)")]
-		public string kategori_user_id
-		{
-			get
-			{
-				return this._kategori_user_id;
-			}
-			set
-			{
-				if ((this._kategori_user_id != value))
-				{
-					this._kategori_user_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dept_code", DbType="VarChar(50)")]
-		public string dept_code
-		{
-			get
-			{
-				return this._dept_code;
-			}
-			set
-			{
-				if ((this._dept_code != value))
-				{
-					this._dept_code = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_login_controller", DbType="VarChar(50)")]
-		public string login_controller
-		{
-			get
-			{
-				return this._login_controller;
-			}
-			set
-			{
-				if ((this._login_controller != value))
-				{
-					this._login_controller = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_login_function", DbType="VarChar(50)")]
-		public string login_function
-		{
-			get
-			{
-				return this._login_function;
-			}
-			set
-			{
-				if ((this._login_function != value))
-				{
-					this._login_function = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vw_operator_fatigue_need_followup")]
-	public partial class vw_operator_fatigue_need_followup
-	{
-		
-		private System.Nullable<System.Guid> _pid;
-		
-		private string _tanggal;
-		
-		private string _nrp;
-		
-		private string _Nama;
-		
-		private string _Departemen;
-		
-		private string _unit;
-		
-		private string _jamtidur;
-		
-		private string _jaminput;
-		
-		private int _is_minumoabt;
-		
-		private int _is_masalah;
-		
-		private string _statusfatigue;
-		
-		private string _ftw_result;
-		
-		private string _created_by;
-		
-		public vw_operator_fatigue_need_followup()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pid", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> pid
-		{
-			get
-			{
-				return this._pid;
-			}
-			set
-			{
-				if ((this._pid != value))
-				{
-					this._pid = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="NVarChar(50)")]
-		public string tanggal
-		{
-			get
-			{
-				return this._tanggal;
-			}
-			set
-			{
-				if ((this._tanggal != value))
-				{
-					this._tanggal = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="NVarChar(50)")]
-		public string nrp
-		{
-			get
-			{
-				return this._nrp;
-			}
-			set
-			{
-				if ((this._nrp != value))
-				{
-					this._nrp = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(201)")]
-		public string Nama
-		{
-			get
-			{
-				return this._Nama;
-			}
-			set
-			{
-				if ((this._Nama != value))
-				{
-					this._Nama = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Departemen", DbType="VarChar(10)")]
-		public string Departemen
-		{
-			get
-			{
-				return this._Departemen;
-			}
-			set
-			{
-				if ((this._Departemen != value))
-				{
-					this._Departemen = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unit", DbType="VarChar(100)")]
-		public string unit
-		{
-			get
-			{
-				return this._unit;
-			}
-			set
-			{
-				if ((this._unit != value))
-				{
-					this._unit = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jamtidur", DbType="VarChar(71)")]
-		public string jamtidur
-		{
-			get
-			{
-				return this._jamtidur;
-			}
-			set
-			{
-				if ((this._jamtidur != value))
-				{
-					this._jamtidur = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jaminput", DbType="VarChar(30)")]
-		public string jaminput
-		{
-			get
-			{
-				return this._jaminput;
-			}
-			set
-			{
-				if ((this._jaminput != value))
-				{
-					this._jaminput = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_minumoabt", DbType="Int NOT NULL")]
-		public int is_minumoabt
-		{
-			get
-			{
-				return this._is_minumoabt;
-			}
-			set
-			{
-				if ((this._is_minumoabt != value))
-				{
-					this._is_minumoabt = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_masalah", DbType="Int NOT NULL")]
-		public int is_masalah
-		{
-			get
-			{
-				return this._is_masalah;
-			}
-			set
-			{
-				if ((this._is_masalah != value))
-				{
-					this._is_masalah = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_statusfatigue", DbType="VarChar(16)")]
-		public string statusfatigue
-		{
-			get
-			{
-				return this._statusfatigue;
-			}
-			set
-			{
-				if ((this._statusfatigue != value))
-				{
-					this._statusfatigue = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ftw_result", DbType="VarChar(9)")]
-		public string ftw_result
-		{
-			get
-			{
-				return this._ftw_result;
-			}
-			set
-			{
-				if ((this._ftw_result != value))
-				{
-					this._ftw_result = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="VarChar(9) NOT NULL", CanBeNull=false)]
-		public string created_by
-		{
-			get
-			{
-				return this._created_by;
-			}
-			set
-			{
-				if ((this._created_by != value))
-				{
-					this._created_by = value;
+					this._SHIFT = value;
 				}
 			}
 		}

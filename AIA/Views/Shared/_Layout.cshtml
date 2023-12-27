@@ -63,7 +63,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseOPA" aria-expanded="true" aria-controls="collapseOPA">
                         <i class="fas fa-fw fa-clock"></i>
-                        <span>Induksi</span>
+                        <span>Bandara</span>
                     </a>
                     <div id="collapseInduksi" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
@@ -78,27 +78,7 @@
                     </div>
                 </li>
             }
-            <!-- Nav Item - Pages Collapse Menu -->
-            @if (ViewBag.MenuKlinikMCIPCount > 0)
-            {
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseKesehatan" aria-expanded="true" aria-controls="collapseKesehatan">
-                        <i class="fas fa-fw fa-book-medical"></i>
-                        <span>Klinik MCIP</span>
-                    </a>
-                    <div id="collapseKesehatan" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            @foreach (var menu in ViewBag.Menu)
-                            {
-                                if (menu.type == "Klinik MCIP" && menu.hidden == "false")
-                                {
-                                    <a class="collapse-item" href="@Url.Action(@menu.link_function, @menu.link_controller)">@menu.title</a>
-                                }
-                            }
-                        </div>
-                    </div>
-                </li>
-            }
+
             <!-- Nav Item - Pages Collapse Menu -->
             @if (ViewBag.MenuMasterCount > 0)
             {

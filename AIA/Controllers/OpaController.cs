@@ -115,6 +115,7 @@ namespace AIA.Controllers
             {
                 a.pid = a.pid ?? Guid.NewGuid().ToString();
                 a.CNC_date = DateTime.Now;
+                a.status = '1';
                 db.tbl_t_konseling_fatigues.InsertOnSubmit(a);
                 db.SubmitChanges();
                 db.Dispose();

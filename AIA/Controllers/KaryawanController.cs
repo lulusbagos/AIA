@@ -61,7 +61,7 @@ namespace AIA.Controllers
         {
             try
             {
-                var results = db.tbl_operator_fatigue_need_followups.OrderBy(x => x.pid).ToList();
+                var results = db.ASM_VW_KARYAWAN_FOLLOW_UPs.OrderBy(x => x.pid).ToList();
                 return Json(new { status = true, remarks = "Sukses", data = results }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
@@ -75,6 +75,8 @@ namespace AIA.Controllers
             {
                 var results = db.tbl_operator_fatigue_need_followups
                                 .Where(x => x.pid == pid)
+                                .OrderByDescending(x => x.tanggal) 
+                                .Distinct()
                                 .FirstOrDefault();
 
                 if (results != null)
@@ -91,6 +93,7 @@ namespace AIA.Controllers
                 return Json(new { status = false, remarks = "Gagal", data = e.Message.ToString() }, JsonRequestBehavior.AllowGet);
             }
         }
+
 
     }
 }

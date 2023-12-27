@@ -1,0 +1,200 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" style="margin-bottom: 20px;">
+    <div class="col-lg-2">
+        <select class="form-control form-control-md" id="cek_sektor" name="cek_sektor" onchange="ocSektor()" required>
+            <option value="">- Pilih Sektor -</option>
+            <option value="PIT RANGKOK">PIT FIRDAUS</option>
+            <option value="PIT S02A">PIT NIRWANA</option>
+            <option value="PIT S07">PIT PARADISE</option>
+            <option value="PIT S04">PIT HARAPAN</option>
+        </select>
+    </div>
+</div>
+
+<div id="header" class="row" style="background-color: #818B8A; padding: 15px; border-radius: 10px;">
+    <div style="width: 200px; margin-left: 10px; margin-right: 10px;">
+        <div class="card bg-info text-white shadow">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <b style="font-size: 12pt;">UNIT NO SETTING</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="body" class="row" style="background-color: #8A818B; padding: 15px; border-radius: 10px; margin-top: 5px; padding-bottom: 50px; ">
+    <div id="unit_no_setting" style="width: 200px; margin-left: 10px; margin-right: 10px;padding-bottom:100px;" ondragover="onDragOver(event);" ondrop="onDrop(event);">
+
+    </div>
+</div>
+
+
+@section scripts {
+    <script>
+        var link = '@Url.Action("Function", "Controller")'
+        var controller_name = "@ViewBag.Controller"
+        document.getElementById("cn_unit");
+
+        $(document).ready(function () {
+            getArea()
+            getLoader2()
+            getCluster()
+        })
+        function onDragStart(event) {
+            event.dataTransfer.setData('unit', event.target.id);
+            event.dataTransfer.setData('fleet_from', event.srcElement.parentElement.id);
+        }
+
+        function onDragOver(event) {
+            event.preventDefault();
+        }
+
+        function onDrop(event) {
+            const unit = event.dataTransfer.getData('unit');
+            const fleet_from = event.dataTransfer.getData('fleet_from');
+            const draggableElement = document.getElementById(unit);
+            const dropzone = event.target;
+            dropzone.appendChild(draggableElement);
+            event.dataTransfer.clearData();
+
+            var sektor = $('#cek_sektor').val()
+
+            var fleet_to = event.target.id
+
+            //console.log('Unit:' + unit)
+            //console.log('Dari fleet:' + fleet_from)
+            //console.log('Pindah ke fleet:' + fleet_to)
+
+            insertData(sektor, unit, fleet_from, fleet_to)
+        }
+
+        function btnEdit(id) {
+            $('#btnSave').hide()
+            $('#btnUpdate').show()
+            $('#formBS').trigger("reset")
+            $('.modalBS').modal('show')
+
+        }
+
+
+        $(document).ready(function () {
+            $('#header').prop('hidden', true)
+            $('#body').prop('hidden', true)
+
+        })
+
+        function ocSektor() {
+            $('.loader').remove();
+            $('.hauler').remove();
+            var sektor = $('#cek_sektor').val()
+
+            getLoader(sektor)
+            getHauler(sektor)
+
+            getHaulerNoSetting()
+            $('#header').prop('hidden', false)
+            $('#body').prop('hidden', false)
+
+        }
+
+          function updateData(cn_unit) {
+                            link = link.replace("Controller", controller_name);
+                            link = link.replace("Function", "Update");
+
+                            $.ajax({
+                                type: "POST",
+                                url: link,
+                                data: $('#formBS').serialize(),
+                                success: function (data) {
+                                    if (data.status) {
+                                        $('.modalBS').modal('hide');
+                                        dataTable.ajax.reload();
+                                        alertify.notify('Data berhasil diubah', 'success', 5)
+                                    } else {
+                                        alert(data.data)
+                                    }
+                                }
+                            })
+                            link = '@Url.Action("Function", "Controller")'
+                        }
+
+
+            function getLoader(sektor) {
+            link = link.replace("Controller", controller_name);
+            link = link.replace("Function", "GetLoader");
+            $.ajax({
+                type: "GET",
+                url: link + '?sektor=' + sektor,
+                success: function (data) {
+                    if (data.status) {
+                        $("#header").append(data.data);
+                    } else {
+                        alert(data.data)
+                    }
+                }
+            })
+            link = '@Url.Action("Function", "Controller")'
+            }
+        function getHauler(sektor) {
+            link = link.replace("Controller", controller_name);
+            link = link.replace("Function", "GetHauler");
+            $.ajax({
+                type: "GET",
+                url: link + '?sektor=' + sektor,
+                success: function (data) {
+                    if (data.status) {
+                        $("#body").append(data.data);
+                    } else {
+                        alert(data.data)
+                    }
+                }
+            })
+            link = '@Url.Action("Function", "Controller")'
+        }
+        function getHaulerNoSetting() {
+            link = link.replace("Controller", controller_name);
+            link = link.replace("Function", "GetHaulerNoSetting");
+            $.ajax({
+                type: "GET",
+                url: link,
+                success: function (data) {
+                    if (data.status) {
+                        $("#unit_no_setting").append(data.data);
+                    } else {
+                        alert(data.data)
+                    }
+                }
+            })
+            link = '@Url.Action("Function", "Controller")'
+        }
+
+        function insertData(sektor, unit, fleet_from, fleet_to) {
+            link = link.replace("Controller", "ChangeFleetLog");
+            link = link.replace("Function", "Insert");
+
+            $.ajax({
+                type: "GET",
+                url: link + '?sektor=' + sektor + '&unit=' + unit + '&fleet_from=' + fleet_from + '&fleet_to=' + fleet_to,
+                success: function (data) {
+                    if (data.status) {
+                        $('.modalBS').modal('hide');
+                        alertify.notify('Data berhasil disimpan', 'success', 5)
+                    } else {
+                        alert(data.data)
+                    }
+                }
+            })
+            link = '@Url.Action("Function", "Controller")'
+        }
+
+
+    </script>
+}
