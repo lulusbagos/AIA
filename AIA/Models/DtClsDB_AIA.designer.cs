@@ -30,12 +30,12 @@ namespace AIA.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void Inserttbl_m_running_text(tbl_m_running_text instance);
+    partial void Updatetbl_m_running_text(tbl_m_running_text instance);
+    partial void Deletetbl_m_running_text(tbl_m_running_text instance);
     partial void Inserttbl_m_setting_aplikasi(tbl_m_setting_aplikasi instance);
     partial void Updatetbl_m_setting_aplikasi(tbl_m_setting_aplikasi instance);
     partial void Deletetbl_m_setting_aplikasi(tbl_m_setting_aplikasi instance);
-    partial void Inserttbl_t_konseling_fatigue(tbl_t_konseling_fatigue instance);
-    partial void Updatetbl_t_konseling_fatigue(tbl_t_konseling_fatigue instance);
-    partial void Deletetbl_t_konseling_fatigue(tbl_t_konseling_fatigue instance);
     partial void Inserttbl_m_user_login(tbl_m_user_login instance);
     partial void Updatetbl_m_user_login(tbl_m_user_login instance);
     partial void Deletetbl_m_user_login(tbl_m_user_login instance);
@@ -57,6 +57,15 @@ namespace AIA.Models
     partial void Inserttbl_r_status_sanksi(tbl_r_status_sanksi instance);
     partial void Updatetbl_r_status_sanksi(tbl_r_status_sanksi instance);
     partial void Deletetbl_r_status_sanksi(tbl_r_status_sanksi instance);
+    partial void Inserttbl_setting_fleet_vs_ftw_3s_l(tbl_setting_fleet_vs_ftw_3s_l instance);
+    partial void Updatetbl_setting_fleet_vs_ftw_3s_l(tbl_setting_fleet_vs_ftw_3s_l instance);
+    partial void Deletetbl_setting_fleet_vs_ftw_3s_l(tbl_setting_fleet_vs_ftw_3s_l instance);
+    partial void Inserttbl_t_konseling_fatigue(tbl_t_konseling_fatigue instance);
+    partial void Updatetbl_t_konseling_fatigue(tbl_t_konseling_fatigue instance);
+    partial void Deletetbl_t_konseling_fatigue(tbl_t_konseling_fatigue instance);
+    partial void Inserttbl_t_setting_fleet(tbl_t_setting_fleet instance);
+    partial void Updatetbl_t_setting_fleet(tbl_t_setting_fleet instance);
+    partial void Deletetbl_t_setting_fleet(tbl_t_setting_fleet instance);
     #endregion
 		
 		public DtClsDB_AIADataContext(string connection) : 
@@ -83,11 +92,11 @@ namespace AIA.Models
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<ASM_TBL_OPT_STB_NOTSET> ASM_TBL_OPT_STB_NOTSETs
+		public System.Data.Linq.Table<ASM_CATUR_DONE> ASM_CATUR_DONEs
 		{
 			get
 			{
-				return this.GetTable<ASM_TBL_OPT_STB_NOTSET>();
+				return this.GetTable<ASM_CATUR_DONE>();
 			}
 		}
 		
@@ -99,11 +108,91 @@ namespace AIA.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<ASM_TBL_UNIT_NOOPT> ASM_TBL_UNIT_NOOPTs
+		public System.Data.Linq.Table<ASM_CATUR_OPT_STB_NOTSET> ASM_CATUR_OPT_STB_NOTSETs
 		{
 			get
 			{
-				return this.GetTable<ASM_TBL_UNIT_NOOPT>();
+				return this.GetTable<ASM_CATUR_OPT_STB_NOTSET>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ASM_CATUR_UNIT_NEED_OPT> ASM_CATUR_UNIT_NEED_OPTs
+		{
+			get
+			{
+				return this.GetTable<ASM_CATUR_UNIT_NEED_OPT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ASM_CATUR_UNIT_NEED_OPT_PARSE1> ASM_CATUR_UNIT_NEED_OPT_PARSE1s
+		{
+			get
+			{
+				return this.GetTable<ASM_CATUR_UNIT_NEED_OPT_PARSE1>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ASM_Data_Operator_Pengganti> ASM_Data_Operator_Penggantis
+		{
+			get
+			{
+				return this.GetTable<ASM_Data_Operator_Pengganti>();
+			}
+		}
+		
+		public System.Data.Linq.Table<asm_display_bottom3_persektor> asm_display_bottom3_persektors
+		{
+			get
+			{
+				return this.GetTable<asm_display_bottom3_persektor>();
+			}
+		}
+		
+		public System.Data.Linq.Table<asm_display_top3_persektor> asm_display_top3_persektors
+		{
+			get
+			{
+				return this.GetTable<asm_display_top3_persektor>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ASM_LAST_SD> ASM_LAST_SDs
+		{
+			get
+			{
+				return this.GetTable<ASM_LAST_SD>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ASM_NEW_VER_DISPLAY> ASM_NEW_VER_DISPLAYs
+		{
+			get
+			{
+				return this.GetTable<ASM_NEW_VER_DISPLAY>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ASM_SETTING_FLEET_VS_OPT_VS_FTW_3SHIFT> ASM_SETTING_FLEET_VS_OPT_VS_FTW_3SHIFTs
+		{
+			get
+			{
+				return this.GetTable<ASM_SETTING_FLEET_VS_OPT_VS_FTW_3SHIFT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ASM_summary_catur> ASM_summary_caturs
+		{
+			get
+			{
+				return this.GetTable<ASM_summary_catur>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ASM_VW_BUS> ASM_VW_BUS
+		{
+			get
+			{
+				return this.GetTable<ASM_VW_BUS>();
 			}
 		}
 		
@@ -112,6 +201,46 @@ namespace AIA.Models
 			get
 			{
 				return this.GetTable<ASM_VW_KARYAWAN_FOLLOW_UP>();
+			}
+		}
+		
+		public System.Data.Linq.Table<display_productivity> display_productivities
+		{
+			get
+			{
+				return this.GetTable<display_productivity>();
+			}
+		}
+		
+		public System.Data.Linq.Table<plan_ibs_mounthly> plan_ibs_mounthlies
+		{
+			get
+			{
+				return this.GetTable<plan_ibs_mounthly>();
+			}
+		}
+		
+		public System.Data.Linq.Table<plan_ibs_today> plan_ibs_todays
+		{
+			get
+			{
+				return this.GetTable<plan_ibs_today>();
+			}
+		}
+		
+		public System.Data.Linq.Table<plan_service> plan_services
+		{
+			get
+			{
+				return this.GetTable<plan_service>();
+			}
+		}
+		
+		public System.Data.Linq.Table<plan_service_besuk> plan_service_besuks
+		{
+			get
+			{
+				return this.GetTable<plan_service_besuk>();
 			}
 		}
 		
@@ -131,19 +260,75 @@ namespace AIA.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<vw_profil> vw_profils
+		{
+			get
+			{
+				return this.GetTable<vw_profil>();
+			}
+		}
+		
+		public System.Data.Linq.Table<vw_setting_fleet_vs_ftw_3s_l> vw_setting_fleet_vs_ftw_3s_ls
+		{
+			get
+			{
+				return this.GetTable<vw_setting_fleet_vs_ftw_3s_l>();
+			}
+		}
+		
+		public System.Data.Linq.Table<vw_setting_roster_deviasi_mod> vw_setting_roster_deviasi_mods
+		{
+			get
+			{
+				return this.GetTable<vw_setting_roster_deviasi_mod>();
+			}
+		}
+		
+		public System.Data.Linq.Table<vw_t_setting_fleet> vw_t_setting_fleets
+		{
+			get
+			{
+				return this.GetTable<vw_t_setting_fleet>();
+			}
+		}
+		
+		public System.Data.Linq.Table<asm_display_bottom3> asm_display_bottom3s
+		{
+			get
+			{
+				return this.GetTable<asm_display_bottom3>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_t_setting_operator_deviasi> tbl_t_setting_operator_deviasis
+		{
+			get
+			{
+				return this.GetTable<tbl_t_setting_operator_deviasi>();
+			}
+		}
+		
+		public System.Data.Linq.Table<asm_display_top3> asm_display_top3s
+		{
+			get
+			{
+				return this.GetTable<asm_display_top3>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_m_running_text> tbl_m_running_texts
+		{
+			get
+			{
+				return this.GetTable<tbl_m_running_text>();
+			}
+		}
+		
 		public System.Data.Linq.Table<tbl_m_setting_aplikasi> tbl_m_setting_aplikasis
 		{
 			get
 			{
 				return this.GetTable<tbl_m_setting_aplikasi>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tbl_t_konseling_fatigue> tbl_t_konseling_fatigues
-		{
-			get
-			{
-				return this.GetTable<tbl_t_konseling_fatigue>();
 			}
 		}
 		
@@ -160,6 +345,14 @@ namespace AIA.Models
 			get
 			{
 				return this.GetTable<tbl_operator_fatigue_need_followup>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_pln_service> tbl_pln_services
+		{
+			get
+			{
+				return this.GetTable<tbl_pln_service>();
 			}
 		}
 		
@@ -211,93 +404,177 @@ namespace AIA.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<ASM_summary_catur> ASM_summary_caturs
+		public System.Data.Linq.Table<tbl_setting_fleet_vs_ftw_3s_l> tbl_setting_fleet_vs_ftw_3s_ls
 		{
 			get
 			{
-				return this.GetTable<ASM_summary_catur>();
+				return this.GetTable<tbl_setting_fleet_vs_ftw_3s_l>();
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_update_bandara_catur")]
-		public int sp_update_bandara_catur([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TGL", DbType="VarChar(50)")] string tGL, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string shift, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string cn_unit, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pengganti", DbType="VarChar(50)")] string pengganti, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Validasi", DbType="VarChar(50)")] string validasi, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string validate_by)
+		public System.Data.Linq.Table<tbl_t_konseling_fatigue> tbl_t_konseling_fatigues
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tGL, shift, cn_unit, pengganti, validasi, validate_by);
+			get
+			{
+				return this.GetTable<tbl_t_konseling_fatigue>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_t_setting_fleet> tbl_t_setting_fleets
+		{
+			get
+			{
+				return this.GetTable<tbl_t_setting_fleet>();
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ASM_UPDATE_FTW_OPERATOR")]
+		public int ASM_UPDATE_FTW_OPERATOR()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_update_bandara_catur_parse1")]
+		public int sp_update_bandara_catur_parse1([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NRP", DbType="VarChar(50)")] string nRP, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string shift, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Validasi", DbType="VarChar(50)")] string validasi, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string validate_by)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nRP, shift, validasi, validate_by);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_dumping_setting_operator_deviasi")]
+		public int sp_dumping_setting_operator_deviasi()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_dumping_vw_setting_fleet_vs_ftw_3s_ls_to_tbl_setting_fleet_vs_ftw_3s_ls")]
+		public int sp_dumping_vw_setting_fleet_vs_ftw_3s_ls_to_tbl_setting_fleet_vs_ftw_3s_ls()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_insert_operator_follow_up")]
+		public int sp_insert_operator_follow_up()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_insert_tbl_operator_fatigue_need_followup")]
+		public int sp_insert_tbl_operator_fatigue_need_followup()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_update_bandara_catur")]
+		public int sp_update_bandara_catur([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string shift, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string cn_unit, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pengganti", DbType="VarChar(50)")] string pengganti, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Validasi", DbType="VarChar(50)")] string validasi, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string validate_by)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), shift, cn_unit, pengganti, validasi, validate_by);
 			return ((int)(result.ReturnValue));
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_TBL_OPT_STB_NOTSET")]
-	public partial class ASM_TBL_OPT_STB_NOTSET
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_CATUR_DONE")]
+	public partial class ASM_CATUR_DONE
 	{
 		
-		private System.DateTime _Tanggal;
+		private System.DateTime _TGL;
 		
-		private string _Shift;
+		private string _SHIFT;
 		
-		private string _Status;
+		private string _SEKTOR;
+		
+		private string _CN_UNIT;
 		
 		private string _NRP;
 		
 		private string _Nama;
 		
-		private string _StatusFatigue;
+		private string _STATUS;
 		
 		private string _EGI;
 		
-		public ASM_TBL_OPT_STB_NOTSET()
+		private string _Pengganti;
+		
+		private System.Nullable<int> _Validasi;
+		
+		private string _validate_by;
+		
+		private System.Nullable<System.DateTime> _validate_time;
+		
+		public ASM_CATUR_DONE()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tanggal", DbType="Date NOT NULL")]
-		public System.DateTime Tanggal
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TGL", DbType="Date NOT NULL")]
+		public System.DateTime TGL
 		{
 			get
 			{
-				return this._Tanggal;
+				return this._TGL;
 			}
 			set
 			{
-				if ((this._Tanggal != value))
+				if ((this._TGL != value))
 				{
-					this._Tanggal = value;
+					this._TGL = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Shift", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string Shift
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIFT", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string SHIFT
 		{
 			get
 			{
-				return this._Shift;
+				return this._SHIFT;
 			}
 			set
 			{
-				if ((this._Shift != value))
+				if ((this._SHIFT != value))
 				{
-					this._Shift = value;
+					this._SHIFT = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(50)")]
-		public string Status
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEKTOR", DbType="VarChar(15)")]
+		public string SEKTOR
 		{
 			get
 			{
-				return this._Status;
+				return this._SEKTOR;
 			}
 			set
 			{
-				if ((this._Status != value))
+				if ((this._SEKTOR != value))
 				{
-					this._Status = value;
+					this._SEKTOR = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CN_UNIT", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string CN_UNIT
+		{
+			get
+			{
+				return this._CN_UNIT;
+			}
+			set
+			{
+				if ((this._CN_UNIT != value))
+				{
+					this._CN_UNIT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="VarChar(15)")]
 		public string NRP
 		{
 			get
@@ -329,23 +606,23 @@ namespace AIA.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusFatigue", DbType="VarChar(50)")]
-		public string StatusFatigue
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="VarChar(50)")]
+		public string STATUS
 		{
 			get
 			{
-				return this._StatusFatigue;
+				return this._STATUS;
 			}
 			set
 			{
-				if ((this._StatusFatigue != value))
+				if ((this._STATUS != value))
 				{
-					this._StatusFatigue = value;
+					this._STATUS = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EGI", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EGI", DbType="VarChar(15)")]
 		public string EGI
 		{
 			get
@@ -357,6 +634,70 @@ namespace AIA.Models
 				if ((this._EGI != value))
 				{
 					this._EGI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pengganti", DbType="VarChar(50)")]
+		public string Pengganti
+		{
+			get
+			{
+				return this._Pengganti;
+			}
+			set
+			{
+				if ((this._Pengganti != value))
+				{
+					this._Pengganti = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Validasi", DbType="Int")]
+		public System.Nullable<int> Validasi
+		{
+			get
+			{
+				return this._Validasi;
+			}
+			set
+			{
+				if ((this._Validasi != value))
+				{
+					this._Validasi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_validate_by", DbType="VarChar(50)")]
+		public string validate_by
+		{
+			get
+			{
+				return this._validate_by;
+			}
+			set
+			{
+				if ((this._validate_by != value))
+				{
+					this._validate_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_validate_time", DbType="DateTime")]
+		public System.Nullable<System.DateTime> validate_time
+		{
+			get
+			{
+				return this._validate_time;
+			}
+			set
+			{
+				if ((this._validate_time != value))
+				{
+					this._validate_time = value;
 				}
 			}
 		}
@@ -479,9 +820,164 @@ namespace AIA.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_TBL_UNIT_NOOPT")]
-	public partial class ASM_TBL_UNIT_NOOPT
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_CATUR_OPT_STB_NOTSET")]
+	public partial class ASM_CATUR_OPT_STB_NOTSET
 	{
+		
+		private System.Nullable<System.Guid> _pid;
+		
+		private System.DateTime _TGL;
+		
+		private string _SHIFT;
+		
+		private string _STATUS;
+		
+		private string _NRP;
+		
+		private string _Nama;
+		
+		private string _STATUSFATIGUE;
+		
+		private string _EGI;
+		
+		public ASM_CATUR_OPT_STB_NOTSET()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pid", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> pid
+		{
+			get
+			{
+				return this._pid;
+			}
+			set
+			{
+				if ((this._pid != value))
+				{
+					this._pid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TGL", DbType="Date NOT NULL")]
+		public System.DateTime TGL
+		{
+			get
+			{
+				return this._TGL;
+			}
+			set
+			{
+				if ((this._TGL != value))
+				{
+					this._TGL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIFT", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string SHIFT
+		{
+			get
+			{
+				return this._SHIFT;
+			}
+			set
+			{
+				if ((this._SHIFT != value))
+				{
+					this._SHIFT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="VarChar(50)")]
+		public string STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this._STATUS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string NRP
+		{
+			get
+			{
+				return this._NRP;
+			}
+			set
+			{
+				if ((this._NRP != value))
+				{
+					this._NRP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(102)")]
+		public string Nama
+		{
+			get
+			{
+				return this._Nama;
+			}
+			set
+			{
+				if ((this._Nama != value))
+				{
+					this._Nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUSFATIGUE", DbType="VarChar(50)")]
+		public string STATUSFATIGUE
+		{
+			get
+			{
+				return this._STATUSFATIGUE;
+			}
+			set
+			{
+				if ((this._STATUSFATIGUE != value))
+				{
+					this._STATUSFATIGUE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EGI", DbType="VarChar(50)")]
+		public string EGI
+		{
+			get
+			{
+				return this._EGI;
+			}
+			set
+			{
+				if ((this._EGI != value))
+				{
+					this._EGI = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_CATUR_UNIT_NEED_OPT")]
+	public partial class ASM_CATUR_UNIT_NEED_OPT
+	{
+		
+		private System.Nullable<System.Guid> _pid;
 		
 		private System.DateTime _TGL;
 		
@@ -492,6 +988,8 @@ namespace AIA.Models
 		private string _CN_UNIT;
 		
 		private string _NRP;
+		
+		private string _Nama;
 		
 		private string _STATUS;
 		
@@ -505,8 +1003,24 @@ namespace AIA.Models
 		
 		private System.Nullable<System.DateTime> _validate_time;
 		
-		public ASM_TBL_UNIT_NOOPT()
+		public ASM_CATUR_UNIT_NEED_OPT()
 		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pid", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> pid
+		{
+			get
+			{
+				return this._pid;
+			}
+			set
+			{
+				if ((this._pid != value))
+				{
+					this._pid = value;
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TGL", DbType="Date NOT NULL")]
@@ -585,6 +1099,22 @@ namespace AIA.Models
 				if ((this._NRP != value))
 				{
 					this._NRP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(100)")]
+		public string Nama
+		{
+			get
+			{
+				return this._Nama;
+			}
+			set
+			{
+				if ((this._Nama != value))
+				{
+					this._Nama = value;
 				}
 			}
 		}
@@ -681,6 +1211,1707 @@ namespace AIA.Models
 				if ((this._validate_time != value))
 				{
 					this._validate_time = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_CATUR_UNIT_NEED_OPT_PARSE1")]
+	public partial class ASM_CATUR_UNIT_NEED_OPT_PARSE1
+	{
+		
+		private System.DateTime _TGL;
+		
+		private string _SHIFT;
+		
+		private string _SEKTOR;
+		
+		private string _CN_UNIT;
+		
+		private string _NRP;
+		
+		private string _Nama;
+		
+		private string _STATUS;
+		
+		private string _EGI;
+		
+		private string _Pengganti;
+		
+		private string _Nama_pengganti;
+		
+		private System.Nullable<int> _Validasi;
+		
+		private string _validate_by;
+		
+		private System.Nullable<System.DateTime> _validate_time;
+		
+		public ASM_CATUR_UNIT_NEED_OPT_PARSE1()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TGL", DbType="Date NOT NULL")]
+		public System.DateTime TGL
+		{
+			get
+			{
+				return this._TGL;
+			}
+			set
+			{
+				if ((this._TGL != value))
+				{
+					this._TGL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIFT", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string SHIFT
+		{
+			get
+			{
+				return this._SHIFT;
+			}
+			set
+			{
+				if ((this._SHIFT != value))
+				{
+					this._SHIFT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEKTOR", DbType="VarChar(15)")]
+		public string SEKTOR
+		{
+			get
+			{
+				return this._SEKTOR;
+			}
+			set
+			{
+				if ((this._SEKTOR != value))
+				{
+					this._SEKTOR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CN_UNIT", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string CN_UNIT
+		{
+			get
+			{
+				return this._CN_UNIT;
+			}
+			set
+			{
+				if ((this._CN_UNIT != value))
+				{
+					this._CN_UNIT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="VarChar(15)")]
+		public string NRP
+		{
+			get
+			{
+				return this._NRP;
+			}
+			set
+			{
+				if ((this._NRP != value))
+				{
+					this._NRP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(100)")]
+		public string Nama
+		{
+			get
+			{
+				return this._Nama;
+			}
+			set
+			{
+				if ((this._Nama != value))
+				{
+					this._Nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="VarChar(50)")]
+		public string STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this._STATUS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EGI", DbType="VarChar(15)")]
+		public string EGI
+		{
+			get
+			{
+				return this._EGI;
+			}
+			set
+			{
+				if ((this._EGI != value))
+				{
+					this._EGI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pengganti", DbType="VarChar(50)")]
+		public string Pengganti
+		{
+			get
+			{
+				return this._Pengganti;
+			}
+			set
+			{
+				if ((this._Pengganti != value))
+				{
+					this._Pengganti = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama_pengganti", DbType="VarChar(100)")]
+		public string Nama_pengganti
+		{
+			get
+			{
+				return this._Nama_pengganti;
+			}
+			set
+			{
+				if ((this._Nama_pengganti != value))
+				{
+					this._Nama_pengganti = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Validasi", DbType="Int")]
+		public System.Nullable<int> Validasi
+		{
+			get
+			{
+				return this._Validasi;
+			}
+			set
+			{
+				if ((this._Validasi != value))
+				{
+					this._Validasi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_validate_by", DbType="VarChar(50)")]
+		public string validate_by
+		{
+			get
+			{
+				return this._validate_by;
+			}
+			set
+			{
+				if ((this._validate_by != value))
+				{
+					this._validate_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_validate_time", DbType="DateTime")]
+		public System.Nullable<System.DateTime> validate_time
+		{
+			get
+			{
+				return this._validate_time;
+			}
+			set
+			{
+				if ((this._validate_time != value))
+				{
+					this._validate_time = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_Data_Operator_Pengganti")]
+	public partial class ASM_Data_Operator_Pengganti
+	{
+		
+		private System.DateTime _Tanggal;
+		
+		private string _shift;
+		
+		private string _Nrp;
+		
+		private string _Unit;
+		
+		private string _Nrp_Pengganti;
+		
+		private System.Nullable<System.DateTime> _datePengganti;
+		
+		private string _Nama;
+		
+		private string _polaroster;
+		
+		private string _cluster;
+		
+		private string _areachangeshift;
+		
+		private string _loader;
+		
+		private string _sektor;
+		
+		public ASM_Data_Operator_Pengganti()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tanggal", DbType="Date NOT NULL")]
+		public System.DateTime Tanggal
+		{
+			get
+			{
+				return this._Tanggal;
+			}
+			set
+			{
+				if ((this._Tanggal != value))
+				{
+					this._Tanggal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shift", DbType="VarChar(16)")]
+		public string shift
+		{
+			get
+			{
+				return this._shift;
+			}
+			set
+			{
+				if ((this._shift != value))
+				{
+					this._shift = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nrp", DbType="VarChar(50)")]
+		public string Nrp
+		{
+			get
+			{
+				return this._Nrp;
+			}
+			set
+			{
+				if ((this._Nrp != value))
+				{
+					this._Nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Unit", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Unit
+		{
+			get
+			{
+				return this._Unit;
+			}
+			set
+			{
+				if ((this._Unit != value))
+				{
+					this._Unit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nrp_Pengganti", DbType="VarChar(50)")]
+		public string Nrp_Pengganti
+		{
+			get
+			{
+				return this._Nrp_Pengganti;
+			}
+			set
+			{
+				if ((this._Nrp_Pengganti != value))
+				{
+					this._Nrp_Pengganti = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_datePengganti", DbType="DateTime")]
+		public System.Nullable<System.DateTime> datePengganti
+		{
+			get
+			{
+				return this._datePengganti;
+			}
+			set
+			{
+				if ((this._datePengganti != value))
+				{
+					this._datePengganti = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(18)")]
+		public string Nama
+		{
+			get
+			{
+				return this._Nama;
+			}
+			set
+			{
+				if ((this._Nama != value))
+				{
+					this._Nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_polaroster", DbType="VarChar(7) NOT NULL", CanBeNull=false)]
+		public string polaroster
+		{
+			get
+			{
+				return this._polaroster;
+			}
+			set
+			{
+				if ((this._polaroster != value))
+				{
+					this._polaroster = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cluster", DbType="VarChar(50)")]
+		public string cluster
+		{
+			get
+			{
+				return this._cluster;
+			}
+			set
+			{
+				if ((this._cluster != value))
+				{
+					this._cluster = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_areachangeshift", DbType="VarChar(50)")]
+		public string areachangeshift
+		{
+			get
+			{
+				return this._areachangeshift;
+			}
+			set
+			{
+				if ((this._areachangeshift != value))
+				{
+					this._areachangeshift = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader", DbType="VarChar(50)")]
+		public string loader
+		{
+			get
+			{
+				return this._loader;
+			}
+			set
+			{
+				if ((this._loader != value))
+				{
+					this._loader = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sektor", DbType="VarChar(50)")]
+		public string sektor
+		{
+			get
+			{
+				return this._sektor;
+			}
+			set
+			{
+				if ((this._sektor != value))
+				{
+					this._sektor = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.asm_display_bottom3_persektor")]
+	public partial class asm_display_bottom3_persektor
+	{
+		
+		private System.Nullable<long> _Ranks;
+		
+		private string _pit;
+		
+		private string _nama;
+		
+		private string _nrp;
+		
+		private System.Nullable<decimal> _proty_hm;
+		
+		public asm_display_bottom3_persektor()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ranks", DbType="BigInt")]
+		public System.Nullable<long> Ranks
+		{
+			get
+			{
+				return this._Ranks;
+			}
+			set
+			{
+				if ((this._Ranks != value))
+				{
+					this._Ranks = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pit", DbType="VarChar(255)")]
+		public string pit
+		{
+			get
+			{
+				return this._pit;
+			}
+			set
+			{
+				if ((this._pit != value))
+				{
+					this._pit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama", DbType="VarChar(50)")]
+		public string nama
+		{
+			get
+			{
+				return this._nama;
+			}
+			set
+			{
+				if ((this._nama != value))
+				{
+					this._nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="VarChar(10)")]
+		public string nrp
+		{
+			get
+			{
+				return this._nrp;
+			}
+			set
+			{
+				if ((this._nrp != value))
+				{
+					this._nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_proty_hm", DbType="Decimal(38,6)")]
+		public System.Nullable<decimal> proty_hm
+		{
+			get
+			{
+				return this._proty_hm;
+			}
+			set
+			{
+				if ((this._proty_hm != value))
+				{
+					this._proty_hm = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.asm_display_top3_persektor")]
+	public partial class asm_display_top3_persektor
+	{
+		
+		private System.Nullable<long> _Ranks;
+		
+		private string _pit;
+		
+		private string _nama;
+		
+		private string _nrp;
+		
+		private System.Nullable<decimal> _proty_hm;
+		
+		public asm_display_top3_persektor()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ranks", DbType="BigInt")]
+		public System.Nullable<long> Ranks
+		{
+			get
+			{
+				return this._Ranks;
+			}
+			set
+			{
+				if ((this._Ranks != value))
+				{
+					this._Ranks = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pit", DbType="VarChar(255)")]
+		public string pit
+		{
+			get
+			{
+				return this._pit;
+			}
+			set
+			{
+				if ((this._pit != value))
+				{
+					this._pit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama", DbType="VarChar(50)")]
+		public string nama
+		{
+			get
+			{
+				return this._nama;
+			}
+			set
+			{
+				if ((this._nama != value))
+				{
+					this._nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="VarChar(10)")]
+		public string nrp
+		{
+			get
+			{
+				return this._nrp;
+			}
+			set
+			{
+				if ((this._nrp != value))
+				{
+					this._nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_proty_hm", DbType="Decimal(38,6)")]
+		public System.Nullable<decimal> proty_hm
+		{
+			get
+			{
+				return this._proty_hm;
+			}
+			set
+			{
+				if ((this._proty_hm != value))
+				{
+					this._proty_hm = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_LAST_SD")]
+	public partial class ASM_LAST_SD
+	{
+		
+		private string _NomorST;
+		
+		private string _Nrp;
+		
+		private System.Nullable<System.DateTime> _tglST;
+		
+		private string _Tujuan;
+		
+		private string _Keperluan;
+		
+		private string _Penginapan;
+		
+		private System.Nullable<int> _Hari;
+		
+		private string _Awal;
+		
+		private string _Akhir;
+		
+		public ASM_LAST_SD()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomorST", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string NomorST
+		{
+			get
+			{
+				return this._NomorST;
+			}
+			set
+			{
+				if ((this._NomorST != value))
+				{
+					this._NomorST = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nrp", DbType="VarChar(50)")]
+		public string Nrp
+		{
+			get
+			{
+				return this._Nrp;
+			}
+			set
+			{
+				if ((this._Nrp != value))
+				{
+					this._Nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tglST", DbType="DateTime")]
+		public System.Nullable<System.DateTime> tglST
+		{
+			get
+			{
+				return this._tglST;
+			}
+			set
+			{
+				if ((this._tglST != value))
+				{
+					this._tglST = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tujuan", DbType="VarChar(150)")]
+		public string Tujuan
+		{
+			get
+			{
+				return this._Tujuan;
+			}
+			set
+			{
+				if ((this._Tujuan != value))
+				{
+					this._Tujuan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Keperluan", DbType="VarChar(50)")]
+		public string Keperluan
+		{
+			get
+			{
+				return this._Keperluan;
+			}
+			set
+			{
+				if ((this._Keperluan != value))
+				{
+					this._Keperluan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Penginapan", DbType="VarChar(50)")]
+		public string Penginapan
+		{
+			get
+			{
+				return this._Penginapan;
+			}
+			set
+			{
+				if ((this._Penginapan != value))
+				{
+					this._Penginapan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hari", DbType="Int")]
+		public System.Nullable<int> Hari
+		{
+			get
+			{
+				return this._Hari;
+			}
+			set
+			{
+				if ((this._Hari != value))
+				{
+					this._Hari = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Awal", DbType="VarChar(30)")]
+		public string Awal
+		{
+			get
+			{
+				return this._Awal;
+			}
+			set
+			{
+				if ((this._Awal != value))
+				{
+					this._Awal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Akhir", DbType="VarChar(30)")]
+		public string Akhir
+		{
+			get
+			{
+				return this._Akhir;
+			}
+			set
+			{
+				if ((this._Akhir != value))
+				{
+					this._Akhir = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_NEW_VER_DISPLAY")]
+	public partial class ASM_NEW_VER_DISPLAY
+	{
+		
+		private string _RISK_CODE;
+		
+		private System.Nullable<int> _STATUS_BREAKDOWN;
+		
+		private string _BUS_AREA;
+		
+		private string _sektor;
+		
+		private string _LOADER;
+		
+		private string _cn_unit;
+		
+		private string _cluster;
+		
+		private string _areachangeshift;
+		
+		private System.Nullable<int> _status;
+		
+		private string _MEMO;
+		
+		private string _NRP;
+		
+		private string _NAMA;
+		
+		private string _Shift;
+		
+		private System.Nullable<int> _HARIDAY;
+		
+		private System.Nullable<int> _statusAbsen;
+		
+		private string _hariOff;
+		
+		private string _RemOpaCNunit;
+		
+		private System.Nullable<int> _jamtidur_hariini;
+		
+		private string _tanggal;
+		
+		private string _remarksftw;
+		
+		private string _ftwvia;
+		
+		private string _colornewdisplay;
+		
+		private string _prioritycolor;
+		
+		public ASM_NEW_VER_DISPLAY()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RISK_CODE", DbType="VarChar(10)")]
+		public string RISK_CODE
+		{
+			get
+			{
+				return this._RISK_CODE;
+			}
+			set
+			{
+				if ((this._RISK_CODE != value))
+				{
+					this._RISK_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS_BREAKDOWN", DbType="Int")]
+		public System.Nullable<int> STATUS_BREAKDOWN
+		{
+			get
+			{
+				return this._STATUS_BREAKDOWN;
+			}
+			set
+			{
+				if ((this._STATUS_BREAKDOWN != value))
+				{
+					this._STATUS_BREAKDOWN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUS_AREA", DbType="VarChar(10)")]
+		public string BUS_AREA
+		{
+			get
+			{
+				return this._BUS_AREA;
+			}
+			set
+			{
+				if ((this._BUS_AREA != value))
+				{
+					this._BUS_AREA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sektor", DbType="VarChar(50)")]
+		public string sektor
+		{
+			get
+			{
+				return this._sektor;
+			}
+			set
+			{
+				if ((this._sektor != value))
+				{
+					this._sektor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOADER", DbType="VarChar(50)")]
+		public string LOADER
+		{
+			get
+			{
+				return this._LOADER;
+			}
+			set
+			{
+				if ((this._LOADER != value))
+				{
+					this._LOADER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cn_unit", DbType="VarChar(50)")]
+		public string cn_unit
+		{
+			get
+			{
+				return this._cn_unit;
+			}
+			set
+			{
+				if ((this._cn_unit != value))
+				{
+					this._cn_unit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cluster", DbType="VarChar(50)")]
+		public string cluster
+		{
+			get
+			{
+				return this._cluster;
+			}
+			set
+			{
+				if ((this._cluster != value))
+				{
+					this._cluster = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_areachangeshift", DbType="VarChar(50)")]
+		public string areachangeshift
+		{
+			get
+			{
+				return this._areachangeshift;
+			}
+			set
+			{
+				if ((this._areachangeshift != value))
+				{
+					this._areachangeshift = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int")]
+		public System.Nullable<int> status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this._status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEMO", DbType="VarChar(25)")]
+		public string MEMO
+		{
+			get
+			{
+				return this._MEMO;
+			}
+			set
+			{
+				if ((this._MEMO != value))
+				{
+					this._MEMO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="VarChar(50)")]
+		public string NRP
+		{
+			get
+			{
+				return this._NRP;
+			}
+			set
+			{
+				if ((this._NRP != value))
+				{
+					this._NRP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA", DbType="VarChar(25)")]
+		public string NAMA
+		{
+			get
+			{
+				return this._NAMA;
+			}
+			set
+			{
+				if ((this._NAMA != value))
+				{
+					this._NAMA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Shift", DbType="VarChar(10)")]
+		public string Shift
+		{
+			get
+			{
+				return this._Shift;
+			}
+			set
+			{
+				if ((this._Shift != value))
+				{
+					this._Shift = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HARIDAY", DbType="Int")]
+		public System.Nullable<int> HARIDAY
+		{
+			get
+			{
+				return this._HARIDAY;
+			}
+			set
+			{
+				if ((this._HARIDAY != value))
+				{
+					this._HARIDAY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_statusAbsen", DbType="Int")]
+		public System.Nullable<int> statusAbsen
+		{
+			get
+			{
+				return this._statusAbsen;
+			}
+			set
+			{
+				if ((this._statusAbsen != value))
+				{
+					this._statusAbsen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hariOff", DbType="VarChar(25)")]
+		public string hariOff
+		{
+			get
+			{
+				return this._hariOff;
+			}
+			set
+			{
+				if ((this._hariOff != value))
+				{
+					this._hariOff = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RemOpaCNunit", DbType="VarChar(52)")]
+		public string RemOpaCNunit
+		{
+			get
+			{
+				return this._RemOpaCNunit;
+			}
+			set
+			{
+				if ((this._RemOpaCNunit != value))
+				{
+					this._RemOpaCNunit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jamtidur_hariini", DbType="Int")]
+		public System.Nullable<int> jamtidur_hariini
+		{
+			get
+			{
+				return this._jamtidur_hariini;
+			}
+			set
+			{
+				if ((this._jamtidur_hariini != value))
+				{
+					this._jamtidur_hariini = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="VarChar(10)")]
+		public string tanggal
+		{
+			get
+			{
+				return this._tanggal;
+			}
+			set
+			{
+				if ((this._tanggal != value))
+				{
+					this._tanggal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_remarksftw", DbType="VarChar(25)")]
+		public string remarksftw
+		{
+			get
+			{
+				return this._remarksftw;
+			}
+			set
+			{
+				if ((this._remarksftw != value))
+				{
+					this._remarksftw = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ftwvia", DbType="VarChar(25)")]
+		public string ftwvia
+		{
+			get
+			{
+				return this._ftwvia;
+			}
+			set
+			{
+				if ((this._ftwvia != value))
+				{
+					this._ftwvia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_colornewdisplay", DbType="VarChar(7)")]
+		public string colornewdisplay
+		{
+			get
+			{
+				return this._colornewdisplay;
+			}
+			set
+			{
+				if ((this._colornewdisplay != value))
+				{
+					this._colornewdisplay = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prioritycolor", DbType="VarChar(7)")]
+		public string prioritycolor
+		{
+			get
+			{
+				return this._prioritycolor;
+			}
+			set
+			{
+				if ((this._prioritycolor != value))
+				{
+					this._prioritycolor = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_SETTING_FLEET_VS_OPT_VS_FTW_3SHIFT")]
+	public partial class ASM_SETTING_FLEET_VS_OPT_VS_FTW_3SHIFT
+	{
+		
+		private string _nrp;
+		
+		private string _tanggal;
+		
+		private string _shift;
+		
+		private string _sektor;
+		
+		private string _loader;
+		
+		private string _hauler;
+		
+		private string _Nama;
+		
+		private System.Nullable<int> _jamtidur_hariini;
+		
+		private string _modified_by;
+		
+		private string _status;
+		
+		public ASM_SETTING_FLEET_VS_OPT_VS_FTW_3SHIFT()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="VarChar(100)")]
+		public string nrp
+		{
+			get
+			{
+				return this._nrp;
+			}
+			set
+			{
+				if ((this._nrp != value))
+				{
+					this._nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="VarChar(100)")]
+		public string tanggal
+		{
+			get
+			{
+				return this._tanggal;
+			}
+			set
+			{
+				if ((this._tanggal != value))
+				{
+					this._tanggal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shift", DbType="VarChar(53)")]
+		public string shift
+		{
+			get
+			{
+				return this._shift;
+			}
+			set
+			{
+				if ((this._shift != value))
+				{
+					this._shift = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sektor", DbType="VarChar(50)")]
+		public string sektor
+		{
+			get
+			{
+				return this._sektor;
+			}
+			set
+			{
+				if ((this._sektor != value))
+				{
+					this._sektor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader", DbType="VarChar(50)")]
+		public string loader
+		{
+			get
+			{
+				return this._loader;
+			}
+			set
+			{
+				if ((this._loader != value))
+				{
+					this._loader = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler", DbType="VarChar(50)")]
+		public string hauler
+		{
+			get
+			{
+				return this._hauler;
+			}
+			set
+			{
+				if ((this._hauler != value))
+				{
+					this._hauler = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(100)")]
+		public string Nama
+		{
+			get
+			{
+				return this._Nama;
+			}
+			set
+			{
+				if ((this._Nama != value))
+				{
+					this._Nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jamtidur_hariini", DbType="Int")]
+		public System.Nullable<int> jamtidur_hariini
+		{
+			get
+			{
+				return this._jamtidur_hariini;
+			}
+			set
+			{
+				if ((this._jamtidur_hariini != value))
+				{
+					this._jamtidur_hariini = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_by", DbType="VarChar(9)")]
+		public string modified_by
+		{
+			get
+			{
+				return this._modified_by;
+			}
+			set
+			{
+				if ((this._modified_by != value))
+				{
+					this._modified_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="VarChar(9) NOT NULL", CanBeNull=false)]
+		public string status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this._status = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_summary_catur")]
+	public partial class ASM_summary_catur
+	{
+		
+		private int _jml_opr_siap_diseeting;
+		
+		private int _operator_terseeting;
+		
+		private int _unit_kosong;
+		
+		private string _SHIFT;
+		
+		public ASM_summary_catur()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jml_opr_siap_diseeting", DbType="Int NOT NULL")]
+		public int jml_opr_siap_diseeting
+		{
+			get
+			{
+				return this._jml_opr_siap_diseeting;
+			}
+			set
+			{
+				if ((this._jml_opr_siap_diseeting != value))
+				{
+					this._jml_opr_siap_diseeting = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_operator_terseeting", DbType="Int NOT NULL")]
+		public int operator_terseeting
+		{
+			get
+			{
+				return this._operator_terseeting;
+			}
+			set
+			{
+				if ((this._operator_terseeting != value))
+				{
+					this._operator_terseeting = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unit_kosong", DbType="Int NOT NULL")]
+		public int unit_kosong
+		{
+			get
+			{
+				return this._unit_kosong;
+			}
+			set
+			{
+				if ((this._unit_kosong != value))
+				{
+					this._unit_kosong = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIFT", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string SHIFT
+		{
+			get
+			{
+				return this._SHIFT;
+			}
+			set
+			{
+				if ((this._SHIFT != value))
+				{
+					this._SHIFT = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_VW_BUS")]
+	public partial class ASM_VW_BUS
+	{
+		
+		private string _loader;
+		
+		private string _sektor;
+		
+		private string _nrp_gl;
+		
+		private string _nama_gl;
+		
+		private string _areachangeshift;
+		
+		private string _cluster;
+		
+		private string _transport;
+		
+		private string _areachangeshift_alias;
+		
+		private string _departure_time;
+		
+		public ASM_VW_BUS()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader", DbType="VarChar(50)")]
+		public string loader
+		{
+			get
+			{
+				return this._loader;
+			}
+			set
+			{
+				if ((this._loader != value))
+				{
+					this._loader = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sektor", DbType="VarChar(50)")]
+		public string sektor
+		{
+			get
+			{
+				return this._sektor;
+			}
+			set
+			{
+				if ((this._sektor != value))
+				{
+					this._sektor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp_gl", DbType="NChar(10)")]
+		public string nrp_gl
+		{
+			get
+			{
+				return this._nrp_gl;
+			}
+			set
+			{
+				if ((this._nrp_gl != value))
+				{
+					this._nrp_gl = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama_gl", DbType="VarChar(50)")]
+		public string nama_gl
+		{
+			get
+			{
+				return this._nama_gl;
+			}
+			set
+			{
+				if ((this._nama_gl != value))
+				{
+					this._nama_gl = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_areachangeshift", DbType="VarChar(50)")]
+		public string areachangeshift
+		{
+			get
+			{
+				return this._areachangeshift;
+			}
+			set
+			{
+				if ((this._areachangeshift != value))
+				{
+					this._areachangeshift = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cluster", DbType="VarChar(50)")]
+		public string cluster
+		{
+			get
+			{
+				return this._cluster;
+			}
+			set
+			{
+				if ((this._cluster != value))
+				{
+					this._cluster = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_transport", DbType="VarChar(50)")]
+		public string transport
+		{
+			get
+			{
+				return this._transport;
+			}
+			set
+			{
+				if ((this._transport != value))
+				{
+					this._transport = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_areachangeshift_alias", DbType="VarChar(50)")]
+		public string areachangeshift_alias
+		{
+			get
+			{
+				return this._areachangeshift_alias;
+			}
+			set
+			{
+				if ((this._areachangeshift_alias != value))
+				{
+					this._areachangeshift_alias = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_departure_time", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		public string departure_time
+		{
+			get
+			{
+				return this._departure_time;
+			}
+			set
+			{
+				if ((this._departure_time != value))
+				{
+					this._departure_time = value;
 				}
 			}
 		}
@@ -929,6 +3160,1059 @@ namespace AIA.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.display_productivity")]
+	public partial class display_productivity
+	{
+		
+		private string _sektor;
+		
+		private string _kategori;
+		
+		private string _nama;
+		
+		private string _tanggal;
+		
+		private string _nrp;
+		
+		private string _shift;
+		
+		private string _UnitEgi;
+		
+		private string _unit;
+		
+		private System.Nullable<decimal> _HM;
+		
+		private System.Nullable<decimal> _BCM;
+		
+		private System.Nullable<decimal> _PDTY;
+		
+		private System.Nullable<long> _RankDesc;
+		
+		private string _presentase;
+		
+		public display_productivity()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sektor", DbType="VarChar(11) NOT NULL", CanBeNull=false)]
+		public string sektor
+		{
+			get
+			{
+				return this._sektor;
+			}
+			set
+			{
+				if ((this._sektor != value))
+				{
+					this._sektor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kategori", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
+		public string kategori
+		{
+			get
+			{
+				return this._kategori;
+			}
+			set
+			{
+				if ((this._kategori != value))
+				{
+					this._kategori = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama", DbType="VarChar(100)")]
+		public string nama
+		{
+			get
+			{
+				return this._nama;
+			}
+			set
+			{
+				if ((this._nama != value))
+				{
+					this._nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="VarChar(8)")]
+		public string tanggal
+		{
+			get
+			{
+				return this._tanggal;
+			}
+			set
+			{
+				if ((this._tanggal != value))
+				{
+					this._tanggal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="VarChar(8)")]
+		public string nrp
+		{
+			get
+			{
+				return this._nrp;
+			}
+			set
+			{
+				if ((this._nrp != value))
+				{
+					this._nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shift", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string shift
+		{
+			get
+			{
+				return this._shift;
+			}
+			set
+			{
+				if ((this._shift != value))
+				{
+					this._shift = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitEgi", DbType="VarChar(25)")]
+		public string UnitEgi
+		{
+			get
+			{
+				return this._UnitEgi;
+			}
+			set
+			{
+				if ((this._UnitEgi != value))
+				{
+					this._UnitEgi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unit", DbType="VarChar(10)")]
+		public string unit
+		{
+			get
+			{
+				return this._unit;
+			}
+			set
+			{
+				if ((this._unit != value))
+				{
+					this._unit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HM", DbType="Decimal(38,2)")]
+		public System.Nullable<decimal> HM
+		{
+			get
+			{
+				return this._HM;
+			}
+			set
+			{
+				if ((this._HM != value))
+				{
+					this._HM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BCM", DbType="Decimal(38,2)")]
+		public System.Nullable<decimal> BCM
+		{
+			get
+			{
+				return this._BCM;
+			}
+			set
+			{
+				if ((this._BCM != value))
+				{
+					this._BCM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PDTY", DbType="Decimal(38,6)")]
+		public System.Nullable<decimal> PDTY
+		{
+			get
+			{
+				return this._PDTY;
+			}
+			set
+			{
+				if ((this._PDTY != value))
+				{
+					this._PDTY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RankDesc", DbType="BigInt")]
+		public System.Nullable<long> RankDesc
+		{
+			get
+			{
+				return this._RankDesc;
+			}
+			set
+			{
+				if ((this._RankDesc != value))
+				{
+					this._RankDesc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_presentase", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string presentase
+		{
+			get
+			{
+				return this._presentase;
+			}
+			set
+			{
+				if ((this._presentase != value))
+				{
+					this._presentase = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.plan_ibs_mounthly")]
+	public partial class plan_ibs_mounthly
+	{
+		
+		private string _Bulan;
+		
+		private string _Tanggal;
+		
+		private System.Nullable<decimal> _PlanOBIBS;
+		
+		private System.Nullable<decimal> _PlanOBSite;
+		
+		private decimal _PRODUKSI;
+		
+		private System.Nullable<decimal> _PlanDistanceIBSOB;
+		
+		private System.Nullable<decimal> _PlanDistanceSiteOB;
+		
+		private System.Nullable<decimal> _avrDistOB;
+		
+		private System.Nullable<decimal> _PlanDistanceIBSTS;
+		
+		private System.Nullable<decimal> _PlanDistanceSiteTS;
+		
+		private System.Nullable<decimal> _avrDistTS;
+		
+		public plan_ibs_mounthly()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bulan", DbType="VarChar(4)")]
+		public string Bulan
+		{
+			get
+			{
+				return this._Bulan;
+			}
+			set
+			{
+				if ((this._Bulan != value))
+				{
+					this._Bulan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tanggal", DbType="VarChar(10)")]
+		public string Tanggal
+		{
+			get
+			{
+				return this._Tanggal;
+			}
+			set
+			{
+				if ((this._Tanggal != value))
+				{
+					this._Tanggal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlanOBIBS", DbType="Decimal(38,5)")]
+		public System.Nullable<decimal> PlanOBIBS
+		{
+			get
+			{
+				return this._PlanOBIBS;
+			}
+			set
+			{
+				if ((this._PlanOBIBS != value))
+				{
+					this._PlanOBIBS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlanOBSite", DbType="Decimal(38,5)")]
+		public System.Nullable<decimal> PlanOBSite
+		{
+			get
+			{
+				return this._PlanOBSite;
+			}
+			set
+			{
+				if ((this._PlanOBSite != value))
+				{
+					this._PlanOBSite = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRODUKSI", DbType="Decimal(38,2) NOT NULL")]
+		public decimal PRODUKSI
+		{
+			get
+			{
+				return this._PRODUKSI;
+			}
+			set
+			{
+				if ((this._PRODUKSI != value))
+				{
+					this._PRODUKSI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlanDistanceIBSOB", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> PlanDistanceIBSOB
+		{
+			get
+			{
+				return this._PlanDistanceIBSOB;
+			}
+			set
+			{
+				if ((this._PlanDistanceIBSOB != value))
+				{
+					this._PlanDistanceIBSOB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlanDistanceSiteOB", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> PlanDistanceSiteOB
+		{
+			get
+			{
+				return this._PlanDistanceSiteOB;
+			}
+			set
+			{
+				if ((this._PlanDistanceSiteOB != value))
+				{
+					this._PlanDistanceSiteOB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_avrDistOB", DbType="Decimal(38,6)")]
+		public System.Nullable<decimal> avrDistOB
+		{
+			get
+			{
+				return this._avrDistOB;
+			}
+			set
+			{
+				if ((this._avrDistOB != value))
+				{
+					this._avrDistOB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlanDistanceIBSTS", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> PlanDistanceIBSTS
+		{
+			get
+			{
+				return this._PlanDistanceIBSTS;
+			}
+			set
+			{
+				if ((this._PlanDistanceIBSTS != value))
+				{
+					this._PlanDistanceIBSTS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlanDistanceSiteTS", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> PlanDistanceSiteTS
+		{
+			get
+			{
+				return this._PlanDistanceSiteTS;
+			}
+			set
+			{
+				if ((this._PlanDistanceSiteTS != value))
+				{
+					this._PlanDistanceSiteTS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_avrDistTS", DbType="Decimal(38,6)")]
+		public System.Nullable<decimal> avrDistTS
+		{
+			get
+			{
+				return this._avrDistTS;
+			}
+			set
+			{
+				if ((this._avrDistTS != value))
+				{
+					this._avrDistTS = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.plan_ibs_today")]
+	public partial class plan_ibs_today
+	{
+		
+		private string _Tanggal;
+		
+		private System.Nullable<decimal> _PlanOBIBS;
+		
+		private System.Nullable<decimal> _PlanOBSite;
+		
+		private decimal _PRODUKSI;
+		
+		private System.Nullable<decimal> _PlanDistanceIBSOB;
+		
+		private System.Nullable<decimal> _PlanDistanceSiteOB;
+		
+		private System.Nullable<decimal> _avrDistOB;
+		
+		private System.Nullable<decimal> _PlanDistanceIBSTS;
+		
+		private System.Nullable<decimal> _PlanDistanceSiteTS;
+		
+		private System.Nullable<decimal> _avrDistTS;
+		
+		public plan_ibs_today()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tanggal", DbType="VarChar(10)")]
+		public string Tanggal
+		{
+			get
+			{
+				return this._Tanggal;
+			}
+			set
+			{
+				if ((this._Tanggal != value))
+				{
+					this._Tanggal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlanOBIBS", DbType="Decimal(38,5)")]
+		public System.Nullable<decimal> PlanOBIBS
+		{
+			get
+			{
+				return this._PlanOBIBS;
+			}
+			set
+			{
+				if ((this._PlanOBIBS != value))
+				{
+					this._PlanOBIBS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlanOBSite", DbType="Decimal(38,5)")]
+		public System.Nullable<decimal> PlanOBSite
+		{
+			get
+			{
+				return this._PlanOBSite;
+			}
+			set
+			{
+				if ((this._PlanOBSite != value))
+				{
+					this._PlanOBSite = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRODUKSI", DbType="Decimal(38,2) NOT NULL")]
+		public decimal PRODUKSI
+		{
+			get
+			{
+				return this._PRODUKSI;
+			}
+			set
+			{
+				if ((this._PRODUKSI != value))
+				{
+					this._PRODUKSI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlanDistanceIBSOB", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> PlanDistanceIBSOB
+		{
+			get
+			{
+				return this._PlanDistanceIBSOB;
+			}
+			set
+			{
+				if ((this._PlanDistanceIBSOB != value))
+				{
+					this._PlanDistanceIBSOB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlanDistanceSiteOB", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> PlanDistanceSiteOB
+		{
+			get
+			{
+				return this._PlanDistanceSiteOB;
+			}
+			set
+			{
+				if ((this._PlanDistanceSiteOB != value))
+				{
+					this._PlanDistanceSiteOB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_avrDistOB", DbType="Decimal(38,6)")]
+		public System.Nullable<decimal> avrDistOB
+		{
+			get
+			{
+				return this._avrDistOB;
+			}
+			set
+			{
+				if ((this._avrDistOB != value))
+				{
+					this._avrDistOB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlanDistanceIBSTS", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> PlanDistanceIBSTS
+		{
+			get
+			{
+				return this._PlanDistanceIBSTS;
+			}
+			set
+			{
+				if ((this._PlanDistanceIBSTS != value))
+				{
+					this._PlanDistanceIBSTS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlanDistanceSiteTS", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> PlanDistanceSiteTS
+		{
+			get
+			{
+				return this._PlanDistanceSiteTS;
+			}
+			set
+			{
+				if ((this._PlanDistanceSiteTS != value))
+				{
+					this._PlanDistanceSiteTS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_avrDistTS", DbType="Decimal(38,6)")]
+		public System.Nullable<decimal> avrDistTS
+		{
+			get
+			{
+				return this._avrDistTS;
+			}
+			set
+			{
+				if ((this._avrDistTS != value))
+				{
+					this._avrDistTS = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.plan_service")]
+	public partial class plan_service
+	{
+		
+		private System.Nullable<System.DateTime> _tanggal;
+		
+		private string _egi;
+		
+		private string _cn_unit;
+		
+		private string _ps_type;
+		
+		private string _start_time;
+		
+		private System.Nullable<int> _lead_time;
+		
+		private string _estimasi_rfu;
+		
+		private string _remarks;
+		
+		private string _jenis;
+		
+		private string _sektor;
+		
+		private System.Nullable<System.DateTime> _created_at;
+		
+		public plan_service()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="Date")]
+		public System.Nullable<System.DateTime> tanggal
+		{
+			get
+			{
+				return this._tanggal;
+			}
+			set
+			{
+				if ((this._tanggal != value))
+				{
+					this._tanggal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_egi", DbType="VarChar(50)")]
+		public string egi
+		{
+			get
+			{
+				return this._egi;
+			}
+			set
+			{
+				if ((this._egi != value))
+				{
+					this._egi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cn_unit", DbType="VarChar(50)")]
+		public string cn_unit
+		{
+			get
+			{
+				return this._cn_unit;
+			}
+			set
+			{
+				if ((this._cn_unit != value))
+				{
+					this._cn_unit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ps_type", DbType="VarChar(50)")]
+		public string ps_type
+		{
+			get
+			{
+				return this._ps_type;
+			}
+			set
+			{
+				if ((this._ps_type != value))
+				{
+					this._ps_type = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start_time", DbType="VarChar(5)")]
+		public string start_time
+		{
+			get
+			{
+				return this._start_time;
+			}
+			set
+			{
+				if ((this._start_time != value))
+				{
+					this._start_time = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lead_time", DbType="Int")]
+		public System.Nullable<int> lead_time
+		{
+			get
+			{
+				return this._lead_time;
+			}
+			set
+			{
+				if ((this._lead_time != value))
+				{
+					this._lead_time = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estimasi_rfu", DbType="VarChar(5)")]
+		public string estimasi_rfu
+		{
+			get
+			{
+				return this._estimasi_rfu;
+			}
+			set
+			{
+				if ((this._estimasi_rfu != value))
+				{
+					this._estimasi_rfu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_remarks", DbType="VarChar(50)")]
+		public string remarks
+		{
+			get
+			{
+				return this._remarks;
+			}
+			set
+			{
+				if ((this._remarks != value))
+				{
+					this._remarks = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jenis", DbType="VarChar(50)")]
+		public string jenis
+		{
+			get
+			{
+				return this._jenis;
+			}
+			set
+			{
+				if ((this._jenis != value))
+				{
+					this._jenis = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sektor", DbType="VarChar(50)")]
+		public string sektor
+		{
+			get
+			{
+				return this._sektor;
+			}
+			set
+			{
+				if ((this._sektor != value))
+				{
+					this._sektor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> created_at
+		{
+			get
+			{
+				return this._created_at;
+			}
+			set
+			{
+				if ((this._created_at != value))
+				{
+					this._created_at = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.plan_service_besuk")]
+	public partial class plan_service_besuk
+	{
+		
+		private System.Nullable<System.DateTime> _tanggal;
+		
+		private string _egi;
+		
+		private string _cn_unit;
+		
+		private string _ps_type;
+		
+		private string _start_time;
+		
+		private System.Nullable<int> _lead_time;
+		
+		private string _estimasi_rfu;
+		
+		private string _remarks;
+		
+		private string _jenis;
+		
+		private string _sektor;
+		
+		private System.Nullable<System.DateTime> _created_at;
+		
+		public plan_service_besuk()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="Date")]
+		public System.Nullable<System.DateTime> tanggal
+		{
+			get
+			{
+				return this._tanggal;
+			}
+			set
+			{
+				if ((this._tanggal != value))
+				{
+					this._tanggal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_egi", DbType="VarChar(50)")]
+		public string egi
+		{
+			get
+			{
+				return this._egi;
+			}
+			set
+			{
+				if ((this._egi != value))
+				{
+					this._egi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cn_unit", DbType="VarChar(50)")]
+		public string cn_unit
+		{
+			get
+			{
+				return this._cn_unit;
+			}
+			set
+			{
+				if ((this._cn_unit != value))
+				{
+					this._cn_unit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ps_type", DbType="VarChar(50)")]
+		public string ps_type
+		{
+			get
+			{
+				return this._ps_type;
+			}
+			set
+			{
+				if ((this._ps_type != value))
+				{
+					this._ps_type = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start_time", DbType="VarChar(5)")]
+		public string start_time
+		{
+			get
+			{
+				return this._start_time;
+			}
+			set
+			{
+				if ((this._start_time != value))
+				{
+					this._start_time = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lead_time", DbType="Int")]
+		public System.Nullable<int> lead_time
+		{
+			get
+			{
+				return this._lead_time;
+			}
+			set
+			{
+				if ((this._lead_time != value))
+				{
+					this._lead_time = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estimasi_rfu", DbType="VarChar(5)")]
+		public string estimasi_rfu
+		{
+			get
+			{
+				return this._estimasi_rfu;
+			}
+			set
+			{
+				if ((this._estimasi_rfu != value))
+				{
+					this._estimasi_rfu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_remarks", DbType="VarChar(50)")]
+		public string remarks
+		{
+			get
+			{
+				return this._remarks;
+			}
+			set
+			{
+				if ((this._remarks != value))
+				{
+					this._remarks = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jenis", DbType="VarChar(50)")]
+		public string jenis
+		{
+			get
+			{
+				return this._jenis;
+			}
+			set
+			{
+				if ((this._jenis != value))
+				{
+					this._jenis = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sektor", DbType="VarChar(50)")]
+		public string sektor
+		{
+			get
+			{
+				return this._sektor;
+			}
+			set
+			{
+				if ((this._sektor != value))
+				{
+					this._sektor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> created_at
+		{
+			get
+			{
+				return this._created_at;
+			}
+			set
+			{
+				if ((this._created_at != value))
+				{
+					this._created_at = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vw_history_followup_operator_fatigue")]
 	public partial class vw_history_followup_operator_fatigue
 	{
@@ -949,9 +4233,9 @@ namespace AIA.Models
 		
 		private string _jaminput;
 		
-		private System.Nullable<int> _is_minumobat;
+		private string _is_minumobat;
 		
-		private System.Nullable<int> _is_masalah;
+		private string _is_masalah;
 		
 		private string _Status_ftw;
 		
@@ -1111,8 +4395,8 @@ namespace AIA.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_minumobat", DbType="Int")]
-		public System.Nullable<int> is_minumobat
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_minumobat", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		public string is_minumobat
 		{
 			get
 			{
@@ -1127,8 +4411,8 @@ namespace AIA.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_masalah", DbType="Int")]
-		public System.Nullable<int> is_masalah
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_masalah", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		public string is_masalah
 		{
 			get
 			{
@@ -1175,7 +4459,7 @@ namespace AIA.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Kategory_problem_fatigue", DbType="VarChar(25)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Kategory_problem_fatigue", DbType="VarChar(100)")]
 		public string Kategory_problem_fatigue
 		{
 			get
@@ -1207,7 +4491,7 @@ namespace AIA.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Next_action", DbType="VarChar(25)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Next_action", DbType="VarChar(100)")]
 		public string Next_action
 		{
 			get
@@ -1271,7 +4555,7 @@ namespace AIA.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNC_by", DbType="VarChar(25)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNC_by", DbType="VarChar(100)")]
 		public string CNC_by
 		{
 			get
@@ -1358,7 +4642,7 @@ namespace AIA.Models
 		
 		private System.Nullable<System.Guid> _pid;
 		
-		private string _tanggal;
+		private System.Nullable<System.DateTime> _tanggal;
 		
 		private string _nrp;
 		
@@ -1372,9 +4656,9 @@ namespace AIA.Models
 		
 		private string _jaminput;
 		
-		private int _is_minumoabt;
+		private string _is_minumoabt;
 		
-		private int _is_masalah;
+		private string _is_masalah;
 		
 		private string _statusfatigue;
 		
@@ -1402,8 +4686,8 @@ namespace AIA.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="NVarChar(50)")]
-		public string tanggal
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="Date")]
+		public System.Nullable<System.DateTime> tanggal
 		{
 			get
 			{
@@ -1514,8 +4798,8 @@ namespace AIA.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_minumoabt", DbType="Int NOT NULL")]
-		public int is_minumoabt
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_minumoabt", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string is_minumoabt
 		{
 			get
 			{
@@ -1530,8 +4814,8 @@ namespace AIA.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_masalah", DbType="Int NOT NULL")]
-		public int is_masalah
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_masalah", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string is_masalah
 		{
 			get
 			{
@@ -1546,7 +4830,7 @@ namespace AIA.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_statusfatigue", DbType="VarChar(16)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_statusfatigue", DbType="VarChar(30)")]
 		public string statusfatigue
 		{
 			get
@@ -1591,6 +4875,2639 @@ namespace AIA.Models
 				{
 					this._created_by = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vw_profil")]
+	public partial class vw_profil
+	{
+		
+		private string _nrp;
+		
+		private string _Nama;
+		
+		private string _Departemen;
+		
+		private string _Jabatan;
+		
+		private string _tanggal;
+		
+		private string _shift;
+		
+		private string _Absent;
+		
+		private System.Nullable<System.DateTime> _in;
+		
+		private System.Nullable<System.DateTime> _out;
+		
+		private string _jamtidur;
+		
+		private string _keterangan;
+		
+		private string _created_by;
+		
+		private string _unit;
+		
+		private System.Nullable<int> _keterangan6_fatigue_ke;
+		
+		public vw_profil()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="NVarChar(10)")]
+		public string nrp
+		{
+			get
+			{
+				return this._nrp;
+			}
+			set
+			{
+				if ((this._nrp != value))
+				{
+					this._nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(100)")]
+		public string Nama
+		{
+			get
+			{
+				return this._Nama;
+			}
+			set
+			{
+				if ((this._Nama != value))
+				{
+					this._Nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Departemen", DbType="VarChar(10)")]
+		public string Departemen
+		{
+			get
+			{
+				return this._Departemen;
+			}
+			set
+			{
+				if ((this._Departemen != value))
+				{
+					this._Departemen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Jabatan", DbType="NVarChar(255)")]
+		public string Jabatan
+		{
+			get
+			{
+				return this._Jabatan;
+			}
+			set
+			{
+				if ((this._Jabatan != value))
+				{
+					this._Jabatan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="VarChar(30)")]
+		public string tanggal
+		{
+			get
+			{
+				return this._tanggal;
+			}
+			set
+			{
+				if ((this._tanggal != value))
+				{
+					this._tanggal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shift", DbType="NVarChar(53)")]
+		public string shift
+		{
+			get
+			{
+				return this._shift;
+			}
+			set
+			{
+				if ((this._shift != value))
+				{
+					this._shift = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Absent", DbType="VarChar(50)")]
+		public string Absent
+		{
+			get
+			{
+				return this._Absent;
+			}
+			set
+			{
+				if ((this._Absent != value))
+				{
+					this._Absent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[in]", Storage="_in", DbType="DateTime")]
+		public System.Nullable<System.DateTime> @in
+		{
+			get
+			{
+				return this._in;
+			}
+			set
+			{
+				if ((this._in != value))
+				{
+					this._in = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="out", Storage="_out", DbType="DateTime")]
+		public System.Nullable<System.DateTime> @out
+		{
+			get
+			{
+				return this._out;
+			}
+			set
+			{
+				if ((this._out != value))
+				{
+					this._out = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jamtidur", DbType="VarChar(71)")]
+		public string jamtidur
+		{
+			get
+			{
+				return this._jamtidur;
+			}
+			set
+			{
+				if ((this._jamtidur != value))
+				{
+					this._jamtidur = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_keterangan", DbType="VarChar(25)")]
+		public string keterangan
+		{
+			get
+			{
+				return this._keterangan;
+			}
+			set
+			{
+				if ((this._keterangan != value))
+				{
+					this._keterangan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="VarChar(9)")]
+		public string created_by
+		{
+			get
+			{
+				return this._created_by;
+			}
+			set
+			{
+				if ((this._created_by != value))
+				{
+					this._created_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unit", DbType="VarChar(100)")]
+		public string unit
+		{
+			get
+			{
+				return this._unit;
+			}
+			set
+			{
+				if ((this._unit != value))
+				{
+					this._unit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_keterangan6_fatigue_ke", DbType="Int")]
+		public System.Nullable<int> keterangan6_fatigue_ke
+		{
+			get
+			{
+				return this._keterangan6_fatigue_ke;
+			}
+			set
+			{
+				if ((this._keterangan6_fatigue_ke != value))
+				{
+					this._keterangan6_fatigue_ke = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vw_setting_fleet_vs_ftw_3s_ls")]
+	public partial class vw_setting_fleet_vs_ftw_3s_l
+	{
+		
+		private string _cn_unit;
+		
+		private string _loader;
+		
+		private string _hauler;
+		
+		private string _sektor;
+		
+		private string _areachangeshift;
+		
+		private string _cluster;
+		
+		private string _Nama;
+		
+		private string _nrp;
+		
+		private System.Nullable<System.DateTime> _tanggal;
+		
+		private string _shift;
+		
+		private string _Departemen;
+		
+		private string _waktu_absen;
+		
+		private string _waktu_ftw;
+		
+		private string _jenis_ftw;
+		
+		private string _status;
+		
+		private string _created_by;
+		
+		private string _jenis_user;
+		
+		private string _status_fatigue;
+		
+		private string _remarks;
+		
+		public vw_setting_fleet_vs_ftw_3s_l()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cn_unit", DbType="VarChar(50)")]
+		public string cn_unit
+		{
+			get
+			{
+				return this._cn_unit;
+			}
+			set
+			{
+				if ((this._cn_unit != value))
+				{
+					this._cn_unit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader", DbType="VarChar(50)")]
+		public string loader
+		{
+			get
+			{
+				return this._loader;
+			}
+			set
+			{
+				if ((this._loader != value))
+				{
+					this._loader = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler", DbType="VarChar(50)")]
+		public string hauler
+		{
+			get
+			{
+				return this._hauler;
+			}
+			set
+			{
+				if ((this._hauler != value))
+				{
+					this._hauler = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sektor", DbType="VarChar(50)")]
+		public string sektor
+		{
+			get
+			{
+				return this._sektor;
+			}
+			set
+			{
+				if ((this._sektor != value))
+				{
+					this._sektor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_areachangeshift", DbType="VarChar(50)")]
+		public string areachangeshift
+		{
+			get
+			{
+				return this._areachangeshift;
+			}
+			set
+			{
+				if ((this._areachangeshift != value))
+				{
+					this._areachangeshift = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cluster", DbType="VarChar(50)")]
+		public string cluster
+		{
+			get
+			{
+				return this._cluster;
+			}
+			set
+			{
+				if ((this._cluster != value))
+				{
+					this._cluster = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(203)")]
+		public string Nama
+		{
+			get
+			{
+				return this._Nama;
+			}
+			set
+			{
+				if ((this._Nama != value))
+				{
+					this._Nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="VarChar(100)")]
+		public string nrp
+		{
+			get
+			{
+				return this._nrp;
+			}
+			set
+			{
+				if ((this._nrp != value))
+				{
+					this._nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="Date")]
+		public System.Nullable<System.DateTime> tanggal
+		{
+			get
+			{
+				return this._tanggal;
+			}
+			set
+			{
+				if ((this._tanggal != value))
+				{
+					this._tanggal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shift", DbType="VarChar(53)")]
+		public string shift
+		{
+			get
+			{
+				return this._shift;
+			}
+			set
+			{
+				if ((this._shift != value))
+				{
+					this._shift = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Departemen", DbType="VarChar(10)")]
+		public string Departemen
+		{
+			get
+			{
+				return this._Departemen;
+			}
+			set
+			{
+				if ((this._Departemen != value))
+				{
+					this._Departemen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_waktu_absen", DbType="VarChar(10)")]
+		public string waktu_absen
+		{
+			get
+			{
+				return this._waktu_absen;
+			}
+			set
+			{
+				if ((this._waktu_absen != value))
+				{
+					this._waktu_absen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_waktu_ftw", DbType="VarChar(30)")]
+		public string waktu_ftw
+		{
+			get
+			{
+				return this._waktu_ftw;
+			}
+			set
+			{
+				if ((this._waktu_ftw != value))
+				{
+					this._waktu_ftw = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jenis_ftw", DbType="VarChar(9)")]
+		public string jenis_ftw
+		{
+			get
+			{
+				return this._jenis_ftw;
+			}
+			set
+			{
+				if ((this._jenis_ftw != value))
+				{
+					this._jenis_ftw = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="VarChar(22)")]
+		public string status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this._status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="VarChar(9)")]
+		public string created_by
+		{
+			get
+			{
+				return this._created_by;
+			}
+			set
+			{
+				if ((this._created_by != value))
+				{
+					this._created_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jenis_user", DbType="VarChar(7)")]
+		public string jenis_user
+		{
+			get
+			{
+				return this._jenis_user;
+			}
+			set
+			{
+				if ((this._jenis_user != value))
+				{
+					this._jenis_user = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status_fatigue", DbType="VarChar(9)")]
+		public string status_fatigue
+		{
+			get
+			{
+				return this._status_fatigue;
+			}
+			set
+			{
+				if ((this._status_fatigue != value))
+				{
+					this._status_fatigue = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_remarks", DbType="VarChar(61)")]
+		public string remarks
+		{
+			get
+			{
+				return this._remarks;
+			}
+			set
+			{
+				if ((this._remarks != value))
+				{
+					this._remarks = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vw_setting_roster_deviasi_mod")]
+	public partial class vw_setting_roster_deviasi_mod
+	{
+		
+		private string _isi;
+		
+		public vw_setting_roster_deviasi_mod()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isi", DbType="VarChar(MAX)")]
+		public string isi
+		{
+			get
+			{
+				return this._isi;
+			}
+			set
+			{
+				if ((this._isi != value))
+				{
+					this._isi = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vw_t_setting_fleet")]
+	public partial class vw_t_setting_fleet
+	{
+		
+		private System.Nullable<System.DateTime> _tanggal;
+		
+		private string _shift;
+		
+		private string _sektor;
+		
+		private string _loader;
+		
+		private string _hauler;
+		
+		private string _front;
+		
+		private string _disposal;
+		
+		private string _group_leader;
+		
+		private System.Nullable<int> _loader_is_breadown;
+		
+		private System.Nullable<int> _hauler_is_breadown;
+		
+		private string _loader_smartd_connection_status;
+		
+		private System.Nullable<int> _loader_smartd_availability_delay;
+		
+		private string _loader_smartd_availability_category;
+		
+		private System.Nullable<int> _loader_vhms_eod;
+		
+		private string _loader_vhms_availability_category;
+		
+		private string _hauler_smartd_connection_status;
+		
+		private System.Nullable<int> _hauler_smartd_availability_delay;
+		
+		private string _hauler_smartd_availability_category;
+		
+		private System.Nullable<int> _hauler_vhms_eod;
+		
+		private string _hauler_vhms_availability_category;
+		
+		private string _loader_operator_nrp;
+		
+		private string _loader_operator_nama;
+		
+		private string _loader_ftw_status;
+		
+		private string _loader_ftw_jam_fatigue;
+		
+		private System.Nullable<System.TimeSpan> _loader_absensi_in;
+		
+		private string _loader_absensi_in_lokasi;
+		
+		private string _hauler_operator_nrp;
+		
+		private string _hauler_operator_nama;
+		
+		private string _hauler_ftw_status;
+		
+		private string _hauler_ftw_jam_fatigue;
+		
+		private System.Nullable<System.TimeSpan> _hauler_absensi_in;
+		
+		private string _hauler_absensi_in_lokasi;
+		
+		private System.Nullable<System.DateTime> _loader_created_at;
+		
+		private string _loader_created_by;
+		
+		private System.Nullable<System.DateTime> _loader_updated_at;
+		
+		private string _loader_updated_by;
+		
+		private System.Nullable<System.DateTime> _loader_is_breakdown_updated_at;
+		
+		private System.Nullable<System.DateTime> _loader_smartd_connection_status_updated_at;
+		
+		private System.Nullable<System.DateTime> _loader_vhms_updated_at;
+		
+		private System.Nullable<System.DateTime> _loader_operator_updated_at;
+		
+		private System.Nullable<System.DateTime> _loader_ftw_updated_at;
+		
+		private System.Nullable<System.DateTime> _loader_absensi_updated_at;
+		
+		private System.Nullable<System.DateTime> _hauler_created_at;
+		
+		private string _hauler_created_by;
+		
+		private System.Nullable<System.DateTime> _hauler_is_breakdown_updated_at;
+		
+		private System.Nullable<System.DateTime> _hauler_smartd_connection_status_updated_at;
+		
+		private System.Nullable<System.DateTime> _hauler_vhms_updated_at;
+		
+		private System.Nullable<System.DateTime> _hauler_operator_updated_at;
+		
+		private System.Nullable<System.DateTime> _hauler_ftw_updated_at;
+		
+		private System.Nullable<System.DateTime> _hauler_absensi_updated_at;
+		
+		private System.Nullable<System.DateTime> _sektor_updated_at;
+		
+		private System.Nullable<System.DateTime> _gl_updated_at;
+		
+		private string _sektor_updated_by;
+		
+		private System.Nullable<System.DateTime> _front_updated_at;
+		
+		private string _front_updated_by;
+		
+		private System.Nullable<System.DateTime> _disposal_updated_at;
+		
+		private string _disposal_updated_by;
+		
+		private System.Nullable<System.DateTime> _updated_at;
+		
+		private string _jam_update;
+		
+		private string _plan_speed;
+		
+		private string _actual_speed;
+		
+		private string _plan_jarak;
+		
+		private string _actual_jarak;
+		
+		private string _plan_produksi;
+		
+		private string _HD_plan;
+		
+		private string _HD_actual;
+		
+		private string _HD_setting;
+		
+		private string _GL1;
+		
+		private string _nrp_GL1;
+		
+		private string _GL2;
+		
+		private string _nrp_GL2;
+		
+		private string _areachangeshift;
+		
+		private string _cluster;
+		
+		public vw_t_setting_fleet()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="Date")]
+		public System.Nullable<System.DateTime> tanggal
+		{
+			get
+			{
+				return this._tanggal;
+			}
+			set
+			{
+				if ((this._tanggal != value))
+				{
+					this._tanggal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shift", DbType="VarChar(50)")]
+		public string shift
+		{
+			get
+			{
+				return this._shift;
+			}
+			set
+			{
+				if ((this._shift != value))
+				{
+					this._shift = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sektor", DbType="VarChar(50)")]
+		public string sektor
+		{
+			get
+			{
+				return this._sektor;
+			}
+			set
+			{
+				if ((this._sektor != value))
+				{
+					this._sektor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader", DbType="VarChar(50)")]
+		public string loader
+		{
+			get
+			{
+				return this._loader;
+			}
+			set
+			{
+				if ((this._loader != value))
+				{
+					this._loader = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler", DbType="VarChar(50)")]
+		public string hauler
+		{
+			get
+			{
+				return this._hauler;
+			}
+			set
+			{
+				if ((this._hauler != value))
+				{
+					this._hauler = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_front", DbType="VarChar(50)")]
+		public string front
+		{
+			get
+			{
+				return this._front;
+			}
+			set
+			{
+				if ((this._front != value))
+				{
+					this._front = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_disposal", DbType="VarChar(50)")]
+		public string disposal
+		{
+			get
+			{
+				return this._disposal;
+			}
+			set
+			{
+				if ((this._disposal != value))
+				{
+					this._disposal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_group_leader", DbType="VarChar(50)")]
+		public string group_leader
+		{
+			get
+			{
+				return this._group_leader;
+			}
+			set
+			{
+				if ((this._group_leader != value))
+				{
+					this._group_leader = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_is_breadown", DbType="Int")]
+		public System.Nullable<int> loader_is_breadown
+		{
+			get
+			{
+				return this._loader_is_breadown;
+			}
+			set
+			{
+				if ((this._loader_is_breadown != value))
+				{
+					this._loader_is_breadown = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_is_breadown", DbType="Int")]
+		public System.Nullable<int> hauler_is_breadown
+		{
+			get
+			{
+				return this._hauler_is_breadown;
+			}
+			set
+			{
+				if ((this._hauler_is_breadown != value))
+				{
+					this._hauler_is_breadown = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_smartd_connection_status", DbType="VarChar(50)")]
+		public string loader_smartd_connection_status
+		{
+			get
+			{
+				return this._loader_smartd_connection_status;
+			}
+			set
+			{
+				if ((this._loader_smartd_connection_status != value))
+				{
+					this._loader_smartd_connection_status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_smartd_availability_delay", DbType="Int")]
+		public System.Nullable<int> loader_smartd_availability_delay
+		{
+			get
+			{
+				return this._loader_smartd_availability_delay;
+			}
+			set
+			{
+				if ((this._loader_smartd_availability_delay != value))
+				{
+					this._loader_smartd_availability_delay = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_smartd_availability_category", DbType="VarChar(50)")]
+		public string loader_smartd_availability_category
+		{
+			get
+			{
+				return this._loader_smartd_availability_category;
+			}
+			set
+			{
+				if ((this._loader_smartd_availability_category != value))
+				{
+					this._loader_smartd_availability_category = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_vhms_eod", DbType="Int")]
+		public System.Nullable<int> loader_vhms_eod
+		{
+			get
+			{
+				return this._loader_vhms_eod;
+			}
+			set
+			{
+				if ((this._loader_vhms_eod != value))
+				{
+					this._loader_vhms_eod = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_vhms_availability_category", DbType="VarChar(50)")]
+		public string loader_vhms_availability_category
+		{
+			get
+			{
+				return this._loader_vhms_availability_category;
+			}
+			set
+			{
+				if ((this._loader_vhms_availability_category != value))
+				{
+					this._loader_vhms_availability_category = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_smartd_connection_status", DbType="VarChar(50)")]
+		public string hauler_smartd_connection_status
+		{
+			get
+			{
+				return this._hauler_smartd_connection_status;
+			}
+			set
+			{
+				if ((this._hauler_smartd_connection_status != value))
+				{
+					this._hauler_smartd_connection_status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_smartd_availability_delay", DbType="Int")]
+		public System.Nullable<int> hauler_smartd_availability_delay
+		{
+			get
+			{
+				return this._hauler_smartd_availability_delay;
+			}
+			set
+			{
+				if ((this._hauler_smartd_availability_delay != value))
+				{
+					this._hauler_smartd_availability_delay = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_smartd_availability_category", DbType="VarChar(50)")]
+		public string hauler_smartd_availability_category
+		{
+			get
+			{
+				return this._hauler_smartd_availability_category;
+			}
+			set
+			{
+				if ((this._hauler_smartd_availability_category != value))
+				{
+					this._hauler_smartd_availability_category = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_vhms_eod", DbType="Int")]
+		public System.Nullable<int> hauler_vhms_eod
+		{
+			get
+			{
+				return this._hauler_vhms_eod;
+			}
+			set
+			{
+				if ((this._hauler_vhms_eod != value))
+				{
+					this._hauler_vhms_eod = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_vhms_availability_category", DbType="VarChar(50)")]
+		public string hauler_vhms_availability_category
+		{
+			get
+			{
+				return this._hauler_vhms_availability_category;
+			}
+			set
+			{
+				if ((this._hauler_vhms_availability_category != value))
+				{
+					this._hauler_vhms_availability_category = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_operator_nrp", DbType="VarChar(50)")]
+		public string loader_operator_nrp
+		{
+			get
+			{
+				return this._loader_operator_nrp;
+			}
+			set
+			{
+				if ((this._loader_operator_nrp != value))
+				{
+					this._loader_operator_nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_operator_nama", DbType="VarChar(50)")]
+		public string loader_operator_nama
+		{
+			get
+			{
+				return this._loader_operator_nama;
+			}
+			set
+			{
+				if ((this._loader_operator_nama != value))
+				{
+					this._loader_operator_nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_ftw_status", DbType="VarChar(50)")]
+		public string loader_ftw_status
+		{
+			get
+			{
+				return this._loader_ftw_status;
+			}
+			set
+			{
+				if ((this._loader_ftw_status != value))
+				{
+					this._loader_ftw_status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_ftw_jam_fatigue", DbType="VarChar(50)")]
+		public string loader_ftw_jam_fatigue
+		{
+			get
+			{
+				return this._loader_ftw_jam_fatigue;
+			}
+			set
+			{
+				if ((this._loader_ftw_jam_fatigue != value))
+				{
+					this._loader_ftw_jam_fatigue = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_absensi_in", DbType="Time")]
+		public System.Nullable<System.TimeSpan> loader_absensi_in
+		{
+			get
+			{
+				return this._loader_absensi_in;
+			}
+			set
+			{
+				if ((this._loader_absensi_in != value))
+				{
+					this._loader_absensi_in = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_absensi_in_lokasi", DbType="VarChar(50)")]
+		public string loader_absensi_in_lokasi
+		{
+			get
+			{
+				return this._loader_absensi_in_lokasi;
+			}
+			set
+			{
+				if ((this._loader_absensi_in_lokasi != value))
+				{
+					this._loader_absensi_in_lokasi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_operator_nrp", DbType="VarChar(50)")]
+		public string hauler_operator_nrp
+		{
+			get
+			{
+				return this._hauler_operator_nrp;
+			}
+			set
+			{
+				if ((this._hauler_operator_nrp != value))
+				{
+					this._hauler_operator_nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_operator_nama", DbType="VarChar(50)")]
+		public string hauler_operator_nama
+		{
+			get
+			{
+				return this._hauler_operator_nama;
+			}
+			set
+			{
+				if ((this._hauler_operator_nama != value))
+				{
+					this._hauler_operator_nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_ftw_status", DbType="VarChar(50)")]
+		public string hauler_ftw_status
+		{
+			get
+			{
+				return this._hauler_ftw_status;
+			}
+			set
+			{
+				if ((this._hauler_ftw_status != value))
+				{
+					this._hauler_ftw_status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_ftw_jam_fatigue", DbType="VarChar(50)")]
+		public string hauler_ftw_jam_fatigue
+		{
+			get
+			{
+				return this._hauler_ftw_jam_fatigue;
+			}
+			set
+			{
+				if ((this._hauler_ftw_jam_fatigue != value))
+				{
+					this._hauler_ftw_jam_fatigue = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_absensi_in", DbType="Time")]
+		public System.Nullable<System.TimeSpan> hauler_absensi_in
+		{
+			get
+			{
+				return this._hauler_absensi_in;
+			}
+			set
+			{
+				if ((this._hauler_absensi_in != value))
+				{
+					this._hauler_absensi_in = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_absensi_in_lokasi", DbType="VarChar(50)")]
+		public string hauler_absensi_in_lokasi
+		{
+			get
+			{
+				return this._hauler_absensi_in_lokasi;
+			}
+			set
+			{
+				if ((this._hauler_absensi_in_lokasi != value))
+				{
+					this._hauler_absensi_in_lokasi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_created_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> loader_created_at
+		{
+			get
+			{
+				return this._loader_created_at;
+			}
+			set
+			{
+				if ((this._loader_created_at != value))
+				{
+					this._loader_created_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_created_by", DbType="VarChar(50)")]
+		public string loader_created_by
+		{
+			get
+			{
+				return this._loader_created_by;
+			}
+			set
+			{
+				if ((this._loader_created_by != value))
+				{
+					this._loader_created_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> loader_updated_at
+		{
+			get
+			{
+				return this._loader_updated_at;
+			}
+			set
+			{
+				if ((this._loader_updated_at != value))
+				{
+					this._loader_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_updated_by", DbType="VarChar(50)")]
+		public string loader_updated_by
+		{
+			get
+			{
+				return this._loader_updated_by;
+			}
+			set
+			{
+				if ((this._loader_updated_by != value))
+				{
+					this._loader_updated_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_is_breakdown_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> loader_is_breakdown_updated_at
+		{
+			get
+			{
+				return this._loader_is_breakdown_updated_at;
+			}
+			set
+			{
+				if ((this._loader_is_breakdown_updated_at != value))
+				{
+					this._loader_is_breakdown_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_smartd_connection_status_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> loader_smartd_connection_status_updated_at
+		{
+			get
+			{
+				return this._loader_smartd_connection_status_updated_at;
+			}
+			set
+			{
+				if ((this._loader_smartd_connection_status_updated_at != value))
+				{
+					this._loader_smartd_connection_status_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_vhms_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> loader_vhms_updated_at
+		{
+			get
+			{
+				return this._loader_vhms_updated_at;
+			}
+			set
+			{
+				if ((this._loader_vhms_updated_at != value))
+				{
+					this._loader_vhms_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_operator_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> loader_operator_updated_at
+		{
+			get
+			{
+				return this._loader_operator_updated_at;
+			}
+			set
+			{
+				if ((this._loader_operator_updated_at != value))
+				{
+					this._loader_operator_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_ftw_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> loader_ftw_updated_at
+		{
+			get
+			{
+				return this._loader_ftw_updated_at;
+			}
+			set
+			{
+				if ((this._loader_ftw_updated_at != value))
+				{
+					this._loader_ftw_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_absensi_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> loader_absensi_updated_at
+		{
+			get
+			{
+				return this._loader_absensi_updated_at;
+			}
+			set
+			{
+				if ((this._loader_absensi_updated_at != value))
+				{
+					this._loader_absensi_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_created_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> hauler_created_at
+		{
+			get
+			{
+				return this._hauler_created_at;
+			}
+			set
+			{
+				if ((this._hauler_created_at != value))
+				{
+					this._hauler_created_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_created_by", DbType="VarChar(50)")]
+		public string hauler_created_by
+		{
+			get
+			{
+				return this._hauler_created_by;
+			}
+			set
+			{
+				if ((this._hauler_created_by != value))
+				{
+					this._hauler_created_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_is_breakdown_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> hauler_is_breakdown_updated_at
+		{
+			get
+			{
+				return this._hauler_is_breakdown_updated_at;
+			}
+			set
+			{
+				if ((this._hauler_is_breakdown_updated_at != value))
+				{
+					this._hauler_is_breakdown_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_smartd_connection_status_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> hauler_smartd_connection_status_updated_at
+		{
+			get
+			{
+				return this._hauler_smartd_connection_status_updated_at;
+			}
+			set
+			{
+				if ((this._hauler_smartd_connection_status_updated_at != value))
+				{
+					this._hauler_smartd_connection_status_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_vhms_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> hauler_vhms_updated_at
+		{
+			get
+			{
+				return this._hauler_vhms_updated_at;
+			}
+			set
+			{
+				if ((this._hauler_vhms_updated_at != value))
+				{
+					this._hauler_vhms_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_operator_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> hauler_operator_updated_at
+		{
+			get
+			{
+				return this._hauler_operator_updated_at;
+			}
+			set
+			{
+				if ((this._hauler_operator_updated_at != value))
+				{
+					this._hauler_operator_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_ftw_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> hauler_ftw_updated_at
+		{
+			get
+			{
+				return this._hauler_ftw_updated_at;
+			}
+			set
+			{
+				if ((this._hauler_ftw_updated_at != value))
+				{
+					this._hauler_ftw_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_absensi_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> hauler_absensi_updated_at
+		{
+			get
+			{
+				return this._hauler_absensi_updated_at;
+			}
+			set
+			{
+				if ((this._hauler_absensi_updated_at != value))
+				{
+					this._hauler_absensi_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sektor_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> sektor_updated_at
+		{
+			get
+			{
+				return this._sektor_updated_at;
+			}
+			set
+			{
+				if ((this._sektor_updated_at != value))
+				{
+					this._sektor_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gl_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> gl_updated_at
+		{
+			get
+			{
+				return this._gl_updated_at;
+			}
+			set
+			{
+				if ((this._gl_updated_at != value))
+				{
+					this._gl_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sektor_updated_by", DbType="VarChar(50)")]
+		public string sektor_updated_by
+		{
+			get
+			{
+				return this._sektor_updated_by;
+			}
+			set
+			{
+				if ((this._sektor_updated_by != value))
+				{
+					this._sektor_updated_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_front_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> front_updated_at
+		{
+			get
+			{
+				return this._front_updated_at;
+			}
+			set
+			{
+				if ((this._front_updated_at != value))
+				{
+					this._front_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_front_updated_by", DbType="VarChar(50)")]
+		public string front_updated_by
+		{
+			get
+			{
+				return this._front_updated_by;
+			}
+			set
+			{
+				if ((this._front_updated_by != value))
+				{
+					this._front_updated_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_disposal_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> disposal_updated_at
+		{
+			get
+			{
+				return this._disposal_updated_at;
+			}
+			set
+			{
+				if ((this._disposal_updated_at != value))
+				{
+					this._disposal_updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_disposal_updated_by", DbType="VarChar(50)")]
+		public string disposal_updated_by
+		{
+			get
+			{
+				return this._disposal_updated_by;
+			}
+			set
+			{
+				if ((this._disposal_updated_by != value))
+				{
+					this._disposal_updated_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> updated_at
+		{
+			get
+			{
+				return this._updated_at;
+			}
+			set
+			{
+				if ((this._updated_at != value))
+				{
+					this._updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jam_update", DbType="VarChar(50)")]
+		public string jam_update
+		{
+			get
+			{
+				return this._jam_update;
+			}
+			set
+			{
+				if ((this._jam_update != value))
+				{
+					this._jam_update = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_plan_speed", DbType="VarChar(50)")]
+		public string plan_speed
+		{
+			get
+			{
+				return this._plan_speed;
+			}
+			set
+			{
+				if ((this._plan_speed != value))
+				{
+					this._plan_speed = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_actual_speed", DbType="VarChar(50)")]
+		public string actual_speed
+		{
+			get
+			{
+				return this._actual_speed;
+			}
+			set
+			{
+				if ((this._actual_speed != value))
+				{
+					this._actual_speed = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_plan_jarak", DbType="VarChar(50)")]
+		public string plan_jarak
+		{
+			get
+			{
+				return this._plan_jarak;
+			}
+			set
+			{
+				if ((this._plan_jarak != value))
+				{
+					this._plan_jarak = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_actual_jarak", DbType="VarChar(50)")]
+		public string actual_jarak
+		{
+			get
+			{
+				return this._actual_jarak;
+			}
+			set
+			{
+				if ((this._actual_jarak != value))
+				{
+					this._actual_jarak = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_plan_produksi", DbType="VarChar(50)")]
+		public string plan_produksi
+		{
+			get
+			{
+				return this._plan_produksi;
+			}
+			set
+			{
+				if ((this._plan_produksi != value))
+				{
+					this._plan_produksi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HD_plan", DbType="VarChar(50)")]
+		public string HD_plan
+		{
+			get
+			{
+				return this._HD_plan;
+			}
+			set
+			{
+				if ((this._HD_plan != value))
+				{
+					this._HD_plan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HD_actual", DbType="VarChar(50)")]
+		public string HD_actual
+		{
+			get
+			{
+				return this._HD_actual;
+			}
+			set
+			{
+				if ((this._HD_actual != value))
+				{
+					this._HD_actual = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HD_setting", DbType="VarChar(50)")]
+		public string HD_setting
+		{
+			get
+			{
+				return this._HD_setting;
+			}
+			set
+			{
+				if ((this._HD_setting != value))
+				{
+					this._HD_setting = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GL1", DbType="VarChar(50)")]
+		public string GL1
+		{
+			get
+			{
+				return this._GL1;
+			}
+			set
+			{
+				if ((this._GL1 != value))
+				{
+					this._GL1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp_GL1", DbType="VarChar(50)")]
+		public string nrp_GL1
+		{
+			get
+			{
+				return this._nrp_GL1;
+			}
+			set
+			{
+				if ((this._nrp_GL1 != value))
+				{
+					this._nrp_GL1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GL2", DbType="VarChar(50)")]
+		public string GL2
+		{
+			get
+			{
+				return this._GL2;
+			}
+			set
+			{
+				if ((this._GL2 != value))
+				{
+					this._GL2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp_GL2", DbType="VarChar(50)")]
+		public string nrp_GL2
+		{
+			get
+			{
+				return this._nrp_GL2;
+			}
+			set
+			{
+				if ((this._nrp_GL2 != value))
+				{
+					this._nrp_GL2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_areachangeshift", DbType="VarChar(50)")]
+		public string areachangeshift
+		{
+			get
+			{
+				return this._areachangeshift;
+			}
+			set
+			{
+				if ((this._areachangeshift != value))
+				{
+					this._areachangeshift = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cluster", DbType="VarChar(50)")]
+		public string cluster
+		{
+			get
+			{
+				return this._cluster;
+			}
+			set
+			{
+				if ((this._cluster != value))
+				{
+					this._cluster = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.asm_display_bottom3")]
+	public partial class asm_display_bottom3
+	{
+		
+		private System.Nullable<int> _Ranks;
+		
+		private string _pit;
+		
+		private string _nama;
+		
+		private string _nrp;
+		
+		private System.Nullable<decimal> _proty_hm;
+		
+		private System.Nullable<decimal> _presentase;
+		
+		private string _unit;
+		
+		public asm_display_bottom3()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ranks", DbType="Int")]
+		public System.Nullable<int> Ranks
+		{
+			get
+			{
+				return this._Ranks;
+			}
+			set
+			{
+				if ((this._Ranks != value))
+				{
+					this._Ranks = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pit", DbType="VarChar(255)")]
+		public string pit
+		{
+			get
+			{
+				return this._pit;
+			}
+			set
+			{
+				if ((this._pit != value))
+				{
+					this._pit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama", DbType="VarChar(255)")]
+		public string nama
+		{
+			get
+			{
+				return this._nama;
+			}
+			set
+			{
+				if ((this._nama != value))
+				{
+					this._nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="VarChar(255)")]
+		public string nrp
+		{
+			get
+			{
+				return this._nrp;
+			}
+			set
+			{
+				if ((this._nrp != value))
+				{
+					this._nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_proty_hm", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> proty_hm
+		{
+			get
+			{
+				return this._proty_hm;
+			}
+			set
+			{
+				if ((this._proty_hm != value))
+				{
+					this._proty_hm = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_presentase", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> presentase
+		{
+			get
+			{
+				return this._presentase;
+			}
+			set
+			{
+				if ((this._presentase != value))
+				{
+					this._presentase = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unit", DbType="VarChar(255)")]
+		public string unit
+		{
+			get
+			{
+				return this._unit;
+			}
+			set
+			{
+				if ((this._unit != value))
+				{
+					this._unit = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_t_setting_operator_deviasi")]
+	public partial class tbl_t_setting_operator_deviasi
+	{
+		
+		private string _pid;
+		
+		private string _nrp;
+		
+		private string _nama;
+		
+		private System.Nullable<System.DateTime> _tanggal;
+		
+		private string _polashift;
+		
+		private string _shift;
+		
+		private string _unit;
+		
+		private string _remark;
+		
+		private string _stcuti;
+		
+		private System.Nullable<System.DateTime> _sc_awal;
+		
+		private System.Nullable<System.DateTime> _sc_akhir;
+		
+		private string _sttugas;
+		
+		private System.Nullable<System.DateTime> _st_awal;
+		
+		private System.Nullable<System.DateTime> _st_akhir;
+		
+		private System.Nullable<System.DateTime> _updated_at;
+		
+		private System.Nullable<System.DateTime> _updated_at_st;
+		
+		private System.Nullable<System.DateTime> _updated_at_sc;
+		
+		public tbl_t_setting_operator_deviasi()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pid", DbType="VarChar(100)")]
+		public string pid
+		{
+			get
+			{
+				return this._pid;
+			}
+			set
+			{
+				if ((this._pid != value))
+				{
+					this._pid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="VarChar(30)")]
+		public string nrp
+		{
+			get
+			{
+				return this._nrp;
+			}
+			set
+			{
+				if ((this._nrp != value))
+				{
+					this._nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama", DbType="VarChar(100)")]
+		public string nama
+		{
+			get
+			{
+				return this._nama;
+			}
+			set
+			{
+				if ((this._nama != value))
+				{
+					this._nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="Date")]
+		public System.Nullable<System.DateTime> tanggal
+		{
+			get
+			{
+				return this._tanggal;
+			}
+			set
+			{
+				if ((this._tanggal != value))
+				{
+					this._tanggal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_polashift", DbType="VarChar(10)")]
+		public string polashift
+		{
+			get
+			{
+				return this._polashift;
+			}
+			set
+			{
+				if ((this._polashift != value))
+				{
+					this._polashift = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shift", DbType="VarChar(5)")]
+		public string shift
+		{
+			get
+			{
+				return this._shift;
+			}
+			set
+			{
+				if ((this._shift != value))
+				{
+					this._shift = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unit", DbType="VarChar(50)")]
+		public string unit
+		{
+			get
+			{
+				return this._unit;
+			}
+			set
+			{
+				if ((this._unit != value))
+				{
+					this._unit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_remark", DbType="VarChar(100)")]
+		public string remark
+		{
+			get
+			{
+				return this._remark;
+			}
+			set
+			{
+				if ((this._remark != value))
+				{
+					this._remark = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stcuti", DbType="VarChar(35)")]
+		public string stcuti
+		{
+			get
+			{
+				return this._stcuti;
+			}
+			set
+			{
+				if ((this._stcuti != value))
+				{
+					this._stcuti = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sc_awal", DbType="Date")]
+		public System.Nullable<System.DateTime> sc_awal
+		{
+			get
+			{
+				return this._sc_awal;
+			}
+			set
+			{
+				if ((this._sc_awal != value))
+				{
+					this._sc_awal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sc_akhir", DbType="Date")]
+		public System.Nullable<System.DateTime> sc_akhir
+		{
+			get
+			{
+				return this._sc_akhir;
+			}
+			set
+			{
+				if ((this._sc_akhir != value))
+				{
+					this._sc_akhir = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sttugas", DbType="VarChar(35)")]
+		public string sttugas
+		{
+			get
+			{
+				return this._sttugas;
+			}
+			set
+			{
+				if ((this._sttugas != value))
+				{
+					this._sttugas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_st_awal", DbType="Date")]
+		public System.Nullable<System.DateTime> st_awal
+		{
+			get
+			{
+				return this._st_awal;
+			}
+			set
+			{
+				if ((this._st_awal != value))
+				{
+					this._st_awal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_st_akhir", DbType="Date")]
+		public System.Nullable<System.DateTime> st_akhir
+		{
+			get
+			{
+				return this._st_akhir;
+			}
+			set
+			{
+				if ((this._st_akhir != value))
+				{
+					this._st_akhir = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> updated_at
+		{
+			get
+			{
+				return this._updated_at;
+			}
+			set
+			{
+				if ((this._updated_at != value))
+				{
+					this._updated_at = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updated_at_st", DbType="DateTime")]
+		public System.Nullable<System.DateTime> updated_at_st
+		{
+			get
+			{
+				return this._updated_at_st;
+			}
+			set
+			{
+				if ((this._updated_at_st != value))
+				{
+					this._updated_at_st = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updated_at_sc", DbType="DateTime")]
+		public System.Nullable<System.DateTime> updated_at_sc
+		{
+			get
+			{
+				return this._updated_at_sc;
+			}
+			set
+			{
+				if ((this._updated_at_sc != value))
+				{
+					this._updated_at_sc = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.asm_display_top3")]
+	public partial class asm_display_top3
+	{
+		
+		private System.Nullable<int> _Ranks;
+		
+		private string _pit;
+		
+		private string _nama;
+		
+		private string _nrp;
+		
+		private System.Nullable<decimal> _proty_hm;
+		
+		private System.Nullable<decimal> _presentase;
+		
+		private string _unit;
+		
+		public asm_display_top3()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ranks", DbType="Int")]
+		public System.Nullable<int> Ranks
+		{
+			get
+			{
+				return this._Ranks;
+			}
+			set
+			{
+				if ((this._Ranks != value))
+				{
+					this._Ranks = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pit", DbType="VarChar(255)")]
+		public string pit
+		{
+			get
+			{
+				return this._pit;
+			}
+			set
+			{
+				if ((this._pit != value))
+				{
+					this._pit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama", DbType="VarChar(255)")]
+		public string nama
+		{
+			get
+			{
+				return this._nama;
+			}
+			set
+			{
+				if ((this._nama != value))
+				{
+					this._nama = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="VarChar(255)")]
+		public string nrp
+		{
+			get
+			{
+				return this._nrp;
+			}
+			set
+			{
+				if ((this._nrp != value))
+				{
+					this._nrp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_proty_hm", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> proty_hm
+		{
+			get
+			{
+				return this._proty_hm;
+			}
+			set
+			{
+				if ((this._proty_hm != value))
+				{
+					this._proty_hm = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_presentase", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> presentase
+		{
+			get
+			{
+				return this._presentase;
+			}
+			set
+			{
+				if ((this._presentase != value))
+				{
+					this._presentase = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unit", DbType="VarChar(255)")]
+		public string unit
+		{
+			get
+			{
+				return this._unit;
+			}
+			set
+			{
+				if ((this._unit != value))
+				{
+					this._unit = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_m_running_text")]
+	public partial class tbl_m_running_text : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _pid;
+		
+		private string _text;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnpidChanging(string value);
+    partial void OnpidChanged();
+    partial void OntextChanging(string value);
+    partial void OntextChanged();
+    #endregion
+		
+		public tbl_m_running_text()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pid", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string pid
+		{
+			get
+			{
+				return this._pid;
+			}
+			set
+			{
+				if ((this._pid != value))
+				{
+					this.OnpidChanging(value);
+					this.SendPropertyChanging();
+					this._pid = value;
+					this.SendPropertyChanged("pid");
+					this.OnpidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_text", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string text
+		{
+			get
+			{
+				return this._text;
+			}
+			set
+			{
+				if ((this._text != value))
+				{
+					this.OntextChanging(value);
+					this.SendPropertyChanging();
+					this._text = value;
+					this.SendPropertyChanged("text");
+					this.OntextChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1824,452 +7741,6 @@ namespace AIA.Models
 					this._updated_at = value;
 					this.SendPropertyChanged("updated_at");
 					this.Onupdated_atChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_t_konseling_fatigue")]
-	public partial class tbl_t_konseling_fatigue : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _pid;
-		
-		private System.Nullable<System.DateTime> _tanggal;
-		
-		private string _nrp;
-		
-		private string _Jam_tidur;
-		
-		private System.Nullable<int> _is_minumobat;
-		
-		private System.Nullable<int> _is_masalah;
-		
-		private string _Status_ftw;
-		
-		private string _ftw_via;
-		
-		private string _Kategory_problem_fatigue;
-		
-		private string _remarksCNC;
-		
-		private string _Next_action;
-		
-		private System.Nullable<int> _Status_akumulasi;
-		
-		private string _Status_CNC;
-		
-		private string _Komitment;
-		
-		private string _CNC_by;
-		
-		private System.Nullable<System.DateTime> _CNC_date;
-		
-		private System.Nullable<int> _status;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnpidChanging(string value);
-    partial void OnpidChanged();
-    partial void OntanggalChanging(System.Nullable<System.DateTime> value);
-    partial void OntanggalChanged();
-    partial void OnnrpChanging(string value);
-    partial void OnnrpChanged();
-    partial void OnJam_tidurChanging(string value);
-    partial void OnJam_tidurChanged();
-    partial void Onis_minumobatChanging(System.Nullable<int> value);
-    partial void Onis_minumobatChanged();
-    partial void Onis_masalahChanging(System.Nullable<int> value);
-    partial void Onis_masalahChanged();
-    partial void OnStatus_ftwChanging(string value);
-    partial void OnStatus_ftwChanged();
-    partial void Onftw_viaChanging(string value);
-    partial void Onftw_viaChanged();
-    partial void OnKategory_problem_fatigueChanging(string value);
-    partial void OnKategory_problem_fatigueChanged();
-    partial void OnremarksCNCChanging(string value);
-    partial void OnremarksCNCChanged();
-    partial void OnNext_actionChanging(string value);
-    partial void OnNext_actionChanged();
-    partial void OnStatus_akumulasiChanging(System.Nullable<int> value);
-    partial void OnStatus_akumulasiChanged();
-    partial void OnStatus_CNCChanging(string value);
-    partial void OnStatus_CNCChanged();
-    partial void OnKomitmentChanging(string value);
-    partial void OnKomitmentChanged();
-    partial void OnCNC_byChanging(string value);
-    partial void OnCNC_byChanged();
-    partial void OnCNC_dateChanging(System.Nullable<System.DateTime> value);
-    partial void OnCNC_dateChanged();
-    partial void OnstatusChanging(System.Nullable<int> value);
-    partial void OnstatusChanged();
-    #endregion
-		
-		public tbl_t_konseling_fatigue()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pid", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string pid
-		{
-			get
-			{
-				return this._pid;
-			}
-			set
-			{
-				if ((this._pid != value))
-				{
-					this.OnpidChanging(value);
-					this.SendPropertyChanging();
-					this._pid = value;
-					this.SendPropertyChanged("pid");
-					this.OnpidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="Date")]
-		public System.Nullable<System.DateTime> tanggal
-		{
-			get
-			{
-				return this._tanggal;
-			}
-			set
-			{
-				if ((this._tanggal != value))
-				{
-					this.OntanggalChanging(value);
-					this.SendPropertyChanging();
-					this._tanggal = value;
-					this.SendPropertyChanged("tanggal");
-					this.OntanggalChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="VarChar(15)")]
-		public string nrp
-		{
-			get
-			{
-				return this._nrp;
-			}
-			set
-			{
-				if ((this._nrp != value))
-				{
-					this.OnnrpChanging(value);
-					this.SendPropertyChanging();
-					this._nrp = value;
-					this.SendPropertyChanged("nrp");
-					this.OnnrpChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Jam_tidur", DbType="VarChar(50)")]
-		public string Jam_tidur
-		{
-			get
-			{
-				return this._Jam_tidur;
-			}
-			set
-			{
-				if ((this._Jam_tidur != value))
-				{
-					this.OnJam_tidurChanging(value);
-					this.SendPropertyChanging();
-					this._Jam_tidur = value;
-					this.SendPropertyChanged("Jam_tidur");
-					this.OnJam_tidurChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_minumobat", DbType="Int")]
-		public System.Nullable<int> is_minumobat
-		{
-			get
-			{
-				return this._is_minumobat;
-			}
-			set
-			{
-				if ((this._is_minumobat != value))
-				{
-					this.Onis_minumobatChanging(value);
-					this.SendPropertyChanging();
-					this._is_minumobat = value;
-					this.SendPropertyChanged("is_minumobat");
-					this.Onis_minumobatChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_masalah", DbType="Int")]
-		public System.Nullable<int> is_masalah
-		{
-			get
-			{
-				return this._is_masalah;
-			}
-			set
-			{
-				if ((this._is_masalah != value))
-				{
-					this.Onis_masalahChanging(value);
-					this.SendPropertyChanging();
-					this._is_masalah = value;
-					this.SendPropertyChanged("is_masalah");
-					this.Onis_masalahChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status_ftw", DbType="VarChar(50)")]
-		public string Status_ftw
-		{
-			get
-			{
-				return this._Status_ftw;
-			}
-			set
-			{
-				if ((this._Status_ftw != value))
-				{
-					this.OnStatus_ftwChanging(value);
-					this.SendPropertyChanging();
-					this._Status_ftw = value;
-					this.SendPropertyChanged("Status_ftw");
-					this.OnStatus_ftwChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ftw_via", DbType="VarChar(100)")]
-		public string ftw_via
-		{
-			get
-			{
-				return this._ftw_via;
-			}
-			set
-			{
-				if ((this._ftw_via != value))
-				{
-					this.Onftw_viaChanging(value);
-					this.SendPropertyChanging();
-					this._ftw_via = value;
-					this.SendPropertyChanged("ftw_via");
-					this.Onftw_viaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Kategory_problem_fatigue", DbType="VarChar(100)")]
-		public string Kategory_problem_fatigue
-		{
-			get
-			{
-				return this._Kategory_problem_fatigue;
-			}
-			set
-			{
-				if ((this._Kategory_problem_fatigue != value))
-				{
-					this.OnKategory_problem_fatigueChanging(value);
-					this.SendPropertyChanging();
-					this._Kategory_problem_fatigue = value;
-					this.SendPropertyChanged("Kategory_problem_fatigue");
-					this.OnKategory_problem_fatigueChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_remarksCNC", DbType="VarChar(100)")]
-		public string remarksCNC
-		{
-			get
-			{
-				return this._remarksCNC;
-			}
-			set
-			{
-				if ((this._remarksCNC != value))
-				{
-					this.OnremarksCNCChanging(value);
-					this.SendPropertyChanging();
-					this._remarksCNC = value;
-					this.SendPropertyChanged("remarksCNC");
-					this.OnremarksCNCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Next_action", DbType="VarChar(100)")]
-		public string Next_action
-		{
-			get
-			{
-				return this._Next_action;
-			}
-			set
-			{
-				if ((this._Next_action != value))
-				{
-					this.OnNext_actionChanging(value);
-					this.SendPropertyChanging();
-					this._Next_action = value;
-					this.SendPropertyChanged("Next_action");
-					this.OnNext_actionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status_akumulasi", DbType="Int")]
-		public System.Nullable<int> Status_akumulasi
-		{
-			get
-			{
-				return this._Status_akumulasi;
-			}
-			set
-			{
-				if ((this._Status_akumulasi != value))
-				{
-					this.OnStatus_akumulasiChanging(value);
-					this.SendPropertyChanging();
-					this._Status_akumulasi = value;
-					this.SendPropertyChanged("Status_akumulasi");
-					this.OnStatus_akumulasiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status_CNC", DbType="VarChar(50)")]
-		public string Status_CNC
-		{
-			get
-			{
-				return this._Status_CNC;
-			}
-			set
-			{
-				if ((this._Status_CNC != value))
-				{
-					this.OnStatus_CNCChanging(value);
-					this.SendPropertyChanging();
-					this._Status_CNC = value;
-					this.SendPropertyChanged("Status_CNC");
-					this.OnStatus_CNCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Komitment", DbType="VarChar(100)")]
-		public string Komitment
-		{
-			get
-			{
-				return this._Komitment;
-			}
-			set
-			{
-				if ((this._Komitment != value))
-				{
-					this.OnKomitmentChanging(value);
-					this.SendPropertyChanging();
-					this._Komitment = value;
-					this.SendPropertyChanged("Komitment");
-					this.OnKomitmentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNC_by", DbType="VarChar(100)")]
-		public string CNC_by
-		{
-			get
-			{
-				return this._CNC_by;
-			}
-			set
-			{
-				if ((this._CNC_by != value))
-				{
-					this.OnCNC_byChanging(value);
-					this.SendPropertyChanging();
-					this._CNC_by = value;
-					this.SendPropertyChanged("CNC_by");
-					this.OnCNC_byChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNC_date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CNC_date
-		{
-			get
-			{
-				return this._CNC_date;
-			}
-			set
-			{
-				if ((this._CNC_date != value))
-				{
-					this.OnCNC_dateChanging(value);
-					this.SendPropertyChanging();
-					this._CNC_date = value;
-					this.SendPropertyChanged("CNC_date");
-					this.OnCNC_dateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int")]
-		public System.Nullable<int> status
-		{
-			get
-			{
-				return this._status;
-			}
-			set
-			{
-				if ((this._status != value))
-				{
-					this.OnstatusChanging(value);
-					this.SendPropertyChanging();
-					this._status = value;
-					this.SendPropertyChanged("status");
-					this.OnstatusChanged();
 				}
 			}
 		}
@@ -2811,6 +8282,213 @@ namespace AIA.Models
 				if ((this._created_by != value))
 				{
 					this._created_by = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_pln_service")]
+	public partial class tbl_pln_service
+	{
+		
+		private string _pid;
+		
+		private System.Nullable<System.DateTime> _tanggal;
+		
+		private string _egi;
+		
+		private string _cn_unit;
+		
+		private string _ps_type;
+		
+		private System.Nullable<System.TimeSpan> _start_time;
+		
+		private System.Nullable<int> _lead_time;
+		
+		private System.Nullable<System.TimeSpan> _estimasi_rfu;
+		
+		private string _remarks;
+		
+		private string _jenis;
+		
+		private System.Nullable<System.DateTime> _created_at;
+		
+		public tbl_pln_service()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pid", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string pid
+		{
+			get
+			{
+				return this._pid;
+			}
+			set
+			{
+				if ((this._pid != value))
+				{
+					this._pid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="Date")]
+		public System.Nullable<System.DateTime> tanggal
+		{
+			get
+			{
+				return this._tanggal;
+			}
+			set
+			{
+				if ((this._tanggal != value))
+				{
+					this._tanggal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_egi", DbType="VarChar(50)")]
+		public string egi
+		{
+			get
+			{
+				return this._egi;
+			}
+			set
+			{
+				if ((this._egi != value))
+				{
+					this._egi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cn_unit", DbType="VarChar(50)")]
+		public string cn_unit
+		{
+			get
+			{
+				return this._cn_unit;
+			}
+			set
+			{
+				if ((this._cn_unit != value))
+				{
+					this._cn_unit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ps_type", DbType="VarChar(50)")]
+		public string ps_type
+		{
+			get
+			{
+				return this._ps_type;
+			}
+			set
+			{
+				if ((this._ps_type != value))
+				{
+					this._ps_type = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start_time", DbType="Time")]
+		public System.Nullable<System.TimeSpan> start_time
+		{
+			get
+			{
+				return this._start_time;
+			}
+			set
+			{
+				if ((this._start_time != value))
+				{
+					this._start_time = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lead_time", DbType="Int")]
+		public System.Nullable<int> lead_time
+		{
+			get
+			{
+				return this._lead_time;
+			}
+			set
+			{
+				if ((this._lead_time != value))
+				{
+					this._lead_time = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estimasi_rfu", DbType="Time")]
+		public System.Nullable<System.TimeSpan> estimasi_rfu
+		{
+			get
+			{
+				return this._estimasi_rfu;
+			}
+			set
+			{
+				if ((this._estimasi_rfu != value))
+				{
+					this._estimasi_rfu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_remarks", DbType="VarChar(50)")]
+		public string remarks
+		{
+			get
+			{
+				return this._remarks;
+			}
+			set
+			{
+				if ((this._remarks != value))
+				{
+					this._remarks = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jenis", DbType="VarChar(50)")]
+		public string jenis
+		{
+			get
+			{
+				return this._jenis;
+			}
+			set
+			{
+				if ((this._jenis != value))
+				{
+					this._jenis = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> created_at
+		{
+			get
+			{
+				return this._created_at;
+			}
+			set
+			{
+				if ((this._created_at != value))
+				{
+					this._created_at = value;
 				}
 			}
 		}
@@ -3860,83 +9538,2756 @@ namespace AIA.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ASM_summary_catur")]
-	public partial class ASM_summary_catur
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_setting_fleet_vs_ftw_3s_ls")]
+	public partial class tbl_setting_fleet_vs_ftw_3s_l : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private System.Nullable<int> _jml_opr_siap_diseeting;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private System.Nullable<int> _operator_terseeting;
+		private string _cn_unit;
 		
-		private System.Nullable<int> _unit_kosong;
+		private string _loader;
 		
-		private string _SHIFT;
+		private string _hauler;
 		
-		public ASM_summary_catur()
+		private string _sektor;
+		
+		private string _areachangeshift;
+		
+		private string _cluster;
+		
+		private string _Nama;
+		
+		private string _nrp;
+		
+		private System.Nullable<System.DateTime> _tanggal;
+		
+		private string _shift;
+		
+		private string _Departemen;
+		
+		private System.Nullable<System.TimeSpan> _waktu_absen;
+		
+		private System.Nullable<System.TimeSpan> _waktu_ftw;
+		
+		private string _jenis_ftw;
+		
+		private string _status;
+		
+		private string _created_by;
+		
+		private string _jenis_user;
+		
+		private string _status_fatigue;
+		
+		private string _remarks;
+		
+		private string _pid;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Oncn_unitChanging(string value);
+    partial void Oncn_unitChanged();
+    partial void OnloaderChanging(string value);
+    partial void OnloaderChanged();
+    partial void OnhaulerChanging(string value);
+    partial void OnhaulerChanged();
+    partial void OnsektorChanging(string value);
+    partial void OnsektorChanged();
+    partial void OnareachangeshiftChanging(string value);
+    partial void OnareachangeshiftChanged();
+    partial void OnclusterChanging(string value);
+    partial void OnclusterChanged();
+    partial void OnNamaChanging(string value);
+    partial void OnNamaChanged();
+    partial void OnnrpChanging(string value);
+    partial void OnnrpChanged();
+    partial void OntanggalChanging(System.Nullable<System.DateTime> value);
+    partial void OntanggalChanged();
+    partial void OnshiftChanging(string value);
+    partial void OnshiftChanged();
+    partial void OnDepartemenChanging(string value);
+    partial void OnDepartemenChanged();
+    partial void Onwaktu_absenChanging(System.Nullable<System.TimeSpan> value);
+    partial void Onwaktu_absenChanged();
+    partial void Onwaktu_ftwChanging(System.Nullable<System.TimeSpan> value);
+    partial void Onwaktu_ftwChanged();
+    partial void Onjenis_ftwChanging(string value);
+    partial void Onjenis_ftwChanged();
+    partial void OnstatusChanging(string value);
+    partial void OnstatusChanged();
+    partial void Oncreated_byChanging(string value);
+    partial void Oncreated_byChanged();
+    partial void Onjenis_userChanging(string value);
+    partial void Onjenis_userChanged();
+    partial void Onstatus_fatigueChanging(string value);
+    partial void Onstatus_fatigueChanged();
+    partial void OnremarksChanging(string value);
+    partial void OnremarksChanged();
+    partial void OnpidChanging(string value);
+    partial void OnpidChanged();
+    #endregion
+		
+		public tbl_setting_fleet_vs_ftw_3s_l()
 		{
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jml_opr_siap_diseeting", DbType="Int")]
-		public System.Nullable<int> jml_opr_siap_diseeting
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cn_unit", DbType="VarChar(50)")]
+		public string cn_unit
 		{
 			get
 			{
-				return this._jml_opr_siap_diseeting;
+				return this._cn_unit;
 			}
 			set
 			{
-				if ((this._jml_opr_siap_diseeting != value))
+				if ((this._cn_unit != value))
 				{
-					this._jml_opr_siap_diseeting = value;
+					this.Oncn_unitChanging(value);
+					this.SendPropertyChanging();
+					this._cn_unit = value;
+					this.SendPropertyChanged("cn_unit");
+					this.Oncn_unitChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_operator_terseeting", DbType="Int")]
-		public System.Nullable<int> operator_terseeting
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader", DbType="VarChar(255)")]
+		public string loader
 		{
 			get
 			{
-				return this._operator_terseeting;
+				return this._loader;
 			}
 			set
 			{
-				if ((this._operator_terseeting != value))
+				if ((this._loader != value))
 				{
-					this._operator_terseeting = value;
+					this.OnloaderChanging(value);
+					this.SendPropertyChanging();
+					this._loader = value;
+					this.SendPropertyChanged("loader");
+					this.OnloaderChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unit_kosong", DbType="Int")]
-		public System.Nullable<int> unit_kosong
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler", DbType="VarChar(255)")]
+		public string hauler
 		{
 			get
 			{
-				return this._unit_kosong;
+				return this._hauler;
 			}
 			set
 			{
-				if ((this._unit_kosong != value))
+				if ((this._hauler != value))
 				{
-					this._unit_kosong = value;
+					this.OnhaulerChanging(value);
+					this.SendPropertyChanging();
+					this._hauler = value;
+					this.SendPropertyChanged("hauler");
+					this.OnhaulerChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIFT", DbType="VarChar(10)")]
-		public string SHIFT
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sektor", DbType="VarChar(255)")]
+		public string sektor
 		{
 			get
 			{
-				return this._SHIFT;
+				return this._sektor;
 			}
 			set
 			{
-				if ((this._SHIFT != value))
+				if ((this._sektor != value))
 				{
-					this._SHIFT = value;
+					this.OnsektorChanging(value);
+					this.SendPropertyChanging();
+					this._sektor = value;
+					this.SendPropertyChanged("sektor");
+					this.OnsektorChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_areachangeshift", DbType="VarChar(255)")]
+		public string areachangeshift
+		{
+			get
+			{
+				return this._areachangeshift;
+			}
+			set
+			{
+				if ((this._areachangeshift != value))
+				{
+					this.OnareachangeshiftChanging(value);
+					this.SendPropertyChanging();
+					this._areachangeshift = value;
+					this.SendPropertyChanged("areachangeshift");
+					this.OnareachangeshiftChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cluster", DbType="VarChar(255)")]
+		public string cluster
+		{
+			get
+			{
+				return this._cluster;
+			}
+			set
+			{
+				if ((this._cluster != value))
+				{
+					this.OnclusterChanging(value);
+					this.SendPropertyChanging();
+					this._cluster = value;
+					this.SendPropertyChanged("cluster");
+					this.OnclusterChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(255)")]
+		public string Nama
+		{
+			get
+			{
+				return this._Nama;
+			}
+			set
+			{
+				if ((this._Nama != value))
+				{
+					this.OnNamaChanging(value);
+					this.SendPropertyChanging();
+					this._Nama = value;
+					this.SendPropertyChanged("Nama");
+					this.OnNamaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="VarChar(50)")]
+		public string nrp
+		{
+			get
+			{
+				return this._nrp;
+			}
+			set
+			{
+				if ((this._nrp != value))
+				{
+					this.OnnrpChanging(value);
+					this.SendPropertyChanging();
+					this._nrp = value;
+					this.SendPropertyChanged("nrp");
+					this.OnnrpChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="Date")]
+		public System.Nullable<System.DateTime> tanggal
+		{
+			get
+			{
+				return this._tanggal;
+			}
+			set
+			{
+				if ((this._tanggal != value))
+				{
+					this.OntanggalChanging(value);
+					this.SendPropertyChanging();
+					this._tanggal = value;
+					this.SendPropertyChanged("tanggal");
+					this.OntanggalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shift", DbType="VarChar(255)")]
+		public string shift
+		{
+			get
+			{
+				return this._shift;
+			}
+			set
+			{
+				if ((this._shift != value))
+				{
+					this.OnshiftChanging(value);
+					this.SendPropertyChanging();
+					this._shift = value;
+					this.SendPropertyChanged("shift");
+					this.OnshiftChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Departemen", DbType="VarChar(255)")]
+		public string Departemen
+		{
+			get
+			{
+				return this._Departemen;
+			}
+			set
+			{
+				if ((this._Departemen != value))
+				{
+					this.OnDepartemenChanging(value);
+					this.SendPropertyChanging();
+					this._Departemen = value;
+					this.SendPropertyChanged("Departemen");
+					this.OnDepartemenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_waktu_absen", DbType="Time")]
+		public System.Nullable<System.TimeSpan> waktu_absen
+		{
+			get
+			{
+				return this._waktu_absen;
+			}
+			set
+			{
+				if ((this._waktu_absen != value))
+				{
+					this.Onwaktu_absenChanging(value);
+					this.SendPropertyChanging();
+					this._waktu_absen = value;
+					this.SendPropertyChanged("waktu_absen");
+					this.Onwaktu_absenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_waktu_ftw", DbType="Time")]
+		public System.Nullable<System.TimeSpan> waktu_ftw
+		{
+			get
+			{
+				return this._waktu_ftw;
+			}
+			set
+			{
+				if ((this._waktu_ftw != value))
+				{
+					this.Onwaktu_ftwChanging(value);
+					this.SendPropertyChanging();
+					this._waktu_ftw = value;
+					this.SendPropertyChanged("waktu_ftw");
+					this.Onwaktu_ftwChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jenis_ftw", DbType="VarChar(255)")]
+		public string jenis_ftw
+		{
+			get
+			{
+				return this._jenis_ftw;
+			}
+			set
+			{
+				if ((this._jenis_ftw != value))
+				{
+					this.Onjenis_ftwChanging(value);
+					this.SendPropertyChanging();
+					this._jenis_ftw = value;
+					this.SendPropertyChanged("jenis_ftw");
+					this.Onjenis_ftwChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="VarChar(255)")]
+		public string status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="VarChar(255)")]
+		public string created_by
+		{
+			get
+			{
+				return this._created_by;
+			}
+			set
+			{
+				if ((this._created_by != value))
+				{
+					this.Oncreated_byChanging(value);
+					this.SendPropertyChanging();
+					this._created_by = value;
+					this.SendPropertyChanged("created_by");
+					this.Oncreated_byChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jenis_user", DbType="VarChar(255)")]
+		public string jenis_user
+		{
+			get
+			{
+				return this._jenis_user;
+			}
+			set
+			{
+				if ((this._jenis_user != value))
+				{
+					this.Onjenis_userChanging(value);
+					this.SendPropertyChanging();
+					this._jenis_user = value;
+					this.SendPropertyChanged("jenis_user");
+					this.Onjenis_userChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status_fatigue", DbType="VarChar(255)")]
+		public string status_fatigue
+		{
+			get
+			{
+				return this._status_fatigue;
+			}
+			set
+			{
+				if ((this._status_fatigue != value))
+				{
+					this.Onstatus_fatigueChanging(value);
+					this.SendPropertyChanging();
+					this._status_fatigue = value;
+					this.SendPropertyChanged("status_fatigue");
+					this.Onstatus_fatigueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_remarks", DbType="VarChar(255)")]
+		public string remarks
+		{
+			get
+			{
+				return this._remarks;
+			}
+			set
+			{
+				if ((this._remarks != value))
+				{
+					this.OnremarksChanging(value);
+					this.SendPropertyChanging();
+					this._remarks = value;
+					this.SendPropertyChanged("remarks");
+					this.OnremarksChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pid", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string pid
+		{
+			get
+			{
+				return this._pid;
+			}
+			set
+			{
+				if ((this._pid != value))
+				{
+					this.OnpidChanging(value);
+					this.SendPropertyChanging();
+					this._pid = value;
+					this.SendPropertyChanged("pid");
+					this.OnpidChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_t_konseling_fatigue")]
+	public partial class tbl_t_konseling_fatigue : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _pid;
+		
+		private System.Nullable<System.DateTime> _tanggal;
+		
+		private string _nrp;
+		
+		private string _Jam_tidur;
+		
+		private System.Nullable<int> _is_minumobat;
+		
+		private System.Nullable<int> _is_masalah;
+		
+		private string _Status_ftw;
+		
+		private string _ftw_via;
+		
+		private string _Kategory_problem_fatigue;
+		
+		private string _remarksCNC;
+		
+		private string _Next_action;
+		
+		private System.Nullable<int> _Status_akumulasi;
+		
+		private string _Status_CNC;
+		
+		private string _Komitment;
+		
+		private string _CNC_by;
+		
+		private System.Nullable<System.DateTime> _CNC_date;
+		
+		private System.Nullable<int> _status;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnpidChanging(string value);
+    partial void OnpidChanged();
+    partial void OntanggalChanging(System.Nullable<System.DateTime> value);
+    partial void OntanggalChanged();
+    partial void OnnrpChanging(string value);
+    partial void OnnrpChanged();
+    partial void OnJam_tidurChanging(string value);
+    partial void OnJam_tidurChanged();
+    partial void Onis_minumobatChanging(System.Nullable<int> value);
+    partial void Onis_minumobatChanged();
+    partial void Onis_masalahChanging(System.Nullable<int> value);
+    partial void Onis_masalahChanged();
+    partial void OnStatus_ftwChanging(string value);
+    partial void OnStatus_ftwChanged();
+    partial void Onftw_viaChanging(string value);
+    partial void Onftw_viaChanged();
+    partial void OnKategory_problem_fatigueChanging(string value);
+    partial void OnKategory_problem_fatigueChanged();
+    partial void OnremarksCNCChanging(string value);
+    partial void OnremarksCNCChanged();
+    partial void OnNext_actionChanging(string value);
+    partial void OnNext_actionChanged();
+    partial void OnStatus_akumulasiChanging(System.Nullable<int> value);
+    partial void OnStatus_akumulasiChanged();
+    partial void OnStatus_CNCChanging(string value);
+    partial void OnStatus_CNCChanged();
+    partial void OnKomitmentChanging(string value);
+    partial void OnKomitmentChanged();
+    partial void OnCNC_byChanging(string value);
+    partial void OnCNC_byChanged();
+    partial void OnCNC_dateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCNC_dateChanged();
+    partial void OnstatusChanging(System.Nullable<int> value);
+    partial void OnstatusChanged();
+    #endregion
+		
+		public tbl_t_konseling_fatigue()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pid", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string pid
+		{
+			get
+			{
+				return this._pid;
+			}
+			set
+			{
+				if ((this._pid != value))
+				{
+					this.OnpidChanging(value);
+					this.SendPropertyChanging();
+					this._pid = value;
+					this.SendPropertyChanged("pid");
+					this.OnpidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="Date")]
+		public System.Nullable<System.DateTime> tanggal
+		{
+			get
+			{
+				return this._tanggal;
+			}
+			set
+			{
+				if ((this._tanggal != value))
+				{
+					this.OntanggalChanging(value);
+					this.SendPropertyChanging();
+					this._tanggal = value;
+					this.SendPropertyChanged("tanggal");
+					this.OntanggalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp", DbType="VarChar(15)")]
+		public string nrp
+		{
+			get
+			{
+				return this._nrp;
+			}
+			set
+			{
+				if ((this._nrp != value))
+				{
+					this.OnnrpChanging(value);
+					this.SendPropertyChanging();
+					this._nrp = value;
+					this.SendPropertyChanged("nrp");
+					this.OnnrpChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Jam_tidur", DbType="VarChar(50)")]
+		public string Jam_tidur
+		{
+			get
+			{
+				return this._Jam_tidur;
+			}
+			set
+			{
+				if ((this._Jam_tidur != value))
+				{
+					this.OnJam_tidurChanging(value);
+					this.SendPropertyChanging();
+					this._Jam_tidur = value;
+					this.SendPropertyChanged("Jam_tidur");
+					this.OnJam_tidurChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_minumobat", DbType="Int")]
+		public System.Nullable<int> is_minumobat
+		{
+			get
+			{
+				return this._is_minumobat;
+			}
+			set
+			{
+				if ((this._is_minumobat != value))
+				{
+					this.Onis_minumobatChanging(value);
+					this.SendPropertyChanging();
+					this._is_minumobat = value;
+					this.SendPropertyChanged("is_minumobat");
+					this.Onis_minumobatChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_masalah", DbType="Int")]
+		public System.Nullable<int> is_masalah
+		{
+			get
+			{
+				return this._is_masalah;
+			}
+			set
+			{
+				if ((this._is_masalah != value))
+				{
+					this.Onis_masalahChanging(value);
+					this.SendPropertyChanging();
+					this._is_masalah = value;
+					this.SendPropertyChanged("is_masalah");
+					this.Onis_masalahChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status_ftw", DbType="VarChar(50)")]
+		public string Status_ftw
+		{
+			get
+			{
+				return this._Status_ftw;
+			}
+			set
+			{
+				if ((this._Status_ftw != value))
+				{
+					this.OnStatus_ftwChanging(value);
+					this.SendPropertyChanging();
+					this._Status_ftw = value;
+					this.SendPropertyChanged("Status_ftw");
+					this.OnStatus_ftwChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ftw_via", DbType="VarChar(100)")]
+		public string ftw_via
+		{
+			get
+			{
+				return this._ftw_via;
+			}
+			set
+			{
+				if ((this._ftw_via != value))
+				{
+					this.Onftw_viaChanging(value);
+					this.SendPropertyChanging();
+					this._ftw_via = value;
+					this.SendPropertyChanged("ftw_via");
+					this.Onftw_viaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Kategory_problem_fatigue", DbType="VarChar(100)")]
+		public string Kategory_problem_fatigue
+		{
+			get
+			{
+				return this._Kategory_problem_fatigue;
+			}
+			set
+			{
+				if ((this._Kategory_problem_fatigue != value))
+				{
+					this.OnKategory_problem_fatigueChanging(value);
+					this.SendPropertyChanging();
+					this._Kategory_problem_fatigue = value;
+					this.SendPropertyChanged("Kategory_problem_fatigue");
+					this.OnKategory_problem_fatigueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_remarksCNC", DbType="VarChar(100)")]
+		public string remarksCNC
+		{
+			get
+			{
+				return this._remarksCNC;
+			}
+			set
+			{
+				if ((this._remarksCNC != value))
+				{
+					this.OnremarksCNCChanging(value);
+					this.SendPropertyChanging();
+					this._remarksCNC = value;
+					this.SendPropertyChanged("remarksCNC");
+					this.OnremarksCNCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Next_action", DbType="VarChar(100)")]
+		public string Next_action
+		{
+			get
+			{
+				return this._Next_action;
+			}
+			set
+			{
+				if ((this._Next_action != value))
+				{
+					this.OnNext_actionChanging(value);
+					this.SendPropertyChanging();
+					this._Next_action = value;
+					this.SendPropertyChanged("Next_action");
+					this.OnNext_actionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status_akumulasi", DbType="Int")]
+		public System.Nullable<int> Status_akumulasi
+		{
+			get
+			{
+				return this._Status_akumulasi;
+			}
+			set
+			{
+				if ((this._Status_akumulasi != value))
+				{
+					this.OnStatus_akumulasiChanging(value);
+					this.SendPropertyChanging();
+					this._Status_akumulasi = value;
+					this.SendPropertyChanged("Status_akumulasi");
+					this.OnStatus_akumulasiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status_CNC", DbType="VarChar(50)")]
+		public string Status_CNC
+		{
+			get
+			{
+				return this._Status_CNC;
+			}
+			set
+			{
+				if ((this._Status_CNC != value))
+				{
+					this.OnStatus_CNCChanging(value);
+					this.SendPropertyChanging();
+					this._Status_CNC = value;
+					this.SendPropertyChanged("Status_CNC");
+					this.OnStatus_CNCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Komitment", DbType="VarChar(100)")]
+		public string Komitment
+		{
+			get
+			{
+				return this._Komitment;
+			}
+			set
+			{
+				if ((this._Komitment != value))
+				{
+					this.OnKomitmentChanging(value);
+					this.SendPropertyChanging();
+					this._Komitment = value;
+					this.SendPropertyChanged("Komitment");
+					this.OnKomitmentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNC_by", DbType="VarChar(100)")]
+		public string CNC_by
+		{
+			get
+			{
+				return this._CNC_by;
+			}
+			set
+			{
+				if ((this._CNC_by != value))
+				{
+					this.OnCNC_byChanging(value);
+					this.SendPropertyChanging();
+					this._CNC_by = value;
+					this.SendPropertyChanged("CNC_by");
+					this.OnCNC_byChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNC_date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CNC_date
+		{
+			get
+			{
+				return this._CNC_date;
+			}
+			set
+			{
+				if ((this._CNC_date != value))
+				{
+					this.OnCNC_dateChanging(value);
+					this.SendPropertyChanging();
+					this._CNC_date = value;
+					this.SendPropertyChanged("CNC_date");
+					this.OnCNC_dateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int")]
+		public System.Nullable<int> status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_t_setting_fleet")]
+	public partial class tbl_t_setting_fleet : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _pid;
+		
+		private System.Nullable<System.DateTime> _tanggal;
+		
+		private string _shift;
+		
+		private string _sektor;
+		
+		private string _loader;
+		
+		private string _hauler;
+		
+		private string _front;
+		
+		private string _disposal;
+		
+		private string _group_leader;
+		
+		private System.Nullable<int> _loader_is_breadown;
+		
+		private System.Nullable<int> _hauler_is_breadown;
+		
+		private string _loader_smartd_connection_status;
+		
+		private System.Nullable<int> _loader_smartd_availability_delay;
+		
+		private string _loader_smartd_availability_category;
+		
+		private System.Nullable<int> _loader_vhms_eod;
+		
+		private string _loader_vhms_availability_category;
+		
+		private string _hauler_smartd_connection_status;
+		
+		private System.Nullable<int> _hauler_smartd_availability_delay;
+		
+		private string _hauler_smartd_availability_category;
+		
+		private System.Nullable<int> _hauler_vhms_eod;
+		
+		private string _hauler_vhms_availability_category;
+		
+		private string _loader_operator_nrp;
+		
+		private string _loader_operator_nama;
+		
+		private string _loader_ftw_status;
+		
+		private string _loader_ftw_jam_fatigue;
+		
+		private System.Nullable<System.TimeSpan> _loader_absensi_in;
+		
+		private string _loader_absensi_in_lokasi;
+		
+		private string _hauler_operator_nrp;
+		
+		private string _hauler_operator_nama;
+		
+		private string _hauler_ftw_status;
+		
+		private string _hauler_ftw_jam_fatigue;
+		
+		private System.Nullable<System.TimeSpan> _hauler_absensi_in;
+		
+		private string _hauler_absensi_in_lokasi;
+		
+		private System.Nullable<System.DateTime> _loader_created_at;
+		
+		private string _loader_created_by;
+		
+		private System.Nullable<System.DateTime> _loader_updated_at;
+		
+		private string _loader_updated_by;
+		
+		private System.Nullable<System.DateTime> _loader_is_breakdown_updated_at;
+		
+		private System.Nullable<System.DateTime> _loader_smartd_connection_status_updated_at;
+		
+		private System.Nullable<System.DateTime> _loader_vhms_updated_at;
+		
+		private System.Nullable<System.DateTime> _loader_operator_updated_at;
+		
+		private System.Nullable<System.DateTime> _loader_ftw_updated_at;
+		
+		private System.Nullable<System.DateTime> _loader_absensi_updated_at;
+		
+		private System.Nullable<System.DateTime> _hauler_created_at;
+		
+		private string _hauler_created_by;
+		
+		private System.Nullable<System.DateTime> _hauler_is_breakdown_updated_at;
+		
+		private System.Nullable<System.DateTime> _hauler_smartd_connection_status_updated_at;
+		
+		private System.Nullable<System.DateTime> _hauler_vhms_updated_at;
+		
+		private System.Nullable<System.DateTime> _hauler_operator_updated_at;
+		
+		private System.Nullable<System.DateTime> _hauler_ftw_updated_at;
+		
+		private System.Nullable<System.DateTime> _hauler_absensi_updated_at;
+		
+		private System.Nullable<System.DateTime> _sektor_updated_at;
+		
+		private System.Nullable<System.DateTime> _gl_updated_at;
+		
+		private string _sektor_updated_by;
+		
+		private System.Nullable<System.DateTime> _front_updated_at;
+		
+		private string _front_updated_by;
+		
+		private System.Nullable<System.DateTime> _disposal_updated_at;
+		
+		private string _disposal_updated_by;
+		
+		private System.Nullable<System.DateTime> _updated_at;
+		
+		private string _jam_update;
+		
+		private string _plan_speed;
+		
+		private string _actual_speed;
+		
+		private string _plan_jarak;
+		
+		private string _actual_jarak;
+		
+		private string _plan_produksi;
+		
+		private string _HD_plan;
+		
+		private string _HD_actual;
+		
+		private string _HD_setting;
+		
+		private string _GL1;
+		
+		private string _nrp_GL1;
+		
+		private string _GL2;
+		
+		private string _nrp_GL2;
+		
+		private string _change_shift;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnpidChanging(string value);
+    partial void OnpidChanged();
+    partial void OntanggalChanging(System.Nullable<System.DateTime> value);
+    partial void OntanggalChanged();
+    partial void OnshiftChanging(string value);
+    partial void OnshiftChanged();
+    partial void OnsektorChanging(string value);
+    partial void OnsektorChanged();
+    partial void OnloaderChanging(string value);
+    partial void OnloaderChanged();
+    partial void OnhaulerChanging(string value);
+    partial void OnhaulerChanged();
+    partial void OnfrontChanging(string value);
+    partial void OnfrontChanged();
+    partial void OndisposalChanging(string value);
+    partial void OndisposalChanged();
+    partial void Ongroup_leaderChanging(string value);
+    partial void Ongroup_leaderChanged();
+    partial void Onloader_is_breadownChanging(System.Nullable<int> value);
+    partial void Onloader_is_breadownChanged();
+    partial void Onhauler_is_breadownChanging(System.Nullable<int> value);
+    partial void Onhauler_is_breadownChanged();
+    partial void Onloader_smartd_connection_statusChanging(string value);
+    partial void Onloader_smartd_connection_statusChanged();
+    partial void Onloader_smartd_availability_delayChanging(System.Nullable<int> value);
+    partial void Onloader_smartd_availability_delayChanged();
+    partial void Onloader_smartd_availability_categoryChanging(string value);
+    partial void Onloader_smartd_availability_categoryChanged();
+    partial void Onloader_vhms_eodChanging(System.Nullable<int> value);
+    partial void Onloader_vhms_eodChanged();
+    partial void Onloader_vhms_availability_categoryChanging(string value);
+    partial void Onloader_vhms_availability_categoryChanged();
+    partial void Onhauler_smartd_connection_statusChanging(string value);
+    partial void Onhauler_smartd_connection_statusChanged();
+    partial void Onhauler_smartd_availability_delayChanging(System.Nullable<int> value);
+    partial void Onhauler_smartd_availability_delayChanged();
+    partial void Onhauler_smartd_availability_categoryChanging(string value);
+    partial void Onhauler_smartd_availability_categoryChanged();
+    partial void Onhauler_vhms_eodChanging(System.Nullable<int> value);
+    partial void Onhauler_vhms_eodChanged();
+    partial void Onhauler_vhms_availability_categoryChanging(string value);
+    partial void Onhauler_vhms_availability_categoryChanged();
+    partial void Onloader_operator_nrpChanging(string value);
+    partial void Onloader_operator_nrpChanged();
+    partial void Onloader_operator_namaChanging(string value);
+    partial void Onloader_operator_namaChanged();
+    partial void Onloader_ftw_statusChanging(string value);
+    partial void Onloader_ftw_statusChanged();
+    partial void Onloader_ftw_jam_fatigueChanging(string value);
+    partial void Onloader_ftw_jam_fatigueChanged();
+    partial void Onloader_absensi_inChanging(System.Nullable<System.TimeSpan> value);
+    partial void Onloader_absensi_inChanged();
+    partial void Onloader_absensi_in_lokasiChanging(string value);
+    partial void Onloader_absensi_in_lokasiChanged();
+    partial void Onhauler_operator_nrpChanging(string value);
+    partial void Onhauler_operator_nrpChanged();
+    partial void Onhauler_operator_namaChanging(string value);
+    partial void Onhauler_operator_namaChanged();
+    partial void Onhauler_ftw_statusChanging(string value);
+    partial void Onhauler_ftw_statusChanged();
+    partial void Onhauler_ftw_jam_fatigueChanging(string value);
+    partial void Onhauler_ftw_jam_fatigueChanged();
+    partial void Onhauler_absensi_inChanging(System.Nullable<System.TimeSpan> value);
+    partial void Onhauler_absensi_inChanged();
+    partial void Onhauler_absensi_in_lokasiChanging(string value);
+    partial void Onhauler_absensi_in_lokasiChanged();
+    partial void Onloader_created_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onloader_created_atChanged();
+    partial void Onloader_created_byChanging(string value);
+    partial void Onloader_created_byChanged();
+    partial void Onloader_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onloader_updated_atChanged();
+    partial void Onloader_updated_byChanging(string value);
+    partial void Onloader_updated_byChanged();
+    partial void Onloader_is_breakdown_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onloader_is_breakdown_updated_atChanged();
+    partial void Onloader_smartd_connection_status_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onloader_smartd_connection_status_updated_atChanged();
+    partial void Onloader_vhms_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onloader_vhms_updated_atChanged();
+    partial void Onloader_operator_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onloader_operator_updated_atChanged();
+    partial void Onloader_ftw_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onloader_ftw_updated_atChanged();
+    partial void Onloader_absensi_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onloader_absensi_updated_atChanged();
+    partial void Onhauler_created_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onhauler_created_atChanged();
+    partial void Onhauler_created_byChanging(string value);
+    partial void Onhauler_created_byChanged();
+    partial void Onhauler_is_breakdown_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onhauler_is_breakdown_updated_atChanged();
+    partial void Onhauler_smartd_connection_status_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onhauler_smartd_connection_status_updated_atChanged();
+    partial void Onhauler_vhms_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onhauler_vhms_updated_atChanged();
+    partial void Onhauler_operator_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onhauler_operator_updated_atChanged();
+    partial void Onhauler_ftw_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onhauler_ftw_updated_atChanged();
+    partial void Onhauler_absensi_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onhauler_absensi_updated_atChanged();
+    partial void Onsektor_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onsektor_updated_atChanged();
+    partial void Ongl_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Ongl_updated_atChanged();
+    partial void Onsektor_updated_byChanging(string value);
+    partial void Onsektor_updated_byChanged();
+    partial void Onfront_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onfront_updated_atChanged();
+    partial void Onfront_updated_byChanging(string value);
+    partial void Onfront_updated_byChanged();
+    partial void Ondisposal_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Ondisposal_updated_atChanged();
+    partial void Ondisposal_updated_byChanging(string value);
+    partial void Ondisposal_updated_byChanged();
+    partial void Onupdated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onupdated_atChanged();
+    partial void Onjam_updateChanging(string value);
+    partial void Onjam_updateChanged();
+    partial void Onplan_speedChanging(string value);
+    partial void Onplan_speedChanged();
+    partial void Onactual_speedChanging(string value);
+    partial void Onactual_speedChanged();
+    partial void Onplan_jarakChanging(string value);
+    partial void Onplan_jarakChanged();
+    partial void Onactual_jarakChanging(string value);
+    partial void Onactual_jarakChanged();
+    partial void Onplan_produksiChanging(string value);
+    partial void Onplan_produksiChanged();
+    partial void OnHD_planChanging(string value);
+    partial void OnHD_planChanged();
+    partial void OnHD_actualChanging(string value);
+    partial void OnHD_actualChanged();
+    partial void OnHD_settingChanging(string value);
+    partial void OnHD_settingChanged();
+    partial void OnGL1Changing(string value);
+    partial void OnGL1Changed();
+    partial void Onnrp_GL1Changing(string value);
+    partial void Onnrp_GL1Changed();
+    partial void OnGL2Changing(string value);
+    partial void OnGL2Changed();
+    partial void Onnrp_GL2Changing(string value);
+    partial void Onnrp_GL2Changed();
+    partial void Onchange_shiftChanging(string value);
+    partial void Onchange_shiftChanged();
+    #endregion
+		
+		public tbl_t_setting_fleet()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pid", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string pid
+		{
+			get
+			{
+				return this._pid;
+			}
+			set
+			{
+				if ((this._pid != value))
+				{
+					this.OnpidChanging(value);
+					this.SendPropertyChanging();
+					this._pid = value;
+					this.SendPropertyChanged("pid");
+					this.OnpidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tanggal", DbType="Date")]
+		public System.Nullable<System.DateTime> tanggal
+		{
+			get
+			{
+				return this._tanggal;
+			}
+			set
+			{
+				if ((this._tanggal != value))
+				{
+					this.OntanggalChanging(value);
+					this.SendPropertyChanging();
+					this._tanggal = value;
+					this.SendPropertyChanged("tanggal");
+					this.OntanggalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shift", DbType="VarChar(50)")]
+		public string shift
+		{
+			get
+			{
+				return this._shift;
+			}
+			set
+			{
+				if ((this._shift != value))
+				{
+					this.OnshiftChanging(value);
+					this.SendPropertyChanging();
+					this._shift = value;
+					this.SendPropertyChanged("shift");
+					this.OnshiftChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sektor", DbType="VarChar(50)")]
+		public string sektor
+		{
+			get
+			{
+				return this._sektor;
+			}
+			set
+			{
+				if ((this._sektor != value))
+				{
+					this.OnsektorChanging(value);
+					this.SendPropertyChanging();
+					this._sektor = value;
+					this.SendPropertyChanged("sektor");
+					this.OnsektorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader", DbType="VarChar(50)")]
+		public string loader
+		{
+			get
+			{
+				return this._loader;
+			}
+			set
+			{
+				if ((this._loader != value))
+				{
+					this.OnloaderChanging(value);
+					this.SendPropertyChanging();
+					this._loader = value;
+					this.SendPropertyChanged("loader");
+					this.OnloaderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler", DbType="VarChar(50)")]
+		public string hauler
+		{
+			get
+			{
+				return this._hauler;
+			}
+			set
+			{
+				if ((this._hauler != value))
+				{
+					this.OnhaulerChanging(value);
+					this.SendPropertyChanging();
+					this._hauler = value;
+					this.SendPropertyChanged("hauler");
+					this.OnhaulerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_front", DbType="VarChar(50)")]
+		public string front
+		{
+			get
+			{
+				return this._front;
+			}
+			set
+			{
+				if ((this._front != value))
+				{
+					this.OnfrontChanging(value);
+					this.SendPropertyChanging();
+					this._front = value;
+					this.SendPropertyChanged("front");
+					this.OnfrontChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_disposal", DbType="VarChar(50)")]
+		public string disposal
+		{
+			get
+			{
+				return this._disposal;
+			}
+			set
+			{
+				if ((this._disposal != value))
+				{
+					this.OndisposalChanging(value);
+					this.SendPropertyChanging();
+					this._disposal = value;
+					this.SendPropertyChanged("disposal");
+					this.OndisposalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_group_leader", DbType="VarChar(50)")]
+		public string group_leader
+		{
+			get
+			{
+				return this._group_leader;
+			}
+			set
+			{
+				if ((this._group_leader != value))
+				{
+					this.Ongroup_leaderChanging(value);
+					this.SendPropertyChanging();
+					this._group_leader = value;
+					this.SendPropertyChanged("group_leader");
+					this.Ongroup_leaderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_is_breadown", DbType="Int")]
+		public System.Nullable<int> loader_is_breadown
+		{
+			get
+			{
+				return this._loader_is_breadown;
+			}
+			set
+			{
+				if ((this._loader_is_breadown != value))
+				{
+					this.Onloader_is_breadownChanging(value);
+					this.SendPropertyChanging();
+					this._loader_is_breadown = value;
+					this.SendPropertyChanged("loader_is_breadown");
+					this.Onloader_is_breadownChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_is_breadown", DbType="Int")]
+		public System.Nullable<int> hauler_is_breadown
+		{
+			get
+			{
+				return this._hauler_is_breadown;
+			}
+			set
+			{
+				if ((this._hauler_is_breadown != value))
+				{
+					this.Onhauler_is_breadownChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_is_breadown = value;
+					this.SendPropertyChanged("hauler_is_breadown");
+					this.Onhauler_is_breadownChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_smartd_connection_status", DbType="VarChar(50)")]
+		public string loader_smartd_connection_status
+		{
+			get
+			{
+				return this._loader_smartd_connection_status;
+			}
+			set
+			{
+				if ((this._loader_smartd_connection_status != value))
+				{
+					this.Onloader_smartd_connection_statusChanging(value);
+					this.SendPropertyChanging();
+					this._loader_smartd_connection_status = value;
+					this.SendPropertyChanged("loader_smartd_connection_status");
+					this.Onloader_smartd_connection_statusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_smartd_availability_delay", DbType="Int")]
+		public System.Nullable<int> loader_smartd_availability_delay
+		{
+			get
+			{
+				return this._loader_smartd_availability_delay;
+			}
+			set
+			{
+				if ((this._loader_smartd_availability_delay != value))
+				{
+					this.Onloader_smartd_availability_delayChanging(value);
+					this.SendPropertyChanging();
+					this._loader_smartd_availability_delay = value;
+					this.SendPropertyChanged("loader_smartd_availability_delay");
+					this.Onloader_smartd_availability_delayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_smartd_availability_category", DbType="VarChar(50)")]
+		public string loader_smartd_availability_category
+		{
+			get
+			{
+				return this._loader_smartd_availability_category;
+			}
+			set
+			{
+				if ((this._loader_smartd_availability_category != value))
+				{
+					this.Onloader_smartd_availability_categoryChanging(value);
+					this.SendPropertyChanging();
+					this._loader_smartd_availability_category = value;
+					this.SendPropertyChanged("loader_smartd_availability_category");
+					this.Onloader_smartd_availability_categoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_vhms_eod", DbType="Int")]
+		public System.Nullable<int> loader_vhms_eod
+		{
+			get
+			{
+				return this._loader_vhms_eod;
+			}
+			set
+			{
+				if ((this._loader_vhms_eod != value))
+				{
+					this.Onloader_vhms_eodChanging(value);
+					this.SendPropertyChanging();
+					this._loader_vhms_eod = value;
+					this.SendPropertyChanged("loader_vhms_eod");
+					this.Onloader_vhms_eodChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_vhms_availability_category", DbType="VarChar(50)")]
+		public string loader_vhms_availability_category
+		{
+			get
+			{
+				return this._loader_vhms_availability_category;
+			}
+			set
+			{
+				if ((this._loader_vhms_availability_category != value))
+				{
+					this.Onloader_vhms_availability_categoryChanging(value);
+					this.SendPropertyChanging();
+					this._loader_vhms_availability_category = value;
+					this.SendPropertyChanged("loader_vhms_availability_category");
+					this.Onloader_vhms_availability_categoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_smartd_connection_status", DbType="VarChar(50)")]
+		public string hauler_smartd_connection_status
+		{
+			get
+			{
+				return this._hauler_smartd_connection_status;
+			}
+			set
+			{
+				if ((this._hauler_smartd_connection_status != value))
+				{
+					this.Onhauler_smartd_connection_statusChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_smartd_connection_status = value;
+					this.SendPropertyChanged("hauler_smartd_connection_status");
+					this.Onhauler_smartd_connection_statusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_smartd_availability_delay", DbType="Int")]
+		public System.Nullable<int> hauler_smartd_availability_delay
+		{
+			get
+			{
+				return this._hauler_smartd_availability_delay;
+			}
+			set
+			{
+				if ((this._hauler_smartd_availability_delay != value))
+				{
+					this.Onhauler_smartd_availability_delayChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_smartd_availability_delay = value;
+					this.SendPropertyChanged("hauler_smartd_availability_delay");
+					this.Onhauler_smartd_availability_delayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_smartd_availability_category", DbType="VarChar(50)")]
+		public string hauler_smartd_availability_category
+		{
+			get
+			{
+				return this._hauler_smartd_availability_category;
+			}
+			set
+			{
+				if ((this._hauler_smartd_availability_category != value))
+				{
+					this.Onhauler_smartd_availability_categoryChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_smartd_availability_category = value;
+					this.SendPropertyChanged("hauler_smartd_availability_category");
+					this.Onhauler_smartd_availability_categoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_vhms_eod", DbType="Int")]
+		public System.Nullable<int> hauler_vhms_eod
+		{
+			get
+			{
+				return this._hauler_vhms_eod;
+			}
+			set
+			{
+				if ((this._hauler_vhms_eod != value))
+				{
+					this.Onhauler_vhms_eodChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_vhms_eod = value;
+					this.SendPropertyChanged("hauler_vhms_eod");
+					this.Onhauler_vhms_eodChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_vhms_availability_category", DbType="VarChar(50)")]
+		public string hauler_vhms_availability_category
+		{
+			get
+			{
+				return this._hauler_vhms_availability_category;
+			}
+			set
+			{
+				if ((this._hauler_vhms_availability_category != value))
+				{
+					this.Onhauler_vhms_availability_categoryChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_vhms_availability_category = value;
+					this.SendPropertyChanged("hauler_vhms_availability_category");
+					this.Onhauler_vhms_availability_categoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_operator_nrp", DbType="VarChar(50)")]
+		public string loader_operator_nrp
+		{
+			get
+			{
+				return this._loader_operator_nrp;
+			}
+			set
+			{
+				if ((this._loader_operator_nrp != value))
+				{
+					this.Onloader_operator_nrpChanging(value);
+					this.SendPropertyChanging();
+					this._loader_operator_nrp = value;
+					this.SendPropertyChanged("loader_operator_nrp");
+					this.Onloader_operator_nrpChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_operator_nama", DbType="VarChar(50)")]
+		public string loader_operator_nama
+		{
+			get
+			{
+				return this._loader_operator_nama;
+			}
+			set
+			{
+				if ((this._loader_operator_nama != value))
+				{
+					this.Onloader_operator_namaChanging(value);
+					this.SendPropertyChanging();
+					this._loader_operator_nama = value;
+					this.SendPropertyChanged("loader_operator_nama");
+					this.Onloader_operator_namaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_ftw_status", DbType="VarChar(50)")]
+		public string loader_ftw_status
+		{
+			get
+			{
+				return this._loader_ftw_status;
+			}
+			set
+			{
+				if ((this._loader_ftw_status != value))
+				{
+					this.Onloader_ftw_statusChanging(value);
+					this.SendPropertyChanging();
+					this._loader_ftw_status = value;
+					this.SendPropertyChanged("loader_ftw_status");
+					this.Onloader_ftw_statusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_ftw_jam_fatigue", DbType="VarChar(50)")]
+		public string loader_ftw_jam_fatigue
+		{
+			get
+			{
+				return this._loader_ftw_jam_fatigue;
+			}
+			set
+			{
+				if ((this._loader_ftw_jam_fatigue != value))
+				{
+					this.Onloader_ftw_jam_fatigueChanging(value);
+					this.SendPropertyChanging();
+					this._loader_ftw_jam_fatigue = value;
+					this.SendPropertyChanged("loader_ftw_jam_fatigue");
+					this.Onloader_ftw_jam_fatigueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_absensi_in", DbType="Time")]
+		public System.Nullable<System.TimeSpan> loader_absensi_in
+		{
+			get
+			{
+				return this._loader_absensi_in;
+			}
+			set
+			{
+				if ((this._loader_absensi_in != value))
+				{
+					this.Onloader_absensi_inChanging(value);
+					this.SendPropertyChanging();
+					this._loader_absensi_in = value;
+					this.SendPropertyChanged("loader_absensi_in");
+					this.Onloader_absensi_inChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_absensi_in_lokasi", DbType="VarChar(50)")]
+		public string loader_absensi_in_lokasi
+		{
+			get
+			{
+				return this._loader_absensi_in_lokasi;
+			}
+			set
+			{
+				if ((this._loader_absensi_in_lokasi != value))
+				{
+					this.Onloader_absensi_in_lokasiChanging(value);
+					this.SendPropertyChanging();
+					this._loader_absensi_in_lokasi = value;
+					this.SendPropertyChanged("loader_absensi_in_lokasi");
+					this.Onloader_absensi_in_lokasiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_operator_nrp", DbType="VarChar(50)")]
+		public string hauler_operator_nrp
+		{
+			get
+			{
+				return this._hauler_operator_nrp;
+			}
+			set
+			{
+				if ((this._hauler_operator_nrp != value))
+				{
+					this.Onhauler_operator_nrpChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_operator_nrp = value;
+					this.SendPropertyChanged("hauler_operator_nrp");
+					this.Onhauler_operator_nrpChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_operator_nama", DbType="VarChar(50)")]
+		public string hauler_operator_nama
+		{
+			get
+			{
+				return this._hauler_operator_nama;
+			}
+			set
+			{
+				if ((this._hauler_operator_nama != value))
+				{
+					this.Onhauler_operator_namaChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_operator_nama = value;
+					this.SendPropertyChanged("hauler_operator_nama");
+					this.Onhauler_operator_namaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_ftw_status", DbType="VarChar(50)")]
+		public string hauler_ftw_status
+		{
+			get
+			{
+				return this._hauler_ftw_status;
+			}
+			set
+			{
+				if ((this._hauler_ftw_status != value))
+				{
+					this.Onhauler_ftw_statusChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_ftw_status = value;
+					this.SendPropertyChanged("hauler_ftw_status");
+					this.Onhauler_ftw_statusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_ftw_jam_fatigue", DbType="VarChar(50)")]
+		public string hauler_ftw_jam_fatigue
+		{
+			get
+			{
+				return this._hauler_ftw_jam_fatigue;
+			}
+			set
+			{
+				if ((this._hauler_ftw_jam_fatigue != value))
+				{
+					this.Onhauler_ftw_jam_fatigueChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_ftw_jam_fatigue = value;
+					this.SendPropertyChanged("hauler_ftw_jam_fatigue");
+					this.Onhauler_ftw_jam_fatigueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_absensi_in", DbType="Time")]
+		public System.Nullable<System.TimeSpan> hauler_absensi_in
+		{
+			get
+			{
+				return this._hauler_absensi_in;
+			}
+			set
+			{
+				if ((this._hauler_absensi_in != value))
+				{
+					this.Onhauler_absensi_inChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_absensi_in = value;
+					this.SendPropertyChanged("hauler_absensi_in");
+					this.Onhauler_absensi_inChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_absensi_in_lokasi", DbType="VarChar(50)")]
+		public string hauler_absensi_in_lokasi
+		{
+			get
+			{
+				return this._hauler_absensi_in_lokasi;
+			}
+			set
+			{
+				if ((this._hauler_absensi_in_lokasi != value))
+				{
+					this.Onhauler_absensi_in_lokasiChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_absensi_in_lokasi = value;
+					this.SendPropertyChanged("hauler_absensi_in_lokasi");
+					this.Onhauler_absensi_in_lokasiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_created_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> loader_created_at
+		{
+			get
+			{
+				return this._loader_created_at;
+			}
+			set
+			{
+				if ((this._loader_created_at != value))
+				{
+					this.Onloader_created_atChanging(value);
+					this.SendPropertyChanging();
+					this._loader_created_at = value;
+					this.SendPropertyChanged("loader_created_at");
+					this.Onloader_created_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_created_by", DbType="VarChar(50)")]
+		public string loader_created_by
+		{
+			get
+			{
+				return this._loader_created_by;
+			}
+			set
+			{
+				if ((this._loader_created_by != value))
+				{
+					this.Onloader_created_byChanging(value);
+					this.SendPropertyChanging();
+					this._loader_created_by = value;
+					this.SendPropertyChanged("loader_created_by");
+					this.Onloader_created_byChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> loader_updated_at
+		{
+			get
+			{
+				return this._loader_updated_at;
+			}
+			set
+			{
+				if ((this._loader_updated_at != value))
+				{
+					this.Onloader_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._loader_updated_at = value;
+					this.SendPropertyChanged("loader_updated_at");
+					this.Onloader_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_updated_by", DbType="VarChar(50)")]
+		public string loader_updated_by
+		{
+			get
+			{
+				return this._loader_updated_by;
+			}
+			set
+			{
+				if ((this._loader_updated_by != value))
+				{
+					this.Onloader_updated_byChanging(value);
+					this.SendPropertyChanging();
+					this._loader_updated_by = value;
+					this.SendPropertyChanged("loader_updated_by");
+					this.Onloader_updated_byChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_is_breakdown_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> loader_is_breakdown_updated_at
+		{
+			get
+			{
+				return this._loader_is_breakdown_updated_at;
+			}
+			set
+			{
+				if ((this._loader_is_breakdown_updated_at != value))
+				{
+					this.Onloader_is_breakdown_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._loader_is_breakdown_updated_at = value;
+					this.SendPropertyChanged("loader_is_breakdown_updated_at");
+					this.Onloader_is_breakdown_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_smartd_connection_status_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> loader_smartd_connection_status_updated_at
+		{
+			get
+			{
+				return this._loader_smartd_connection_status_updated_at;
+			}
+			set
+			{
+				if ((this._loader_smartd_connection_status_updated_at != value))
+				{
+					this.Onloader_smartd_connection_status_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._loader_smartd_connection_status_updated_at = value;
+					this.SendPropertyChanged("loader_smartd_connection_status_updated_at");
+					this.Onloader_smartd_connection_status_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_vhms_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> loader_vhms_updated_at
+		{
+			get
+			{
+				return this._loader_vhms_updated_at;
+			}
+			set
+			{
+				if ((this._loader_vhms_updated_at != value))
+				{
+					this.Onloader_vhms_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._loader_vhms_updated_at = value;
+					this.SendPropertyChanged("loader_vhms_updated_at");
+					this.Onloader_vhms_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_operator_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> loader_operator_updated_at
+		{
+			get
+			{
+				return this._loader_operator_updated_at;
+			}
+			set
+			{
+				if ((this._loader_operator_updated_at != value))
+				{
+					this.Onloader_operator_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._loader_operator_updated_at = value;
+					this.SendPropertyChanged("loader_operator_updated_at");
+					this.Onloader_operator_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_ftw_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> loader_ftw_updated_at
+		{
+			get
+			{
+				return this._loader_ftw_updated_at;
+			}
+			set
+			{
+				if ((this._loader_ftw_updated_at != value))
+				{
+					this.Onloader_ftw_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._loader_ftw_updated_at = value;
+					this.SendPropertyChanged("loader_ftw_updated_at");
+					this.Onloader_ftw_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loader_absensi_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> loader_absensi_updated_at
+		{
+			get
+			{
+				return this._loader_absensi_updated_at;
+			}
+			set
+			{
+				if ((this._loader_absensi_updated_at != value))
+				{
+					this.Onloader_absensi_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._loader_absensi_updated_at = value;
+					this.SendPropertyChanged("loader_absensi_updated_at");
+					this.Onloader_absensi_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_created_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> hauler_created_at
+		{
+			get
+			{
+				return this._hauler_created_at;
+			}
+			set
+			{
+				if ((this._hauler_created_at != value))
+				{
+					this.Onhauler_created_atChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_created_at = value;
+					this.SendPropertyChanged("hauler_created_at");
+					this.Onhauler_created_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_created_by", DbType="VarChar(50)")]
+		public string hauler_created_by
+		{
+			get
+			{
+				return this._hauler_created_by;
+			}
+			set
+			{
+				if ((this._hauler_created_by != value))
+				{
+					this.Onhauler_created_byChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_created_by = value;
+					this.SendPropertyChanged("hauler_created_by");
+					this.Onhauler_created_byChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_is_breakdown_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> hauler_is_breakdown_updated_at
+		{
+			get
+			{
+				return this._hauler_is_breakdown_updated_at;
+			}
+			set
+			{
+				if ((this._hauler_is_breakdown_updated_at != value))
+				{
+					this.Onhauler_is_breakdown_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_is_breakdown_updated_at = value;
+					this.SendPropertyChanged("hauler_is_breakdown_updated_at");
+					this.Onhauler_is_breakdown_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_smartd_connection_status_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> hauler_smartd_connection_status_updated_at
+		{
+			get
+			{
+				return this._hauler_smartd_connection_status_updated_at;
+			}
+			set
+			{
+				if ((this._hauler_smartd_connection_status_updated_at != value))
+				{
+					this.Onhauler_smartd_connection_status_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_smartd_connection_status_updated_at = value;
+					this.SendPropertyChanged("hauler_smartd_connection_status_updated_at");
+					this.Onhauler_smartd_connection_status_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_vhms_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> hauler_vhms_updated_at
+		{
+			get
+			{
+				return this._hauler_vhms_updated_at;
+			}
+			set
+			{
+				if ((this._hauler_vhms_updated_at != value))
+				{
+					this.Onhauler_vhms_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_vhms_updated_at = value;
+					this.SendPropertyChanged("hauler_vhms_updated_at");
+					this.Onhauler_vhms_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_operator_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> hauler_operator_updated_at
+		{
+			get
+			{
+				return this._hauler_operator_updated_at;
+			}
+			set
+			{
+				if ((this._hauler_operator_updated_at != value))
+				{
+					this.Onhauler_operator_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_operator_updated_at = value;
+					this.SendPropertyChanged("hauler_operator_updated_at");
+					this.Onhauler_operator_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_ftw_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> hauler_ftw_updated_at
+		{
+			get
+			{
+				return this._hauler_ftw_updated_at;
+			}
+			set
+			{
+				if ((this._hauler_ftw_updated_at != value))
+				{
+					this.Onhauler_ftw_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_ftw_updated_at = value;
+					this.SendPropertyChanged("hauler_ftw_updated_at");
+					this.Onhauler_ftw_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hauler_absensi_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> hauler_absensi_updated_at
+		{
+			get
+			{
+				return this._hauler_absensi_updated_at;
+			}
+			set
+			{
+				if ((this._hauler_absensi_updated_at != value))
+				{
+					this.Onhauler_absensi_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._hauler_absensi_updated_at = value;
+					this.SendPropertyChanged("hauler_absensi_updated_at");
+					this.Onhauler_absensi_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sektor_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> sektor_updated_at
+		{
+			get
+			{
+				return this._sektor_updated_at;
+			}
+			set
+			{
+				if ((this._sektor_updated_at != value))
+				{
+					this.Onsektor_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._sektor_updated_at = value;
+					this.SendPropertyChanged("sektor_updated_at");
+					this.Onsektor_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gl_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> gl_updated_at
+		{
+			get
+			{
+				return this._gl_updated_at;
+			}
+			set
+			{
+				if ((this._gl_updated_at != value))
+				{
+					this.Ongl_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._gl_updated_at = value;
+					this.SendPropertyChanged("gl_updated_at");
+					this.Ongl_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sektor_updated_by", DbType="VarChar(50)")]
+		public string sektor_updated_by
+		{
+			get
+			{
+				return this._sektor_updated_by;
+			}
+			set
+			{
+				if ((this._sektor_updated_by != value))
+				{
+					this.Onsektor_updated_byChanging(value);
+					this.SendPropertyChanging();
+					this._sektor_updated_by = value;
+					this.SendPropertyChanged("sektor_updated_by");
+					this.Onsektor_updated_byChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_front_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> front_updated_at
+		{
+			get
+			{
+				return this._front_updated_at;
+			}
+			set
+			{
+				if ((this._front_updated_at != value))
+				{
+					this.Onfront_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._front_updated_at = value;
+					this.SendPropertyChanged("front_updated_at");
+					this.Onfront_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_front_updated_by", DbType="VarChar(50)")]
+		public string front_updated_by
+		{
+			get
+			{
+				return this._front_updated_by;
+			}
+			set
+			{
+				if ((this._front_updated_by != value))
+				{
+					this.Onfront_updated_byChanging(value);
+					this.SendPropertyChanging();
+					this._front_updated_by = value;
+					this.SendPropertyChanged("front_updated_by");
+					this.Onfront_updated_byChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_disposal_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> disposal_updated_at
+		{
+			get
+			{
+				return this._disposal_updated_at;
+			}
+			set
+			{
+				if ((this._disposal_updated_at != value))
+				{
+					this.Ondisposal_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._disposal_updated_at = value;
+					this.SendPropertyChanged("disposal_updated_at");
+					this.Ondisposal_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_disposal_updated_by", DbType="VarChar(50)")]
+		public string disposal_updated_by
+		{
+			get
+			{
+				return this._disposal_updated_by;
+			}
+			set
+			{
+				if ((this._disposal_updated_by != value))
+				{
+					this.Ondisposal_updated_byChanging(value);
+					this.SendPropertyChanging();
+					this._disposal_updated_by = value;
+					this.SendPropertyChanged("disposal_updated_by");
+					this.Ondisposal_updated_byChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> updated_at
+		{
+			get
+			{
+				return this._updated_at;
+			}
+			set
+			{
+				if ((this._updated_at != value))
+				{
+					this.Onupdated_atChanging(value);
+					this.SendPropertyChanging();
+					this._updated_at = value;
+					this.SendPropertyChanged("updated_at");
+					this.Onupdated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jam_update", DbType="VarChar(50)")]
+		public string jam_update
+		{
+			get
+			{
+				return this._jam_update;
+			}
+			set
+			{
+				if ((this._jam_update != value))
+				{
+					this.Onjam_updateChanging(value);
+					this.SendPropertyChanging();
+					this._jam_update = value;
+					this.SendPropertyChanged("jam_update");
+					this.Onjam_updateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_plan_speed", DbType="VarChar(50)")]
+		public string plan_speed
+		{
+			get
+			{
+				return this._plan_speed;
+			}
+			set
+			{
+				if ((this._plan_speed != value))
+				{
+					this.Onplan_speedChanging(value);
+					this.SendPropertyChanging();
+					this._plan_speed = value;
+					this.SendPropertyChanged("plan_speed");
+					this.Onplan_speedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_actual_speed", DbType="VarChar(50)")]
+		public string actual_speed
+		{
+			get
+			{
+				return this._actual_speed;
+			}
+			set
+			{
+				if ((this._actual_speed != value))
+				{
+					this.Onactual_speedChanging(value);
+					this.SendPropertyChanging();
+					this._actual_speed = value;
+					this.SendPropertyChanged("actual_speed");
+					this.Onactual_speedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_plan_jarak", DbType="VarChar(50)")]
+		public string plan_jarak
+		{
+			get
+			{
+				return this._plan_jarak;
+			}
+			set
+			{
+				if ((this._plan_jarak != value))
+				{
+					this.Onplan_jarakChanging(value);
+					this.SendPropertyChanging();
+					this._plan_jarak = value;
+					this.SendPropertyChanged("plan_jarak");
+					this.Onplan_jarakChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_actual_jarak", DbType="VarChar(50)")]
+		public string actual_jarak
+		{
+			get
+			{
+				return this._actual_jarak;
+			}
+			set
+			{
+				if ((this._actual_jarak != value))
+				{
+					this.Onactual_jarakChanging(value);
+					this.SendPropertyChanging();
+					this._actual_jarak = value;
+					this.SendPropertyChanged("actual_jarak");
+					this.Onactual_jarakChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_plan_produksi", DbType="VarChar(50)")]
+		public string plan_produksi
+		{
+			get
+			{
+				return this._plan_produksi;
+			}
+			set
+			{
+				if ((this._plan_produksi != value))
+				{
+					this.Onplan_produksiChanging(value);
+					this.SendPropertyChanging();
+					this._plan_produksi = value;
+					this.SendPropertyChanged("plan_produksi");
+					this.Onplan_produksiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HD_plan", DbType="VarChar(50)")]
+		public string HD_plan
+		{
+			get
+			{
+				return this._HD_plan;
+			}
+			set
+			{
+				if ((this._HD_plan != value))
+				{
+					this.OnHD_planChanging(value);
+					this.SendPropertyChanging();
+					this._HD_plan = value;
+					this.SendPropertyChanged("HD_plan");
+					this.OnHD_planChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HD_actual", DbType="VarChar(50)")]
+		public string HD_actual
+		{
+			get
+			{
+				return this._HD_actual;
+			}
+			set
+			{
+				if ((this._HD_actual != value))
+				{
+					this.OnHD_actualChanging(value);
+					this.SendPropertyChanging();
+					this._HD_actual = value;
+					this.SendPropertyChanged("HD_actual");
+					this.OnHD_actualChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HD_setting", DbType="VarChar(50)")]
+		public string HD_setting
+		{
+			get
+			{
+				return this._HD_setting;
+			}
+			set
+			{
+				if ((this._HD_setting != value))
+				{
+					this.OnHD_settingChanging(value);
+					this.SendPropertyChanging();
+					this._HD_setting = value;
+					this.SendPropertyChanged("HD_setting");
+					this.OnHD_settingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GL1", DbType="VarChar(50)")]
+		public string GL1
+		{
+			get
+			{
+				return this._GL1;
+			}
+			set
+			{
+				if ((this._GL1 != value))
+				{
+					this.OnGL1Changing(value);
+					this.SendPropertyChanging();
+					this._GL1 = value;
+					this.SendPropertyChanged("GL1");
+					this.OnGL1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp_GL1", DbType="VarChar(50)")]
+		public string nrp_GL1
+		{
+			get
+			{
+				return this._nrp_GL1;
+			}
+			set
+			{
+				if ((this._nrp_GL1 != value))
+				{
+					this.Onnrp_GL1Changing(value);
+					this.SendPropertyChanging();
+					this._nrp_GL1 = value;
+					this.SendPropertyChanged("nrp_GL1");
+					this.Onnrp_GL1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GL2", DbType="VarChar(50)")]
+		public string GL2
+		{
+			get
+			{
+				return this._GL2;
+			}
+			set
+			{
+				if ((this._GL2 != value))
+				{
+					this.OnGL2Changing(value);
+					this.SendPropertyChanging();
+					this._GL2 = value;
+					this.SendPropertyChanged("GL2");
+					this.OnGL2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrp_GL2", DbType="VarChar(50)")]
+		public string nrp_GL2
+		{
+			get
+			{
+				return this._nrp_GL2;
+			}
+			set
+			{
+				if ((this._nrp_GL2 != value))
+				{
+					this.Onnrp_GL2Changing(value);
+					this.SendPropertyChanging();
+					this._nrp_GL2 = value;
+					this.SendPropertyChanged("nrp_GL2");
+					this.Onnrp_GL2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_change_shift", DbType="VarChar(50)")]
+		public string change_shift
+		{
+			get
+			{
+				return this._change_shift;
+			}
+			set
+			{
+				if ((this._change_shift != value))
+				{
+					this.Onchange_shiftChanging(value);
+					this.SendPropertyChanging();
+					this._change_shift = value;
+					this.SendPropertyChanged("change_shift");
+					this.Onchange_shiftChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

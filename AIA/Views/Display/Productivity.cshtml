@@ -1,0 +1,365 @@
+﻿
+@{
+    ViewBag.Title = "Productivity";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Horizontal Layout | Productivity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="~/Assets2/images/favicon.ico">
+    <!-- App css -->
+    <link href="~/Assets2/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
+    <!-- icons -->
+    <link href="~/Assets2/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        body {
+            width: 1080px; /* Lebar konten */
+            height: 1920px; /* Tinggi konten */
+            margin: 0 auto;
+            overflow: hidden; /* Menghindari scrollbars */
+            background-color: #000000;
+            color: white; /* Untuk menyesuaikan warna teks agar kontras dengan latar belakang hitam */
+            font-family: "Arial", Courier, monospace;
+            font-size: 20px;
+        }
+
+        .content1 {
+            width: 1080px;
+            height: 958px;
+            float: left;
+        }
+
+        .line-container {
+            width: 1080px; /* Lebar garis */
+            height: 4px; /* Tinggi garis */
+            float: left;
+        }
+
+        .line-wrapper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .line {
+            border: none;
+            height: 100%;
+            color: #FFA500;
+            background-color: #FFA500;
+            margin: 0;
+            box-shadow: 2px 2px 4px #FFA500; /* Mendefinisikan bayangan */
+        }
+
+
+        .content2 {
+            width: 1080px;
+            height: 958px;
+            float: left;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .card-nama {
+            border: 1px solid red;
+            border-radius: 10px;
+            box-shadow: 0 0 20px 0 rgba(255, 0, 0, 0.5);
+            font-size: 25px;
+        }
+
+        .card-top {
+            border: 1px solid green;
+            border-radius: 10px;
+            box-shadow: 0 0 20px 0 rgba(0, 255, 0, 0.5); /* Mengubah warna shadow menjadi hijau */
+            font-size: 25px;
+        }
+
+
+        .progress-bar {
+            width: 100%;
+            background-color: #990c0c;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 20px 0 rgba(255, 0, 0, 0.5);
+        }
+
+        .progress-bar1 {
+            width: 100%;
+            background-color: green;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: rgba(0, 255, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="content1">
+        <div class="card text-white bg-black">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <center>
+                            <img src="~/Assets/img/decrease.png" style="width: 100px; height: 100px; " />
+                        </center>
+                    </div>
+                    <div class="col-lg-7 text-left">
+                        <p style="font-size: 30px; margin-bottom: 0px;">DISPLAY PRODUCTIVITY DUMPTRUCK UP > 231 bcm/jam </p>
+                        <p style="font-size: 30px; margin-bottom: 0px; color: #ff0000"> BOTTOM 3</p>
+                    </div>
+                    <div class="col-lg-3 text-right">
+                        <p id="time" style="font-size: 40px; margin-bottom: 0px; "></p>
+                        <p id="date" style="font-size: 20px; margin-bottom: 0px;"></p>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="line-wrapper">
+                        <hr class="line">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 center" style="font-size: 40px; font-family: 'Arial Rounded MT', Courier, monospace; color: darkorange">SEKTOR 1</div>
+                    <div class="col-lg-6 center" style="font-size: 40px; font-family: 'Arial Rounded MT', Courier, monospace; color: darkorange">SEKTOR 2</div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 center" id="sektor1">
+
+                    </div>
+                    <div class="col-lg-6 center" id="sektor2">
+
+                    </div>
+                </div>
+                <div style='margin-top: 30px;'></div>
+                <div class="row">
+                    <div class="col-lg-6 center" style="font-size: 40px; font-family: 'Arial Rounded MT', Courier, monospace; color: darkorange">SEKTOR 4</div>
+                    <div class="col-lg-6 center" style="font-size: 40px; font-family: 'Arial Rounded MT', Courier, monospace; color: darkorange">SEKTOR 7</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 center" id="sektor4">
+
+                    </div>
+                    <div class="col-lg-6 center" id="sektor7">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="line-container">
+            <div class="line-wrapper">
+                <hr class="line">
+            </div>
+        </div>*@
+    <div class="content2">
+        <div class="card text-white bg-black">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <center>
+                            <img src="~/Assets/img/increase.png" style="width: 100px; height: 100px; " />
+                        </center>
+                    </div>
+                    <div class="col-lg-10 text-left">
+                        <p style="font-size: 30px; margin-bottom: 0px;"></p>
+                        <p style="font-size: 30px; margin-bottom: 0px; color: greenyellow"> TOP 3</p>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="line-wrapper">
+                        <hr class="line">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 center" style="font-size: 40px; font-family: 'Arial Rounded MT', Courier, monospace; color: greenyellow">SEKTOR 1</div>
+                    <div class="col-lg-6 center" style="font-size: 40px; font-family: 'Arial Rounded MT', Courier, monospace; color: greenyellow">SEKTOR 2</div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 center" id="sektor1top">
+
+                    </div>
+                    <div class="col-lg-6 center" id="sektor2top">
+
+                    </div>
+                </div>
+                <div style='margin-top: 30px;'></div>
+                <div class="row">
+                    <div class="col-lg-6 center" style="font-size: 40px; font-family: 'Arial Rounded MT', Courier, monospace; color: greenyellow">SEKTOR 4</div>
+                    <div class="col-lg-6 center" style="font-size: 40px; font-family: 'Arial Rounded MT', Courier, monospace; color: greenyellow">SEKTOR 7</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 center" id="sektor4top">
+
+                    </div>
+                    <div class="col-lg-6 center" id="sektor7top">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<!-- Vendor -->
+<script src="~/Assets2/libs/jquery/jquery.min.js"></script>
+<script src="~/Assets2/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Assets2/libs/simplebar/simplebar.min.js"></script>
+<script src="~/Assets2/libs/node-waves/waves.min.js"></script>
+<script src="~/Assets2/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+<script src="~/Assets2/libs/jquery.counterup/jquery.counterup.min.js"></script>
+<script src="~/Assets2/libs/feather-icons/feather.min.js"></script>
+<!-- App js-->
+<script src="~/Assets/jquery-3.6.4.min.js"></script>
+<link href="~/Assets/perfect-scrollbar.min.css" rel="stylesheet" />
+<script src="~/Assets2/js/app.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" defer></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Digital-7:wght@400;700&display=swap">
+
+
+
+<script>
+        var link = '@Url.Action("Function", "Controller")'
+        var controller_name = "@ViewBag.Controller"
+        var a
+    $(document).ready(function () {
+    getBottom('PIT RANGKOK', 'sektor1');
+    getBottom('PIT S02A', 'sektor2');
+    getBottom('PIT S04A', 'sektor4');
+    getBottom('PIT S07A', 'sektor7');
+
+    getTop('PIT RANGKOK','sektor1top');
+    getTop('PIT S02A','sektor2top');
+    getTop('PIT S04A','sektor4top');
+        getTop('PIT S07A', 'sektor7top');
+        autoReloadPage()
+        updateDateTime();
+        setInterval(function () {
+            updateDateTime();
+        }, 1000);
+});
+
+function getBottom(pit, sektorId) {
+    var link = '@Url.Action("Function", "Controller")';
+    link = link.replace("Controller", "Display");
+    link = link.replace("Function", "GetBottom");
+
+    $.ajax({
+        type: "GET",
+        url: link + '?pit=' + pit,
+        success: function (data) {
+            if (data.status) {
+                $("#" + sektorId).append(data.data);
+            } else {
+                alert(data.data);
+            }
+        }
+    });
+}
+
+function getTop(sektor, a) {
+    var link = '@Url.Action("Function", "Controller")';
+    link = link.replace("Controller", "Display");
+    link = link.replace("Function", "GetTop");
+
+    $.ajax({
+        type: "GET",
+        url: link + '?sektor=' + sektor,
+        success: function (data) {
+            if (data.status) {
+                $("#" + a).append(data.data);
+            } else {
+                alert(data.data);
+            }
+        }
+    });
+}
+
+
+    function move() {
+        document.addEventListener("DOMContentLoaded", function () {
+            var progressBars = document.querySelectorAll(".progress-bar");
+            progressBars.forEach(function (progressBar) {
+                var percentage = parseFloat(progressBar.getAttribute("id"));
+                var progress = progressBar.querySelector(".progress");
+                progress.style.width = percentage + "%";
+            });
+        });
+    }
+
+
+        //function updateDateTime() {
+        //    // Mendapatkan waktu dan tanggal sekarang
+        //    var now = new Date();
+
+        //    // Format waktu HH:MM:SS
+        //    var hours = now.getHours().toString().padStart(2, '0');
+        //    var minutes = now.getMinutes().toString().padStart(2, '0');
+        //    var seconds = now.getSeconds().toString().padStart(2, '0');
+
+        //    // Format tanggal DD/MM/YYYY
+        //    var day = now.getDate().toString().padStart(2, '0');
+        //    var month = (now.getMonth() + 1).toString().padStart(2, '0'); // Bulan dimulai dari 0
+        //    var year = now.getFullYear();
+
+        //    // Menetapkan waktu dan tanggal ke elemen HTML
+        //    $('#time').text(hours + ':' + minutes + ':' + seconds);
+        //    $('#date').text(day + '-' + month + '-' + year);
+        //}
+
+    function updateDateTime() {
+        fetch('http://10.183.5.4:3000/datetime')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Menetapkan waktu dan tanggal ke elemen HTML
+                document.getElementById('time').textContent = data.time;
+                document.getElementById('date').textContent = data.date;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Mengambil waktu lokal jika gagal mengambil dari server
+                const now = new Date();
+                const hours = now.getHours().toString().padStart(2, '0');
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                const seconds = now.getSeconds().toString().padStart(2, '0');
+                const day = now.getDate().toString().padStart(2, '0');
+                const month = (now.getMonth() + 1).toString().padStart(2, '0');
+                const year = now.getFullYear();
+
+                const time = `${hours}:${minutes}:${seconds}`;
+                const date = `${day}-${month}-${year}`;
+
+                // Menetapkan waktu dan tanggal lokal ke elemen HTML
+                document.getElementById('time').textContent = time;
+                document.getElementById('date').textContent = date;
+            });
+    }
+
+
+
+    function autoReloadPage() {
+        setInterval(function () {
+            location.reload();
+        }, 80000);
+    }
+
+
+</script>
+
+</html>

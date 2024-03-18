@@ -1,205 +1,490 @@
-﻿
+﻿@model AIA.Models.tbl_operator_fatigue_need_followup
 @{
-    Layout = null;
-    ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="row">
+    <div style="margin-bottom: 20px; margin-right: 20px;">
+        <button onclick="btnAdd()" class="btn btn-primary btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-search"></i>
+            </span>
+            <span class="text">Cari Data</span>
+        </button>
+    </div>
+    <div style="margin-bottom: 20px; margin-right: 20px;">
+        <button onclick="playSound('audio2')" class="btn btn-info btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-file-audio"></i>
+            </span>
+            <span class="text">OPEN</span>
+        </button>
+    </div>
 
+    <div style="margin-bottom: 20px; margin-right: 20px; ">
+        <button id="playButton" class="btn btn-info btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-file-audio"></i>
+            </span>
+            <span class="text">CLOSE</span>
+        </button>
+    </div>
+    <div style="margin-bottom: 20px; margin-right: 20px; ">
+        <button onclick="playSound('audio3')" class="btn btn-danger btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-file-audio"></i>
+            </span>
+            <span class="text" id="countdown"></span>
+        </button>
+    </div>
+    <audio id="audio1" src="~/Assets/sound/Up.mp3" style="display: none;"></audio>
+    <audio id="audio2" src="~/Assets/sound/down.mp3" style="display: none;"></audio>
+    <audio id="audio3" src="~/Assets/Annocementsuara.mp3" style="display: none;"></audio>
+</div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    @* <title>@ViewBag.Setting.nama</title>*@
-    <!-- Custom fonts for this template-->
-    <link href="~/Assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <!-- Custom styles for this template-->
-    <link href="~/Assets/css/sb-admin-2.min.css" rel="stylesheet" />
-    <link href="~/Assets/css/alertify.min.css" rel="stylesheet" />
-</head>
-
-<body id="page-top">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Operator Belum tersetting
-                                </div>
-                                <div class="h3 mb-0 font-weight-bold text-gray-800" id="jml_opr_siap_diseeting"></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-user fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="row">
+    <div class="col-lg-7">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">OPERATOR PHARSE 1</h6>
             </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-success shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Operator Sudah Terseting
-                                </div>
-                                <div class="h3 mb-0 font-weight-bold text-gray-800" id="operator_terseeting"></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-tractor fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-danger shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-black-50 text-uppercase mb-1">
-                                    Unit No Operator
-                                </div>
-                                <div class="h3 mb-0 font-weight-bold text-gray-800" id="unit_kosong"></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-battery-empty fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                                <div class="h1 mb-1 font-weight-bold text-capitalize" id="SHIFT"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-xl-12 col-lg-12">
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">MASTER - Display Catur</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" width="100%" id="tableBS" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>TGL</th>
-                                        <th>SEKTOR</th>
-                                        <th>UNIT</th>
-                                        <th>NRP Terseting</th>
-                                        <th>PHASE</th>
-                                        <th>PENGGANTI</th>
-                                        <th>AKSI</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" id="tablePharse" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>NRP</th>
+                                <th>NAMA</th>
+                                <th>STATUS</th>
+                                <th>NRP</th>
+                                <th>PENGGANTI</th>
+                                <th>UNIT</th>
+                                <th>STATUS</th>
+                                <th>AKSI</th>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-        @section styles {
-            <link href="~/Assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
-        }
-        <!-- Bootstrap core JavaScript-->
-        <script src="~/Assets/vendor/jquery/jquery.min.js"></script>
-        <script src="~/Assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- Core plugin JavaScript-->
-        <script src="~/Assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-        <!-- Custom scripts for all pages-->
-        <script src="~/Assets/js/sb-admin-2.min.js"></script>
-        <script src="~/Assets/js/alertify.min.js"></script>
-        <script src="~/Assets/vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="~/Assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-        <script>
+
+<div class="row">
+    <div class="col-lg-7">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">DATA UNIT PENGGANTI</h6>
+            </div>
+            <div class="card-body">
+                <form id="formBS">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group row">
+                                <label for="nrp" class="col-sm-3 col-form-label">TANGGAL</label>
+                                <div class="col-sm-9">
+
+                                    <input type="text" class="form-control" id="TGL" name="TGL" placeholder="tanggal" required readonly>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="nrp" class="col-sm-3 col-form-label">SHIFT</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="SHIFT" name="SHIFT" placeholder="SHIFT" required readonly>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="nama" class="col-sm-3 col-form-label">CN_UNIT</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="CN_UNIT" name="CN_UNIT" placeholder="CN_UNIT" required readonly>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="nama" class="col-sm-3 col-form-label">NRP</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="NRP" name="NRP" placeholder="NRP" required readonly>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="nama" class="col-sm-3 col-form-label">Nama</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="Nama" name="Nama" placeholder="NAMA" required readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group row">
+                                <label for="jabatan_id" class="col-sm-3 col-form-label">STATUS</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="STATUS" name="STATUS" placeholder="STATUS" required readonly>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="dept_code" class="col-sm-3 col-form-label">EGI</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="EGI" name="EGI" placeholder="EGI" required readonly>
+                                </div>
+                            </div>
+                            <div class="form-group row" data-toggle="modal" onclick="btnSearch()">
+                                <label for="jabatan_id" class="col-sm-3 col-form-label">PENGGANTI</label>
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Penganti" name="Pengganti" placeholder="Pengganti" required>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <!-- Ubah dari 9 menjadi 1 -->
+                                        <i class="fa fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="nrp" class="col-sm-12 col-form-label"></label>
+                                <div class="col-sm-12">
+                                    <button onclick="insertData()" type="button" id="btnSave" class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-save"></i>
+                                        </span>
+                                        <span class="text">SAVE</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-5">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">OPERATOR READY</h6>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" id="tableBSOP" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>NRP</th>
+                                <th>NAMA</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Add/Update -->
+<div class="modal fade modalBS" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Data unit</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" id="tableBS" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>NRP</th>
+                                <th>NAMA</th>
+                                <th>UNIT</th>
+                                <th>STATUS</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Add/Update -->
+<div class="modal fade modalBSOPT" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Data unit</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" id="tableBSSTB" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>NRP</th>
+                                <th>NAMA</th>
+                                <th>STATUS</th>
+                                <th>AKSI</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* End Modal *@
+
+@section styles {
+    <link href="~/Assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+}
+
+@section scripts {
+    <script src="~/Assets/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script>
         var link = '@Url.Action("Function", "Controller")'
         var controller_name = "@ViewBag.Controller"
         var a
         var dataTable
 
-            $(document).ready(function () {
-                getAll();
-                getOptStnBy();
-                getSummary();
-                GetAllSummary()
+
+        $(document).ready(function () {
+            getAll();
+            getAllOpt();
+            getAllP1();
+            getAllStb();
+            setInterval(checkSchedule, 1000); // Memeriksa setiap detik
+
+            var audio = document.getElementById("audio3");
+            var playButton = document.getElementById("playButton");
+
+            playButton.addEventListener("click", function () {
+                playAudio();
             });
 
-            function getSummary(data) {
-                if (data) {
-                    if (data.jml_opr_siap_diseeting !== undefined) {
-                        $("#jml_opr_siap_diseeting").text(data.jml_opr_siap_diseeting);
-                    } else {
-                        console.error('Error: jml_opr_siap_diseeting tidak ditemukan dalam data');
-                    }
+            // Variabel untuk melacak apakah audio telah diputar
+            var isAudioPlayed = false;
 
-                    if (data.operator_terseeting !== undefined) {
-                        $("#operator_terseeting").text(data.operator_terseeting);
-                    } else {
-                        console.error('Error: operator_terseeting tidak ditemukan dalam data');
-                    }
+            // Fungsi untuk memainkan audio
+            function playAudio() {
+                audio.play();
+            }
 
-                    if (data.unit_kosong !== undefined) {
-                        $("#unit_kosong").text(data.unit_kosong);
-                    } else {
-                        console.error('Error: unit_kosong tidak ditemukan dalam data');
-                    }
-                    if (data.SHIFT !== undefined) {
-                        $("#SHIFT").text(data.SHIFT);
-                    } else {
-                        console.error('Error: unit_kosong tidak ditemukan dalam data');
-                    }
-                } else {
-                    console.error('Error: Data null atau undefined');
+            // Fungsi untuk menentukan apakah sekarang hari Jumat atau tidak
+            function isFriday() {
+                var today = new Date().getDay();
+                return today === 5; // 5 merepresentasikan hari Jumat (dimulai dari 0 untuk Minggu)
+            }
+
+            // Fungsi untuk memeriksa waktu dan memutarkan audio sesuai jadwal
+            function checkSchedule() {
+                var now = new Date();
+                var hour = now.getHours();
+                var minute = now.getMinutes();
+
+                // Cek apakah audio sudah diputar dan berhenti jika sudah
+                if (isAudioPlayed) {
+                    return;
                 }
-            }
 
-
-            function GetAllSummary() {
-                $.ajax({
-                    url: '/Catur/GetAllSummary',
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function (response) {
-                        if (response.status) {
-                            getSummary(response.data);
-                        } else {
-                            console.error('Error:', response.remarks);
-                        }
-                    },
-                    error: function (error) {
-                        console.error('AJAX Error:', error);
+                // Senin sampai Kamis
+                if (!isFriday()) {
+                    if ((hour === 4 && minute === 45) ||
+                        (hour === 6 && minute === 0) ||
+                        (hour === 15 && minute === 0) ||
+                        (hour === 16 && minute === 45) ||
+                        (hour === 11 && minute === 0)) {
+                        playAudio();
+                        isAudioPlayed = true; // Setel isAudioPlayed menjadi true setelah audio diputar
                     }
-                });
+                } else { // Jumat
+                    if ((hour === 4 && minute === 45) ||
+                        (hour === 8 && minute === 0) ||
+                        (hour === 16 && minute === 45) ||
+                        (hour === 18 && minute === 15)) {
+                        playAudio();
+                        isAudioPlayed = true; // Setel isAudioPlayed menjadi true setelah audio diputar
+                    }
+                }
+
+                // Update countdown
+                updateCountdown(hour, minute);
             }
 
+            // Fungsi untuk mengupdate countdown
+            function updateCountdown(hour, minute) {
 
-        function btnSave(TGL, SHIFT, CN_UNIT, selectedNRP) {
-            var formattedDate = convertToReadableDate(TGL);
-            var selectedNRPValue = $('#Pengganti' + CN_UNIT).val();
+                var nextPlayTime = getNextPlayTime(hour, minute);
+                var now = new Date();
+                var timeDiff = nextPlayTime - now;
+                var hoursLeft = Math.floor(timeDiff / (1000 * 60 * 60));
+                var minutesLeft = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                var secondsLeft = Math.floor((timeDiff % (1000 * 60)) / 1000);
+                // Format waktu tersisa
+                var countdownText = hoursLeft + " jam " + minutesLeft + " menit " + secondsLeft + " detik";
 
-            UpdateData(formattedDate, SHIFT, CN_UNIT, selectedNRPValue);
+                // Memperbarui elemen countdown di HTML
+                document.getElementById("countdown").innerHTML = countdownText;
+            }
+
+            // Fungsi untuk mendapatkan waktu play sound berikutnya
+            function getNextPlayTime(hour, minute) {
+                var nextPlayTime = new Date();
+
+                // Senin sampai Kamis
+                if (!isFriday()) {
+                    if ((hour < 4 || (hour === 4 && minute < 45)) ||
+                        (hour === 6 && minute < 0) ||
+                        (hour === 15 && minute < 0) ||
+                        (hour === 16 && minute < 45) ||
+                        (hour === 11 && minute < 0)) {
+                        nextPlayTime.setHours(4, 45, 0, 0);
+                    } else if (hour < 6 || (hour === 6 && minute < 0)) {
+                        nextPlayTime.setHours(6, 0, 0, 0);
+                    } else if (hour < 15 || (hour === 15 && minute < 0)) {
+                        nextPlayTime.setHours(15, 0, 0, 0);
+                    } else if (hour < 16 || (hour === 16 && minute < 45)) {
+                        nextPlayTime.setHours(16, 45, 0, 0);
+                    } else if (hour < 11 || (hour === 11 && minute < 0)) {
+                        nextPlayTime.setHours(11, 0, 0, 0);
+                    } else {
+                        nextPlayTime.setDate(nextPlayTime.getDate() + 1);
+                        nextPlayTime.setHours(4, 45, 0, 0);
+                    }
+                } else { // Jumat
+                    if ((hour < 4 || (hour === 4 && minute < 45)) ||
+                        (hour === 8 && minute < 0) ||
+                        (hour === 16 && minute < 45) ||
+                        (hour === 18 && minute < 15)) {
+                        nextPlayTime.setHours(4, 45, 0, 0);
+                    } else if (hour < 8 || (hour === 8 && minute < 0)) {
+                        nextPlayTime.setHours(8, 0, 0, 0);
+                    } else if (hour < 16 || (hour === 16 && minute < 45)) {
+                        nextPlayTime.setHours(16, 45, 0, 0);
+                    } else if (hour < 18 || (hour === 18 && minute < 15)) {
+                        nextPlayTime.setHours(18, 15, 0, 0);
+                    } else {
+                        nextPlayTime.setDate(nextPlayTime.getDate() + 1);
+                        nextPlayTime.setHours(4, 45, 0, 0);
+                    }
+                }
+
+                return nextPlayTime;
+            }
+
+        });
+
+
+        function btnAdd() {
+            $('.modalBS').modal('show');
+            $('#formBS').trigger("reset")
         }
+
+        function btnSearch() {
+            $('.modalBSOPT').modal('show');
+        }
+
+
+        function playSound(audioId) {
+            var audio = document.getElementById(audioId);
+            audio.play();
+        }
+
+        function insertData() {
+    var link = '@Url.Action("Function", "Controller")';
+    link = link.replace("Controller", controller_name);
+    link = link.replace("Function", "insert");
+    var validateBy = '@Html.Raw(Session["nama"])';
+            var Validasi = '1'
+            var penggantiValue = $('#Penganti').val();
+    $.ajax({
+        type: "POST",
+        url: link,
+        data: {
+            NRP: $('#NRP').val(),
+            SHIFT: $('#SHIFT').val(),
+            CN_UNIT: $('#CN_UNIT').val(),
+            Pengganti: penggantiValue,
+            Validasi:Validasi,
+            validate_by: validateBy // Menambahkan nilai sesi ke dalam data
+        },
+        success: function (data) {
+            if (data.status) {
+
+                alertify.notify('Data berhasil diubah', 'success', 1)
+                dataTable.ajax.reload(); // Memuat ulang data setelah notifikasi berhasil ditampilkan
+            } else {
+                alert(data.data)
+            }
+        }
+    });
+    link = '@Url.Action("Function", "Controller")';
+}
+
+
+function getAllStb() {
+    link = link.replace("Controller", "Catur");
+    link = link.replace("Function", "GetAllOpt");
+
+    dataTable = $("#tableBSSTB").DataTable({
+        "ajax": {
+            "url": link,
+            "type": "GET",
+            "datatype": "json"
+        },
+        "columns": [
+            { "data": "NRP" },
+            { "data": "Nama" },
+            { "data": "STATUSFATIGUE" },
+            {
+                "data": "NRP",
+                "render": function (data) {
+                    var a = '<button onclick="btnRun(\'' + data + '\')" class="btn btn-info btn-circle btn-sm">'
+                    a += '  <i class="fas fa-check"></i>'
+                    a += '</button>'
+                    return a
+                },
+                "orderable": false,
+                "width": "80px",
+                "searchable": false
+            }
+        ],
+        "language": {
+            "emptyTable": "Tidak ada data"
+        }
+    })
+    link = '@Url.Action("Function", "Controller")'
+        }
+
+
+        function btnRun(NRP) {
+            $('.modalBSOPT').modal('hide');
+            link = link.replace("Controller", controller_name);
+              link = link.replace("Function", "Get2");
+              $.ajax({
+                  type: "GET",
+                  url: link + '?NRP=' + NRP,
+                  success: function (data) {
+                      if (data.status) {
+                          $('#Penganti').val(data.data.NRP)
+                      }
+                      else {
+                          alert(data.data)
+                      }
+                  }
+              })
+              $('.modalBS').modal('hide')
+
+              link = '@Url.Action("Function", "Controller")'
+          }
 
 
         function convertToReadableDate(dateString) {
@@ -215,12 +500,11 @@
         }
 
 
+
 function getAll() {
     link = link.replace("Controller", "Catur");
     link = link.replace("Function", "GetAll");
-    console.log('los');
 
-    // Initialize the DataTable
     dataTable = $("#tableBS").DataTable({
         "ajax": {
             "url": link,
@@ -228,144 +512,163 @@ function getAll() {
             "datatype": "json"
         },
         "columns": [
-            {
-                "data": "TGL",
-                "render": function (data) {
-                    return convertToReadableDate(data);
-                }
-            },
-            { "data": "SEKTOR" },
+            { "data": "NRP" },
+            { "data": "Nama" },
             { "data": "CN_UNIT" },
+            { "data": "STATUS" },
             {
                 "data": "NRP",
                 "render": function (data) {
-                    return data;
-                }
-            },
-            {
-                "data": "Validasi", // Ganti dengan nama kolom yang sesuai dari database
-                "render": function (data, type, row) {
-                    if (data === 1) {
-                        // Display badge for Phase 2
-                        return '<span class="badge badge-success">Phase 2</span>';
-                    } else {
-                        // Display badge for Phase 1
-                        return '<span class="badge badge-primary">Phase 1</span>';
-                    }
-                }
-            },
-
-            {
-                "data": "Pengganti",
-                "render": function (data, type, row) {
-                    return '<div class="col-sm-12"><select class="form-control form-control-md pengganti-dropdown" id="Pengganti' + row.CN_UNIT + '" name="Pengganti" data-pengganti-value="' + data + '" required></select></div>';
-                }
-            },
-            {
-                "data": "CN_UNIT",
-                "render": function (data, type, row) {
-                    var selectedNRP = ''; // Inisialisasi selectedNRP
-                    if ($('#Pengganti' + row.CN_UNIT).length) {
-                        selectedNRP = $('#Pengganti' + row.CN_UNIT).val(); // Ambil nilai dropdown yang sesuai dengan baris saat ini
-                    }
-                    var buttonHtml = '<button onclick="btnSave(\'' + row.TGL + '\', \'' + row.SHIFT + '\', \'' + data + '\', \'' + selectedNRP + '\')" class="btn btn-info btn-circle btn-sm">';
-                    buttonHtml += '  <i class="fa fa-check"></i>';
-                    buttonHtml += '</button>';
-
-                    return buttonHtml;
-                }
+                    var a = '<button onclick="btnCheck(\'' + data + '\')" class="btn btn-primary btn-circle btn-sm">'
+                    a += '  <i class="fas fa-check"></i>'
+                    a += '</button>'
+                    return a
+                },
+                "orderable": false,
+                "width": "180px",
+                "searchable": false
             }
-
         ],
         "language": {
             "emptyTable": "Tidak ada data"
-        },
-        "initComplete": function () {
-            // Call the getOptStnBy function after DataTable initialization
-            getOptStnBy();
         }
-    });
-
-    // Reset the link to its original state
-    link = '@Url.Action("Function", "Controller")';
+    })
+    link = '@Url.Action("Function", "Controller")'
 }
 
+        function btnCheck(NRP) {
+            link = link.replace("Controller", controller_name);
+              link = link.replace("Function", "Get");
 
-function getOptStnBy() {
-    $.ajax({
-        type: 'GET',
-        url: '@Url.Action("GetAllOpt", "Catur")',
-        success: function (data) {
-            if (data.status) {
-                $(".pengganti-dropdown").each(function () {
-                    var dropdown = $(this);
-                    dropdown.empty(); // Clear existing options
-                    for (var a = 0; a < data.data.length; a++) {
-                        dropdown.append($("<option />").val(data.data[a].NRP).text(data.data[a].NRP + ' - ' + data.data[a].Nama + ' - ' + data.data[a].EGI));
+              $.ajax({
+                  type: "GET",
+                  url: link + '?NRP=' + NRP,
+                  success: function (data) {
+                      if (data.status) {
+                          $('#pid').val(data.data.pid)
+                          $('#TGL').val(convertToReadableDate(data.data.TGL));
+                          $('#SHIFT').val(data.data.SHIFT)
+                          $('#SEKTOR').val(data.data.SEKTOR)
+                          $('#CN_UNIT').val(data.data.CN_UNIT)
+                          $('#NRP').val(data.data.NRP)
+                          $('#Nama').val(data.data.Nama)
+                          $('#STATUS').val(data.data.STATUS)
+                          $('#EGI').val(data.data.EGI)
+                      }
+                      else {
+                          alert(data.data)
+                      }
+                  }
+              })
+              $('.modalBS').modal('hide')
+
+              link = '@Url.Action("Function", "Controller")'
+          }
+
+
+     function getAllP1() {
+     link = link.replace("Controller", controller_name);
+            link = link.replace("Function", "GetAllPhase1");
+            dataTable = $("#tablePharse").DataTable({
+             "ajax": {
+                 "url": link,
+                 "type": "GET",
+                 "datatype": "json"
+             },
+                "columns": [
+                    { "data": "NRP" },
+                    { "data": "Nama" },
+                    { "data": "STATUS" },
+                    { "data": "Pengganti" },
+                    { "data": "Nama_pengganti" },
+                    { "data": "CN_UNIT" },
+                    {
+                        "data": "Validasi", // Ganti dengan nama kolom yang sesuai dari database
+                        "render": function (data, type, row) {
+                            if (data === 1) {
+                                // Display badge for Phase 2
+                                return '<span class="badge badge-success">DONE</span>';
+                            } else {
+                                // Display badge for Phase 1
+                                return '<span class="badge badge-primary">Phase 1</span>';
+                            }
+                        }
+                    },
+                    {
+                        "data": null,
+                        "render": function (data) {
+                            var nrp = data.NRP;
+                            var shift = data.SHIFT;
+                            var button = '<button onclick="btnUpdate(\'' + nrp + '\', \'' + shift + '\')" class="btn btn-success btn-circle btn-sm">'
+                            button += '  <i class="fas fa-check"></i>'
+                            button += '</button>'
+                            return button;
+                        },
+                        "orderable": false,
+                        "width": "50px",
+                        "searchable": false
                     }
-                    // Set the selected value based on the data-pengganti-value attribute
-                    dropdown.val(dropdown.data("pengganti-value"));
-                });
-            } else {
-                alert(data.data);
-            }
-        },
-        error: function (error) {
-            console.log("Error fetching options: " + error);
+                ],
+             "language": {
+                 "emptyTable": "Tidak ada data"
+         },
+         "pageLength": 3
+     })
+     link = '@Url.Action("Function", "Controller")'
         }
-    });
-}
 
-        function UpdateData(formattedDate, SHIFT, CN_UNIT, selectedNRPValue) {
-    // Panggil AJAX untuk mendapatkan informasi sesi
-    $.ajax({
-        type: "GET",
-        url: "/Login/GetSessionData",
-        success: function (sessionData) {
-            // Jika sesi berhasil diambil, lanjutkan dengan pembaruan data
-            var validateBy = sessionData.nama;
-            doUpdateData(formattedDate, SHIFT, CN_UNIT, selectedNRPValue, validateBy);
-        },
-        error: function (error) {
-            console.log("Error fetching session data: " + error);
+
+        function btnUpdate(nrp, shift) {
+            console.log("NRP:", nrp);
+            console.log("SHIFT:", shift);
+            link = link.replace("Controller", controller_name);
+            link = link.replace("Function", "Updatepharse1");
+
+            $.ajax({
+                type: "POST",
+                url: link,
+                data: {
+                    shift: shift,
+                    nrp: nrp,
+                    Validasi: '1',
+                    validate_by: 'AIA'
+
+                },
+                success: function (data) {
+                    if (data.status) {
+                        dataTable.ajax.reload();
+                        alertify.notify('Data berhasil diubah', 'success', 5);
+                    } else {
+                        alert(data.data);
+                    }
+                }
+            });
         }
-    });
-}
 
-        function doUpdateData(formattedDate, SHIFT, CN_UNIT, selectedNRPValue, validateBy) {
-    // Setel ulang link
-            link = link.replace("Controller", "Catur");
-    link = link.replace("Function", "Update");
 
-    $.ajax({
-        type: "POST",
-        url: link,
-        data: {
-            TGL: formattedDate,
-            shift: SHIFT,
-            cn_unit: CN_UNIT,
-            Pengganti: selectedNRPValue,
-            Validasi: '1', // Anda dapat mengubah nilai sesuai kebutuhan
-            validate_by: validateBy // Menggunakan nilai dari sesi
-        },
-        success: function (data) {
-            if (data.status) {
-                dataTable.ajax.reload();
-                alertify.notify('Data berhasil disimpan', 'success', 5);
-                location.reload(true)
-            } else {
-                alert(data.data);
-            }
-        },
-        error: function (error) {
-            console.log("Error updating data: " + error);
+    function getAllOpt() {
+     link = link.replace("Controller", controller_name);
+        link = link.replace("Function", "GetAllOpt");
+
+     dataTable = $("#tableBSOP").DataTable({
+             "ajax": {
+                 "url": link,
+                 "type": "GET",
+                 "datatype": "json"
+             },
+             "columns": [
+                 { "data": "NRP" },
+                 { "data": "Nama" },
+                 { "data": "STATUSFATIGUE" },
+             ],
+             "language": {
+                 "emptyTable": "Tidak ada data"
+         },
+         "pageLength": 2
+     })
+     link = '@Url.Action("Function", "Controller")'
         }
-    });
 
-    link = '@Url.Action("Function", "Controller")';
+
+    </script>
 }
-
-
-        </script>
-</body>
-</html>

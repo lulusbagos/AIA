@@ -30,16 +30,94 @@ namespace AIA.Controllers
 
         public ActionResult Index()
         {
-            return View();
-        }
+            if (Session["is_login"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                var kategori_user_id = Session["kategori_user_id"];
 
+                var cek_kategori_user_id = db.tbl_r_menus.Where(x => x.link_controller == controller_name).Where(x => x.kategori_user_id == kategori_user_id).Count();
+
+                if (cek_kategori_user_id > 0)
+                {
+                    ViewBag.Title = title_name;
+                    ViewBag.Controller = controller_name;
+                    ViewBag.Setting = db.tbl_m_setting_aplikasis.FirstOrDefault();
+                    ViewBag.Menu = db.tbl_r_menus.Where(x => x.kategori_user_id == Session["kategori_user_id"]).OrderBy(x => x.title).ToList();
+                    ViewBag.MenuMasterCount = db.tbl_r_menus.Where(x => x.kategori_user_id == Session["kategori_user_id"]).Where(x => x.type == "Master").OrderBy(x => x.title).Count();
+                    ViewBag.MenuTransaksiCount = db.tbl_r_menus.Where(x => x.kategori_user_id == Session["kategori_user_id"]).Where(x => x.type == "Transaksi").OrderBy(x => x.title).Count();
+                    ViewBag.MenuOperationCount = db.tbl_r_menus.Where(x => x.kategori_user_id == Session["kategori_user_id"]).Where(x => x.type == "Operation").OrderBy(x => x.title).Count();
+                    ViewBag.MenuHCGSCount = db.tbl_r_menus.Where(x => x.kategori_user_id == Session["kategori_user_id"]).Where(x => x.type == "HCGS").OrderBy(x => x.title).Count();
+                    ViewBag.MenuSSHECount = db.tbl_r_menus.Where(x => x.kategori_user_id == Session["kategori_user_id"]).Where(x => x.type == "SSHE").OrderBy(x => x.title).Count();
+                    ViewBag.MenuOPACount = db.tbl_r_menus.Where(x => x.kategori_user_id == Session["kategori_user_id"]).Where(x => x.type == "OPA").OrderBy(x => x.title).Count();
+                    ViewBag.insert_by = Session["nrp"];
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+            }
+        }
 
         public ActionResult GetAll()
         {
             try
             {
-                var results = db.ASM_TBL_UNIT_NOOPTs.OrderBy(x => x.CN_UNIT).ToList();
+                var results = db.ASM_CATUR_UNIT_NEED_OPTs.OrderBy(x => x.CN_UNIT).ToList();
                 return Json(new { status = true, remarks = "Sukses", data = results }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { status = false, remarks = "Gagal", data = e.Message.ToString() }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult Get(string NRP)
+        {
+            try
+            {
+                var results = db.ASM_CATUR_UNIT_NEED_OPTs
+                                .Where(x => x.NRP == NRP)
+                                .OrderByDescending(x => x.NRP)
+                                .Distinct()
+                                .FirstOrDefault();
+
+                if (results != null)
+                {
+                    return Json(new { status = true, remarks = "Sukses", data = results }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { status = false, remarks = "Gagal", data = "Data tidak ditemukan" }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception e)
+            {
+                return Json(new { status = false, remarks = "Gagal", data = e.Message.ToString() }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult Get2(string NRP)
+        {
+            try
+            {
+                var results = db.ASM_CATUR_OPT_STB_NOTSETs
+                                .Where(x => x.NRP == NRP)
+                                .OrderByDescending(x => x.TGL)
+                                .Distinct()
+                                .FirstOrDefault();
+
+                if (results != null)
+                {
+                    return Json(new { status = true, remarks = "Sukses", data = results }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { status = false, remarks = "Gagal", data = "Data tidak ditemukan" }, JsonRequestBehavior.AllowGet);
+                }
             }
             catch (Exception e)
             {
@@ -51,7 +129,7 @@ namespace AIA.Controllers
         {
             try
             {
-                var results = db.ASM_TBL_OPT_STB_NOTSETs.OrderBy(x => x.NRP).ToList();
+                var results = db.ASM_CATUR_OPT_STB_NOTSETs.OrderBy(x => x.NRP).ToList();
                 return Json(new { status = true, remarks = "Sukses", data = results }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
@@ -62,12 +140,12 @@ namespace AIA.Controllers
 
 
         [HttpPost]
-        public ActionResult Update(string TGL, string shift, string cn_unit, string Pengganti, string Validasi, string validate_by)
+        public ActionResult Insert( string shift, string cn_unit, string Pengganti, string Validasi, string validate_by)
 
         {
             try
             {
-                var results = db.sp_update_bandara_catur(TGL, shift, cn_unit, Pengganti, Validasi, validate_by);
+                var results = db.sp_update_bandara_catur(shift, cn_unit, Pengganti, Validasi, validate_by);
                 return Json(new { status = true, remarks = "Sukses", data = results }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
@@ -76,11 +154,13 @@ namespace AIA.Controllers
             }
         }
 
-        public ActionResult GetAllSummary()
+        [HttpPost]
+        public ActionResult Updatepharse1(string nrp, string shift, string Validasi, string validate_by)
+
         {
             try
             {
-                var results = db.ASM_summary_caturs.FirstOrDefault(); 
+                var results = db.sp_update_bandara_catur_parse1(nrp, shift, Validasi, validate_by);
                 return Json(new { status = true, remarks = "Sukses", data = results }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
@@ -89,6 +169,32 @@ namespace AIA.Controllers
             }
         }
 
+
+        public ActionResult GetAllPhase1()
+        {
+            try
+            {
+                var results = db.ASM_CATUR_UNIT_NEED_OPT_PARSE1s.OrderBy(x => x.NRP).ToList();
+                return Json(new { status = true, remarks = "Sukses", data = results }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { status = false, remarks = "Gagal", data = e.Message.ToString() }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult GetAllDone()
+        {
+            try
+            {
+                var results = db.ASM_CATUR_DONEs.FirstOrDefault();
+                return Json(new { status = true, remarks = "Sukses", data = results }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { status = false, remarks = "Gagal", data = e.Message.ToString() }, JsonRequestBehavior.AllowGet);
+            }
+        }
 
     }
 }

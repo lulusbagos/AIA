@@ -1,0 +1,328 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    @* <title>@ViewBag.Setting.nama</title>*@
+    <!-- Custom fonts for this template-->
+    <link href="~/Assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="~/Assets/css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/alertify.min.css" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <div class="container-fluid">
+        <div class="col-xl-12 col-lg-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">MASTER - Display Catur Parse 1</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" width="100%" id="tableBS" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>TGL</th>
+                                    <th>SEKTOR</th>
+                                    <th>UNIT</th>
+                                    <th>NRP Terseting</th>
+                                    <th>NAMA</th>
+                                    <th>PHASE</th>
+                                    <th>PENGGANTI</th>
+                                    <th>AKSI</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-12 col-lg-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">MASTER - Display Catur</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" width="100%" id="tableBS" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>TGL</th>
+                                    <th>SEKTOR</th>
+                                    <th>UNIT</th>
+                                    <th>NRP Terseting</th>
+                                    <th>PHASE</th>
+                                    <th>PENGGANTI</th>
+                                    <th>AKSI</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section styles {
+        <link href="~/Assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    }
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="~/Assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="~/Assets/js/sb-admin-2.min.js"></script>
+    <script src="~/Assets/js/alertify.min.js"></script>
+    <script src="~/Assets/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script>
+        var link = '@Url.Action("Function", "Controller")'
+        var controller_name = "@ViewBag.Controller"
+        var a
+        var dataTable
+
+            $(document).ready(function () {
+                getAll();
+                getOptStnBy();
+                getSummary();
+                GetAllSummary()
+            });
+
+            function getSummary(data) {
+                if (data) {
+                    if (data.jml_opr_siap_diseeting !== undefined) {
+                        $("#jml_opr_siap_diseeting").text(data.jml_opr_siap_diseeting);
+                    } else {
+                        console.error('Error: jml_opr_siap_diseeting tidak ditemukan dalam data');
+                    }
+
+                    if (data.operator_terseeting !== undefined) {
+                        $("#operator_terseeting").text(data.operator_terseeting);
+                    } else {
+                        console.error('Error: operator_terseeting tidak ditemukan dalam data');
+                    }
+
+                    if (data.unit_kosong !== undefined) {
+                        $("#unit_kosong").text(data.unit_kosong);
+                    } else {
+                        console.error('Error: unit_kosong tidak ditemukan dalam data');
+                    }
+                    if (data.SHIFT !== undefined) {
+                        $("#SHIFT").text(data.SHIFT);
+                    } else {
+                        console.error('Error: SHIFT tidak ditemukan dalam data');
+                    }
+                } else {
+                    console.error('Error: Data null atau undefined');
+                }
+            }
+
+
+            function GetAllSummary() {
+                $.ajax({
+                    url: '/Catur/GetAllSummary',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.status) {
+                            getSummary(response.data);
+                        } else {
+                            console.error('Error:', response.remarks);
+                        }
+                    },
+                    error: function (error) {
+                        console.error('AJAX Error:', error);
+                    }
+                });
+            }
+
+
+        function btnSave(TGL, SHIFT, CN_UNIT, selectedNRP) {
+            var formattedDate = convertToReadableDate(TGL);
+            var selectedNRPValue = $('#Pengganti' + CN_UNIT).val();
+
+            UpdateData(formattedDate, SHIFT, CN_UNIT, selectedNRPValue);
+        }
+
+
+        function convertToReadableDate(dateString) {
+            var timestamp = parseInt(dateString.match(/\d+/)[0]);
+
+            var date = new Date(timestamp);
+            var year = date.getFullYear();
+            var month = (date.getMonth() + 1).toString().padStart(2, '0'); // Bulan dimulai dari 0
+            var day = date.getDate().toString().padStart(2, '0');
+
+            var formattedDate = year + '-' + month + '-' + day;
+            return formattedDate;
+        }
+
+
+function getAll() {
+    link = link.replace("Controller", "Catur");
+    link = link.replace("Function", "GetAll");
+    console.log('los');
+
+    // Initialize the DataTable
+    dataTable = $("#tableBS").DataTable({
+        "ajax": {
+            "url": link,
+            "type": "GET",
+            "datatype": "json"
+        },
+        "columns": [
+            {
+                "data": "TGL",
+                "render": function (data) {
+                    return convertToReadableDate(data);
+                }
+            },
+            { "data": "SEKTOR" },
+            { "data": "CN_UNIT" },
+            {
+                "data": "NRP",
+                "render": function (data) {
+                    return data;
+                }
+            },
+            {
+                "data": "Validasi", // Ganti dengan nama kolom yang sesuai dari database
+                "render": function (data, type, row) {
+                    if (data === 1) {
+                        // Display badge for Phase 2
+                        return '<span class="badge badge-success">Phase 2</span>';
+                    } else {
+                        // Display badge for Phase 1
+                        return '<span class="badge badge-primary">Phase 1</span>';
+                    }
+                }
+            },
+
+            {
+                "data": "Pengganti",
+                "render": function (data, type, row) {
+                    return '<div class="col-sm-12"><select class="form-control form-control-md pengganti-dropdown" id="Pengganti' + row.CN_UNIT + '" name="Pengganti" data-pengganti-value="' + data + '" required></select></div>';
+                }
+            },
+            {
+                "data": "CN_UNIT",
+                "render": function (data, type, row) {
+                    var selectedNRP = ''; // Inisialisasi selectedNRP
+                    if ($('#Pengganti' + row.CN_UNIT).length) {
+                        selectedNRP = $('#Pengganti' + row.CN_UNIT).val(); // Ambil nilai dropdown yang sesuai dengan baris saat ini
+                    }
+                    var buttonHtml = '<button onclick="btnSave(\'' + row.TGL + '\', \'' + row.SHIFT + '\', \'' + data + '\', \'' + selectedNRP + '\')" class="btn btn-info btn-circle btn-sm">';
+                    buttonHtml += '  <i class="fa fa-check"></i>';
+                    buttonHtml += '</button>';
+
+                    return buttonHtml;
+                }
+            }
+
+        ],
+        "language": {
+            "emptyTable": "Tidak ada data"
+        },
+        "initComplete": function () {
+
+            getOptStnBy();
+        }
+    });
+
+    // Reset the link to its original state
+    link = '@Url.Action("Function", "Controller")';
+}
+
+
+function getOptStnBy() {
+    $.ajax({
+        type: 'GET',
+        url: '@Url.Action("GetAllOpt", "Catur")',
+        success: function (data) {
+            if (data.status) {
+                $(".pengganti-dropdown").each(function () {
+                    var dropdown = $(this);
+                    dropdown.empty(); // Clear existing options
+                    for (var a = 0; a < data.data.length; a++) {
+                        dropdown.append($("<option />").val(data.data[a].NRP).text(data.data[a].NRP + ' - ' + data.data[a].Nama + ' - ' + data.data[a].EGI));
+                    }
+                    // Set the selected value based on the data-pengganti-value attribute
+                    dropdown.val(dropdown.data("pengganti-value"));
+                });
+            } else {
+                alert(data.data);
+            }
+        },
+        error: function (error) {
+            console.log("Error fetching options: " + error);
+        }
+    });
+}
+
+        function UpdateData(formattedDate, SHIFT, CN_UNIT, selectedNRPValue) {
+    // Panggil AJAX untuk mendapatkan informasi sesi
+    $.ajax({
+        type: "GET",
+        url: "/Login/GetSessionData",
+        success: function (sessionData) {
+            // Jika sesi berhasil diambil, lanjutkan dengan pembaruan data
+            var validateBy = sessionData.nama;
+            doUpdateData(formattedDate, SHIFT, CN_UNIT, selectedNRPValue, validateBy);
+        },
+        error: function (error) {
+            console.log("Error fetching session data: " + error);
+        }
+    });
+}
+
+        function doUpdateData(formattedDate, SHIFT, CN_UNIT, selectedNRPValue, validateBy) {
+    // Setel ulang link
+            link = link.replace("Controller", "Catur");
+    link = link.replace("Function", "Update");
+
+    $.ajax({
+        type: "POST",
+        url: link,
+        data: {
+            TGL: formattedDate,
+            shift: SHIFT,
+            cn_unit: CN_UNIT,
+            Pengganti: selectedNRPValue,
+            Validasi: '1', // Anda dapat mengubah nilai sesuai kebutuhan
+            validate_by: validateBy // Menggunakan nilai dari sesi
+        },
+        success: function (data) {
+            if (data.status) {
+                dataTable.ajax.reload();
+                alertify.notify('Data berhasil disimpan', 'success', 5);
+                location.reload(true)
+            } else {
+                alert(data.data);
+            }
+        },
+        error: function (error) {
+            console.log("Error updating data: " + error);
+        }
+    });
+
+    link = '@Url.Action("Function", "Controller")';
+}
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDisplay.cshtml";
+}
+
+
+<style>
+    /* Styling for demonstration purposes */
+    #keyboard {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        #keyboard button {
+            padding: 20px;
+            font-size: 26px;
+            text-align: center;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+</style>
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card">
+            <form method="post" class="card-body">
+                <span class="input-icon icon-end">
+                    <textarea rows="1" class="form-control" id="NRP" placeholder="Masukan NRP disini" onclick="showKeyboard()"></textarea>
+                </span>
+                <div class="pt-1 float-end">
+                </div>
+            </form>
+        </div>
+
+        <div class="card" id="keyboard">
+
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-top">
+                            <div class="flex-grow-1 overflow-hidden">
+                                <h1 class="m-0" id="Nama"></h1>
+                                <h2 class="m-0" id="nrp"></h2>
+                                <h3 class="m-0" style='font-size: 20px; color: #4800ff;'><strong><i id="Departemen"></i></strong></h3>
+                                <h3 class="m-0" style='font-size: 20px; color: #0026ff;'><strong><i id="Jabatan"></i></strong></h3>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div  class="d-flex align-items-center justify-content-center">
+                            <button  id="unit" style="font-size: 20px;" class="btn btn-soft-secondary rounded-pill waves-effect"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-sm-4">
+            <div class="card">
+                <video id="video"></video>
+            </div>
+        </div>*@
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="dropdown float-end">
+                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="mdi mdi-dots-vertical"></i>
+                    </a>
+                </div>
+
+                <h1 class="header-title mt-0 mb-1">HISTORY FTW</h1>
+
+                <ul class="list-group mb-0 user-list" id="listftw">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+
+    </div>
+</div>
+
+
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Include Perfect Scrollbar CSS and JS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.2/css/perfect-scrollbar.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.2/js/perfect-scrollbar.jquery.min.js"></script>
+
+
+<script>
+        var link = '@Url.Action("Function", "Controller")'
+        var controller_name = "@ViewBag.Controller"
+        var a
+
+    $(document).ready(function () {
+        showKeyboard();
+        webcam();
+        getAllData();
+
+
+        $("#NRP").on("input", function () {
+            getAllData();
+        });
+    });
+
+    function getAllData() {
+        var nrp = $("#NRP").val();
+        getData(nrp);
+        getftw(nrp)
+    }
+
+    function getData(nrp) {
+        $.ajax({
+            type: "GET",
+            url: "/Profil/GetAll",
+            data: { nrp: nrp },
+            success: function (result) {
+                if (result.data && result.data.length > 0) {
+                    $("#Nama").text(result.data[0].Nama);
+                    $("#nrp").text(result.data[0].nrp);
+                    $("#Jabatan").text(result.data[0].Jabatan);
+                    $("#Departemen").text(result.data[0].Departemen);
+                    $("#unit").text(result.data[0].unit);
+                } else {
+                    console.error(result.remarks);
+                }
+            },
+            error: function (error) {
+                console.error("Error: " + error.responseText);
+            }
+        });
+    }
+
+    function showKeyboard() {
+        var keyboardContainer = document.getElementById('keyboard');
+        keyboardContainer.innerHTML = '';
+
+        var characters = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'D', 'U', 'X', 'DEL', 'OK'];
+
+        characters.forEach(function (char) {
+            var button = document.createElement('button');
+            button.textContent = char;
+            button.addEventListener('click', function () {
+                if (char === 'DEL') {
+                    deleteCharacter();
+                } else if (char === 'OK') {
+                    getAllData();
+                } else {
+                    appendCharacter(char);
+                }
+            });
+            keyboardContainer.appendChild(button);
+        });
+    }
+
+    function webcam() {
+        const video = document.getElementById('video');
+
+        try {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+                .then(function (stream) {
+                    video.srcObject = stream;
+                    video.play();
+                })
+                .catch(function (error) {
+                    console.error('Error accessing the camera: ', error);
+                });
+        } catch (error) {
+            console.error('Error accessing the camera: ', error);
+        }
+    }
+
+    function appendCharacter(char) {
+        console.log('Append character:', char);
+    }
+
+    function deleteCharacter() {
+        var textarea = document.getElementById('NRP');
+        var currentText = textarea.value;
+        if (currentText.length > 0) {
+            var newText = currentText.substring(0, currentText.length - 1);
+            textarea.value = newText;
+        }
+    }
+
+
+
+    function appendCharacter(char) {
+        var textarea = document.getElementById('NRP');
+        textarea.value += char;
+    }
+
+    function autoReloadPage() {
+        setInterval(function () {
+            location.reload();
+        }, 80000); // 30 detik (dalam milidetik)
+    }
+
+function getftw(nrp) {
+    console.log(nrp);
+    var link = '@Url.Action("Function", "Controller")';
+    link = link.replace("Controller", "Profil");
+    link = link.replace("Function", "GetAllFtw");
+
+    $.ajax({
+        type: "GET",
+        url: link + '?nrp=' + nrp,
+        success: function (data) {
+            if (data.status) {
+                $("#listftw").html("");
+                $("#listftw").append(data.data);
+            } else {
+                alert(data.data);
+            }
+        },
+        error: function (error) {
+            console.error('Error:', error);
+        }
+    });
+    link = '@Url.Action("Function", "Controller")';
+}
+
+</script>
+
+</html>

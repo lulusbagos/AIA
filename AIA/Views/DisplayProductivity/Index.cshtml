@@ -1,0 +1,328 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Display Productifity</title>
+    <!-- Custom fonts for this template-->
+    <link href="~/Assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="~/Assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <style>
+        #time {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 40px;
+            margin-bottom: 0px;
+            color: #191970;
+            text-shadow: 0 0 5px #808080, 0 0 10px #808080, 0 0 15px #808080;
+        }
+
+        body {
+            background-color: #F5FFFA;
+            color: #191970; /* Untuk menyesuaikan warna teks agar kontras dengan latar belakang hitam */
+            font-family: Arial, Courier, monospace;
+            margin-left: 50px;
+        }
+
+        hr {
+            border: none;
+            height: 5px;
+            color: #ffd800;
+            background-color: #ff6a00;
+        }
+
+
+        .custom-border-grenn {
+            border-width: 10px; /* Ketebalan border */
+            border-style: solid; /* Jenis border */
+            border-color: #43c800; /* Warna border */
+        }
+
+        .custom-border-red {
+            border-width: 10px; /* Ketebalan border */
+            border-style: solid; /* Jenis border */
+            border-color: #ff0000; /* Warna border */
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        /* Container for skill bars */
+        .container {
+            width: 100%; /* Full width */
+
+        }
+
+        .skills {
+            text-align: right; /* Right-align text */
+            color: white; /* White text color */
+        }
+
+    </style>
+</head>
+
+<body id="page-top" id="204454">
+    <div class="row">
+        <div class="col-lg-1">
+            <center>
+                <img src="~/Assets/truck.png" style="width: 100px; height: 100px; " />
+            </center>
+        </div>
+        <div class="col-lg-7 text-left">
+            <p style="font-size: 50px; font-weight: bold; margin-bottom: 0px; ">PT PAMAPERSADA NUSANTARA DISTRIK ASMI</p>
+            <p style="font-size: 30px; font-weight: bold; margin-bottom: 0px;">100% Productivity Dumptruck Up > 231/jam.kN</p>
+        </div>
+        <div class="col-lg-2 text-right">
+            <p id="time" style="font-size: 40px; margin-bottom: 0px; "></p>
+            <p id="date" style="font-size: 20px; margin-bottom: 0px;"></p>
+        </div>
+        <div class="col-lg-2 text-right">
+            <center>
+                <p id="shift" style="font-size: 50px; margin: 2px; "></p>
+            </center>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-4 text-center">
+            <div class="row">
+                <div class="col-lg-6 text-left">
+                    <div class="card mb-1 py-1 ">
+                        <div class="card-body" style="background-color: #43c800 ">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-Center">
+                    <p style="font-size: 30px; margin-bottom: 0px; font-weight: bold;">TOP PERFORMANCE</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+
+        <div class="col-lg-4 text-center">
+            <div class="row">
+                <div class="col-lg-6 text-left">
+                    <div class="card mb-1 py-1">
+                        <div class="card-body" style="background-color: #ff0000 ">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-Center">
+                    <p style="font-size: 30px; margin-bottom: 0px; font-weight: bold;">BOTTOM PERFORMANCE</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
+
+    <div style="margin-bottom: 100px;"></div>
+    <div class="row">
+        <div class="col-lg-5 text-left">
+            <div class="row">
+                <div class="col-lg-6" id="top3">
+
+                </div>
+                <div class="col-lg-6" id="botom3">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-1 text-left">
+        </div>
+        <div class="col-lg-5 text-left">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card mb-1 py-1 custom-border-grenn">
+                        <div class="card-body">
+                            .border-bottom-success
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mb-1 py-1 custom-border-red">
+                        <div class="card-body">
+                            .border-bottom-success
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-5 text-left">
+        </div>
+        <div class="col-lg-2 text-left">
+        </div>
+        <div class="col-lg-2 text-left">
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="~/Assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="~/Assets/js/sb-admin-2.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="~/Assets/vendor/chart.js/Chart.min.js"></script>
+    <!-- Include jQuery -->
+    <script src="~/Assets/jquery-3.6.4.min.js"></script>
+    <link href="~/Assets/perfect-scrollbar.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Include Perfect Scrollbar CSS and JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.2/css/perfect-scrollbar.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.2/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="~/Assets2/jquery.marquee.js"></script>
+    <script src="~/Assets2/jquery.marquee.min.js"></script>
+    <script>
+        var link = '@Url.Action("Function", "Controller")'
+        var controller_name = "@ViewBag.Controller"
+        var a
+            var dataTable
+        $(document).ready(function () {
+            getTop('PIT RANGKOK')
+            getBottom('PIT RANGKOK')
+                autoReloadPage()
+                updateDateTime();
+                setInterval(function () {
+                    updateDateTime();
+                    updateShift();
+                }, 1000);
+            })
+
+
+            //function updateDateTime() {
+            //    // Mendapatkan waktu dan tanggal sekarang
+            //    var now = new Date();
+            //    // Format waktu HH:MM:SS
+            //    var hours = now.getHours().toString().padStart(2, '0');
+            //    var minutes = now.getMinutes().toString().padStart(2, '0');
+            //    var seconds = now.getSeconds().toString().padStart(2, '0');
+            //    // Format tanggal DD/MM/YYYY
+            //    var day = now.getDate().toString().padStart(2, '0');
+            //    var month = (now.getMonth() + 1).toString().padStart(2, '0'); // Bulan dimulai dari 0
+            //    var year = now.getFullYear();
+            //    // Menetapkan waktu dan tanggal ke elemen HTML
+            //    $('#time').text(hours + ':' + minutes + ':' + seconds);
+            //    $('#date').text(day + '-' + month + '-' + year);
+            //}
+        function updateDateTime() {
+            fetch('http://10.183.5.4:3000/datetime')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Menetapkan waktu dan tanggal ke elemen HTML
+                    document.getElementById('time').textContent = data.time;
+                    document.getElementById('date').textContent = data.date;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Mengambil waktu lokal jika gagal mengambil dari server
+                    const now = new Date();
+                    const hours = now.getHours().toString().padStart(2, '0');
+                    const minutes = now.getMinutes().toString().padStart(2, '0');
+                    const seconds = now.getSeconds().toString().padStart(2, '0');
+                    const day = now.getDate().toString().padStart(2, '0');
+                    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+                    const year = now.getFullYear();
+
+                    const time = `${hours}:${minutes}:${seconds}`;
+                    const date = `${day}-${month}-${year}`;
+
+                    // Menetapkan waktu dan tanggal lokal ke elemen HTML
+                    document.getElementById('time').textContent = time;
+                    document.getElementById('date').textContent = date;
+                });
+        }
+
+
+            function autoReloadPage() {
+                setInterval(function () {
+                    location.reload();
+                }, 80000);
+            }
+
+            function updateShift() {
+                var shift = getShift();
+                $('#shift').text(shift);
+            }
+
+            function getShift() {
+                const now = new Date();
+                const currentDay = now.getDay(); // Mendapatkan hari saat ini (0 untuk Minggu, 1 untuk Senin, ..., 5 untuk Jumat, 6 untuk Sabtu)
+                const currentHour = now.getHours();
+                if (currentDay !== 5) { // Jika bukan hari Jumat
+                    if (currentHour >= 6 && currentHour < 13) {
+                        return 'SHIFT 1';
+                    } else if (currentHour >= 13 && currentHour < 21) {
+                        return 'SHIFT 2';
+                    } else {
+                        return 'SHIFT 3';
+                    }
+                } else { // Jika hari Jumat
+                    if ((currentHour >= 3 && currentHour < 15)) {
+                        return 'SHIFT 1';
+                    } else {
+                        return 'SHIFT 2';
+                    }
+                }
+            }
+
+
+        function getTop(sektor) {
+            link = link.replace("Controller", "DisplayProductivity");
+            link = link.replace("Function", "Gettop3");
+            $.ajax({
+                type: "GET",
+                url: link + '?sektor=' + sektor ,
+                success: function (data) {
+                    console.log(data)
+                    if (data.status) {
+                        $("#top3").append(data.data);
+                    } else {
+                        alert(data.data)
+                    }
+                }
+            })
+            link = '@Url.Action("Function", "Controller")'
+        }
+
+        function getBottom(sektor) {
+           link = link.replace("Controller", "DisplayProductivity");
+            link = link.replace("Function", "GetBottom3");
+           $.ajax({
+               type: "GET",
+               url: link + '?sektor=' + sektor ,
+               success: function (data) {
+                   console.log(data)
+                   if (data.status) {
+                       $("#botom3").append(data.data);
+                   } else {
+                       alert(data.data)
+                   }
+               }
+           })
+           link = '@Url.Action("Function", "Controller")'
+       }
+
+
+    </script>
+</body>
+</html>

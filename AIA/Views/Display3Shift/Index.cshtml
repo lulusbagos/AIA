@@ -1,0 +1,280 @@
+﻿
+@{
+    ViewBag.Title = "Display3Shift";
+    Layout = null;
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <title>Display 3 shift</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="~/Assets2/images/favicon.ico">
+    <!-- App css -->
+    <link href="~/Assets2/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
+    <!-- icons -->
+    <link href="~/Assets2/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        #time {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 40px;
+            margin-bottom: 0px;
+            color: #0f0;
+            text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 15px #0f0;
+    </style>
+</head>
+<div class="card text-white bg-black">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-1">
+                <i class="fab fa-jenkins d-flex align-items-center justify-content-center" style="font-size: 70px;"></i>
+            </div>
+            <div class="col-lg-7 text-left">
+                <p style="font-size: 40px; margin-bottom: 0px; ">DEPARTURE FLEET</p>
+                <p style="font-size: 20px; margin-bottom: 0px;">jangan lupa berdoa dan utamakan keselamatan</p>
+            </div>
+            <div class="col-lg-2 text-right">
+                <p id="time" style="font-size: 40px; margin-bottom: 0px; "></p>
+                <p id="date" style="font-size: 20px; margin-bottom: 0px;"></p>
+            </div>
+            <div class="col-lg-2 text-right">
+                <center>
+                    <p id="shift" style="font-size: 50px; margin-bottom: 0px; "></p>
+                </center>
+            </div>
+        </div>
+
+        <div class="table-responsive" style="margin-top: 1px;">
+            <table class=" table table-dark mb-1" width="100%" id="tableBS" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th style=" font-size: 20px;">AREA</th>
+                        <th style=" font-size: 20px;">LOADER</th>
+                        <th style=" font-size: 20px;">HAULER</th>
+                        <th style=" font-size: 20px;">NRP</th>
+                        <th style=" font-size: 20px;">NAMA</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <button type="button" class="btn btn-success mt-4 btn-lg btn-block" style="width: 100%;">
+                                FIT <span class="badge bg-light text-dark ms-1"></span>
+                            </button>
+                        </div>
+                        <div class="col-lg-4">
+                            <button type="button" class="btn btn-danger mt-4 btn-lg btn-block" style="width: 100%;">
+                                TIDAK FIT <span class="badge bg-light text-dark ms-1"></span>
+                            </button>
+                        </div>
+                        <div class="col-lg-4">
+                            <button type="button" class="btn btn-secondary mt-4 btn-lg btn-block" style="width: 100%;">
+                                BELUM FTW <span class="badge bg-light text-dark ms-1"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<!-- Vendor -->
+<script src="~/Assets2/libs/jquery/jquery.min.js"></script>
+<script src="~/Assets2/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Assets2/libs/simplebar/simplebar.min.js"></script>
+<script src="~/Assets2/libs/node-waves/waves.min.js"></script>
+<script src="~/Assets2/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+<script src="~/Assets2/libs/jquery.counterup/jquery.counterup.min.js"></script>
+<script src="~/Assets2/libs/feather-icons/feather.min.js"></script>
+<!-- App js-->
+<script src="~/Assets2/js/app.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" defer></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Digital-7:wght@400;700&display=swap">
+
+
+
+<script>
+        var link = '@Url.Action("Function", "Controller")'
+        var controller_name = "@ViewBag.Controller"
+        var a
+        var tableInstance = null;
+
+    $(document).ready(function () {
+        getAll();
+        setInterval(function () {
+            updateDateTime();
+            updateShift();
+        }, 1000);
+        refresh();
+    });
+
+    function refresh() {
+        setTimeout(function () {
+            location.reload();
+        }, 60000);
+    }
+
+    function getShift() {
+        const now = new Date();
+        const currentDay = now.getDay(); // Mendapatkan hari saat ini (0 untuk Minggu, 1 untuk Senin, ..., 5 untuk Jumat, 6 untuk Sabtu)
+        const currentHour = now.getHours();
+
+        if (currentDay !== 5) { // Jika bukan hari Jumat
+            if (currentHour >= 6 && currentHour < 13) {
+                return 'SHIFT 1';
+            } else if (currentHour >= 13 && currentHour < 21) {
+                return 'SHIFT 2';
+            } else {
+                return 'SHIFT 3';
+            }
+        } else { // Jika hari Jumat
+            if ((currentHour >= 3 && currentHour < 15) ) {
+                return 'SHIFT 1';
+            } else {
+                return 'SHIFT 2';
+            }
+        }
+    }
+
+
+    function updateDateTime() {
+        var now = new Date();
+        var hours = now.getHours().toString().padStart(2, '0');
+        var minutes = now.getMinutes().toString().padStart(2, '0');
+        var seconds = now.getSeconds().toString().padStart(2, '0');
+        var day = now.getDate().toString().padStart(2, '0');
+
+        // Mengonversi hari dalam bahasa Inggris
+        var dayNames = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+        var dayName = dayNames[now.getDay()];
+
+        // Mengonversi bulan menjadi nama bulan
+        var monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni",
+            "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+        var month = monthNames[now.getMonth()];
+
+        var year = now.getFullYear();
+
+        // Format tanggal dengan nama hari
+        var formattedDate = dayName + ', ' + day + ' ' + month + ' ' + year;
+
+        $('#time').text(hours + ':' + minutes + ':' + seconds);
+        $('#date').text(formattedDate);
+    }
+
+
+    function updateShift() {
+        var shift = getShift();
+        $('#shift').text(shift);
+    }
+
+    function getAll() {
+        var cachedData = localStorage.getItem('cachedData');
+        var lastCachedTime = localStorage.getItem('lastCachedTime');
+
+        if (cachedData && lastCachedTime && (Date.now() - lastCachedTime < 50000)) {
+            renderData(JSON.parse(cachedData));
+        }
+
+        link = link.replace("Controller", "Display3Shift");
+        link = link.replace("Function", "GetAll");
+        var currentPage = 0;
+
+        $.ajax({
+            url: link,
+            type: "GET",
+            datatype: "json",
+            success: function (data) {
+                if (data.status) {
+                    localStorage.setItem('cachedData', JSON.stringify(data));
+                    localStorage.setItem('lastCachedTime', Date.now());
+                    renderData(data);
+                } else {
+                    console.error('Gagal mengambil data: ' + data.remarks);
+                }
+            },
+            error: function (error) {
+                console.error('Gagal mengambil data: ' + error.responseText);
+            }
+        });
+
+        function renderData(data) {
+            if (tableInstance) {
+                tableInstance.destroy(); // Menghancurkan instans DataTable sebelum membuat yang baru
+            }
+
+            tableInstance = $('#tableBS').DataTable({
+                columns: [
+                    { data: 'areachangeshift' },
+                    { data: 'loader' },
+                    { data: 'hauler' },
+                    {
+                        "data": function (data, type, dataToSet) {
+                            if (data.status_fatigue === 'FIT') {
+                                return '<span class="badge bg-success">' + data.nrp + '</span>'
+                            } else if (data.status_fatigue === 'TIDAK FIT') {
+                                return '<span class="badge bg-danger">' + data.nrp + '</span>'
+                            } else {
+                                return '<span class="badge badge-soft-secondary">' + data.nrp + '</span>'
+                            }
+                        }
+                    },
+                    {
+                        "data": function (data, type, dataToSet) {
+                            if (data.status_fatigue === 'FIT') {
+                                return '<span class="badge bg-success">' + data.Nama + '</span>'
+                            } else if (data.status_fatigue === 'TIDAK FIT') {
+                                return '<span class="badge bg-danger">' + data.Nama + '</span>'
+                            } else {
+                                return '<span class="badge badge-soft-secondary">' + data.Nama + '</span>'
+                            }
+                        }
+                    },
+
+                ],
+                data: data.data,
+                searching: false,
+                lengthChange: false,
+                lengthMenu: [10],
+                info: false,
+                pageLength: 10,
+                order: [[1, 'asc']]
+            });
+
+            $('#tableBS').css('font-size', '27px');
+
+            // Mengatur interval untuk mengganti halaman setiap 10 detik
+            setInterval(function () {
+                currentPage = (currentPage + 1) % table.page.info().pages; // Beralih ke halaman berikutnya
+                table.page(currentPage).draw(false); // Menggambar ulang tabel dengan halaman baru
+            }, 10000); // 10 detik (dalam milidetik)
+        }
+    }
+
+
+
+</script>
+
+</html>
+

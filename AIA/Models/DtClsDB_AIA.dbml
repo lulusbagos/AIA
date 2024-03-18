@@ -1,13 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_AIA" Class="DtClsDB_AIADataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Table Name="dbo.ASM_TBL_OPT_STB_NOTSET" Member="ASM_TBL_OPT_STB_NOTSETs">
-    <Type Name="ASM_TBL_OPT_STB_NOTSET">
-      <Column Name="Tanggal" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Shift" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="NRP" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.ASM_CATUR_DONE" Member="ASM_CATUR_DONEs">
+    <Type Name="ASM_CATUR_DONE">
+      <Column Name="TGL" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="SHIFT" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SEKTOR" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CN_UNIT" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
       <Column Name="Nama" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="StatusFatigue" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="EGI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EGI" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Pengganti" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Validasi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="validate_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="validate_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.vw_t_user_kategori" Member="vw_t_user_kategoris">
@@ -20,19 +25,159 @@
       <Column Name="login_function" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.ASM_TBL_UNIT_NOOPT" Member="ASM_TBL_UNIT_NOOPTs">
-    <Type Name="ASM_TBL_UNIT_NOOPT">
+  <Table Name="dbo.ASM_CATUR_OPT_STB_NOTSET" Member="ASM_CATUR_OPT_STB_NOTSETs">
+    <Type Name="ASM_CATUR_OPT_STB_NOTSET">
+      <Column Name="pid" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="TGL" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="SHIFT" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Nama" Type="System.String" DbType="VarChar(102)" CanBeNull="true" />
+      <Column Name="STATUSFATIGUE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EGI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ASM_CATUR_UNIT_NEED_OPT" Member="ASM_CATUR_UNIT_NEED_OPTs">
+    <Type Name="ASM_CATUR_UNIT_NEED_OPT">
+      <Column Name="pid" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="TGL" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="SHIFT" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="SEKTOR" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
       <Column Name="CN_UNIT" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="NRP" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Nama" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="EGI" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
       <Column Name="Pengganti" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Validasi" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="validate_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="validate_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ASM_CATUR_UNIT_NEED_OPT_PARSE1" Member="ASM_CATUR_UNIT_NEED_OPT_PARSE1s">
+    <Type Name="ASM_CATUR_UNIT_NEED_OPT_PARSE1">
+      <Column Name="TGL" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="SHIFT" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SEKTOR" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CN_UNIT" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Nama" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EGI" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Pengganti" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Nama_pengganti" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Validasi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="validate_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="validate_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ASM_Data_Operator_Pengganti" Member="ASM_Data_Operator_Penggantis">
+    <Type Name="ASM_Data_Operator_Pengganti">
+      <Column Name="Tanggal" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="shift" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="Nrp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Nrp_Pengganti" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="datePengganti" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Nama" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="polaroster" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="cluster" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="areachangeshift" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sektor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.asm_display_bottom3_persektor" Member="asm_display_bottom3_persektors">
+    <Type Name="asm_display_bottom3_persektor">
+      <Column Name="Ranks" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="pit" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="nama" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nrp" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="proty_hm" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.asm_display_top3_persektor" Member="asm_display_top3_persektors">
+    <Type Name="asm_display_top3_persektor">
+      <Column Name="Ranks" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="pit" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="nama" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nrp" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="proty_hm" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ASM_LAST_SD" Member="ASM_LAST_SDs">
+    <Type Name="ASM_LAST_SD">
+      <Column Name="NomorST" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Nrp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tglST" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Tujuan" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Keperluan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Penginapan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hari" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Awal" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Akhir" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ASM_NEW_VER_DISPLAY" Member="ASM_NEW_VER_DISPLAYs">
+    <Type Name="ASM_NEW_VER_DISPLAY">
+      <Column Name="RISK_CODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="STATUS_BREAKDOWN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BUS_AREA" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="sektor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LOADER" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cn_unit" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cluster" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="areachangeshift" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MEMO" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Shift" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="HARIDAY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="statusAbsen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hariOff" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="RemOpaCNunit" Type="System.String" DbType="VarChar(52)" CanBeNull="true" />
+      <Column Name="jamtidur_hariini" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="tanggal" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="remarksftw" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="ftwvia" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="colornewdisplay" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="prioritycolor" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ASM_SETTING_FLEET_VS_OPT_VS_FTW_3SHIFT" Member="ASM_SETTING_FLEET_VS_OPT_VS_FTW_3SHIFTs">
+    <Type Name="ASM_SETTING_FLEET_VS_OPT_VS_FTW_3SHIFT">
+      <Column Name="nrp" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="tanggal" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="shift" Type="System.String" DbType="VarChar(53)" CanBeNull="true" />
+      <Column Name="sektor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Nama" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="jamtidur_hariini" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="modified_by" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ASM_summary_catur" Member="ASM_summary_caturs">
+    <Type Name="ASM_summary_catur">
+      <Column Name="jml_opr_siap_diseeting" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="operator_terseeting" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="unit_kosong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SHIFT" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ASM_VW_BUS" Member="ASM_VW_BUS">
+    <Type Name="ASM_VW_BUS">
+      <Column Name="loader" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sektor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nrp_gl" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="nama_gl" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="areachangeshift" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cluster" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="transport" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="areachangeshift_alias" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="departure_time" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.ASM_VW_KARYAWAN_FOLLOW_UP" Member="ASM_VW_KARYAWAN_FOLLOW_UPs">
@@ -52,6 +197,82 @@
       <Column Name="created_by" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.display_productivity" Member="display_productivities">
+    <Type Name="display_productivity">
+      <Column Name="sektor" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="kategori" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="nama" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="tanggal" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="nrp" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="shift" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitEgi" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="unit" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="HM" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="BCM" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="PDTY" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+      <Column Name="RankDesc" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="presentase" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.plan_ibs_mounthly" Member="plan_ibs_mounthlies">
+    <Type Name="plan_ibs_mounthly">
+      <Column Name="Bulan" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="Tanggal" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PlanOBIBS" Type="System.Decimal" DbType="Decimal(38,5)" CanBeNull="true" />
+      <Column Name="PlanOBSite" Type="System.Decimal" DbType="Decimal(38,5)" CanBeNull="true" />
+      <Column Name="PRODUKSI" Type="System.Decimal" DbType="Decimal(38,2) NOT NULL" CanBeNull="false" />
+      <Column Name="PlanDistanceIBSOB" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="PlanDistanceSiteOB" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="avrDistOB" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+      <Column Name="PlanDistanceIBSTS" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="PlanDistanceSiteTS" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="avrDistTS" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.plan_ibs_today" Member="plan_ibs_todays">
+    <Type Name="plan_ibs_today">
+      <Column Name="Tanggal" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PlanOBIBS" Type="System.Decimal" DbType="Decimal(38,5)" CanBeNull="true" />
+      <Column Name="PlanOBSite" Type="System.Decimal" DbType="Decimal(38,5)" CanBeNull="true" />
+      <Column Name="PRODUKSI" Type="System.Decimal" DbType="Decimal(38,2) NOT NULL" CanBeNull="false" />
+      <Column Name="PlanDistanceIBSOB" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="PlanDistanceSiteOB" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="avrDistOB" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+      <Column Name="PlanDistanceIBSTS" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="PlanDistanceSiteTS" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="avrDistTS" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.plan_service" Member="plan_services">
+    <Type Name="plan_service">
+      <Column Name="tanggal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="egi" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cn_unit" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ps_type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="start_time" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="lead_time" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="estimasi_rfu" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="remarks" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="jenis" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sektor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.plan_service_besuk" Member="plan_service_besuks">
+    <Type Name="plan_service_besuk">
+      <Column Name="tanggal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="egi" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cn_unit" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ps_type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="start_time" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="lead_time" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="estimasi_rfu" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="remarks" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="jenis" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sektor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.vw_history_followup_operator_fatigue" Member="vw_history_followup_operator_fatigues">
     <Type Name="vw_history_followup_operator_fatigue">
       <Column Name="pid" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
@@ -62,17 +283,17 @@
       <Column Name="unit" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="jamtidur" Type="System.String" DbType="VarChar(71)" CanBeNull="true" />
       <Column Name="jaminput" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="is_minumobat" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="is_masalah" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="is_minumobat" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="is_masalah" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="Status_ftw" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="ftw_via" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Kategory_problem_fatigue" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Kategory_problem_fatigue" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="remarksCNC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Next_action" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Next_action" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="Status_akumulasi" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Status_CNC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Komitment" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="CNC_by" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="CNC_by" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="CNC_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CNC_Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
@@ -82,18 +303,190 @@
   <Table Name="dbo.vw_operator_fatigue_need_followup" Member="vw_operator_fatigue_need_followups">
     <Type Name="vw_operator_fatigue_need_followup">
       <Column Name="pid" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="tanggal" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tanggal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="nrp" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Nama" Type="System.String" DbType="VarChar(201)" CanBeNull="true" />
       <Column Name="Departemen" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="unit" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="jamtidur" Type="System.String" DbType="VarChar(71)" CanBeNull="true" />
       <Column Name="jaminput" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="is_minumoabt" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="is_masalah" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="statusfatigue" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="is_minumoabt" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="is_masalah" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="statusfatigue" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="ftw_result" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
       <Column Name="created_by" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_profil" Member="vw_profils">
+    <Type Name="vw_profil">
+      <Column Name="nrp" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Nama" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Departemen" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Jabatan" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="tanggal" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="shift" Type="System.String" DbType="NVarChar(53)" CanBeNull="true" />
+      <Column Name="Absent" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[in]" Member="in" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="out" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="jamtidur" Type="System.String" DbType="VarChar(71)" CanBeNull="true" />
+      <Column Name="keterangan" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="created_by" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="unit" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="keterangan6_fatigue_ke" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_setting_fleet_vs_ftw_3s_ls" Member="vw_setting_fleet_vs_ftw_3s_ls">
+    <Type Name="vw_setting_fleet_vs_ftw_3s_l">
+      <Column Name="cn_unit" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sektor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="areachangeshift" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cluster" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Nama" Type="System.String" DbType="VarChar(203)" CanBeNull="true" />
+      <Column Name="nrp" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="tanggal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="shift" Type="System.String" DbType="VarChar(53)" CanBeNull="true" />
+      <Column Name="Departemen" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="waktu_absen" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="waktu_ftw" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="jenis_ftw" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(22)" CanBeNull="true" />
+      <Column Name="created_by" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="jenis_user" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="status_fatigue" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="remarks" Type="System.String" DbType="VarChar(61)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_setting_roster_deviasi_mod" Member="vw_setting_roster_deviasi_mods">
+    <Type Name="vw_setting_roster_deviasi_mod">
+      <Column Name="isi" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_t_setting_fleet" Member="vw_t_setting_fleets">
+    <Type Name="vw_t_setting_fleet">
+      <Column Name="tanggal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="shift" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sektor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="front" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="disposal" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="group_leader" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_is_breadown" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hauler_is_breadown" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="loader_smartd_connection_status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_smartd_availability_delay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="loader_smartd_availability_category" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_vhms_eod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="loader_vhms_availability_category" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_smartd_connection_status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_smartd_availability_delay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hauler_smartd_availability_category" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_vhms_eod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hauler_vhms_availability_category" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_operator_nrp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_operator_nama" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_ftw_status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_ftw_jam_fatigue" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_absensi_in" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="loader_absensi_in_lokasi" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_operator_nrp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_operator_nama" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_ftw_status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_ftw_jam_fatigue" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_absensi_in" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="hauler_absensi_in_lokasi" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="loader_created_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="loader_updated_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_is_breakdown_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="loader_smartd_connection_status_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="loader_vhms_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="loader_operator_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="loader_ftw_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="loader_absensi_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="hauler_created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="hauler_created_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_is_breakdown_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="hauler_smartd_connection_status_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="hauler_vhms_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="hauler_operator_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="hauler_ftw_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="hauler_absensi_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sektor_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="gl_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sektor_updated_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="front_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="front_updated_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="disposal_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="disposal_updated_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="jam_update" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="plan_speed" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="actual_speed" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="plan_jarak" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="actual_jarak" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="plan_produksi" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HD_plan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HD_actual" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HD_setting" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GL1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nrp_GL1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GL2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nrp_GL2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="areachangeshift" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cluster" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.asm_display_bottom3" Member="asm_display_bottom3s">
+    <Type Name="asm_display_bottom3">
+      <Column Name="Ranks" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pit" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="nama" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="nrp" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="proty_hm" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="presentase" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="unit" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_t_setting_operator_deviasi" Member="tbl_t_setting_operator_deviasis">
+    <Type Name="tbl_t_setting_operator_deviasi">
+      <Column Name="pid" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="nrp" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="nama" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="tanggal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="polashift" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="shift" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="unit" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="stcuti" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="sc_awal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="sc_akhir" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="sttugas" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="st_awal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="st_akhir" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="updated_at_st" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="updated_at_sc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.asm_display_top3" Member="asm_display_top3s">
+    <Type Name="asm_display_top3">
+      <Column Name="Ranks" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pit" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="nama" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="nrp" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="proty_hm" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="presentase" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="unit" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_m_running_text" Member="tbl_m_running_texts">
+    <Type Name="tbl_m_running_text">
+      <Column Name="pid" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="text" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_m_setting_aplikasi" Member="tbl_m_setting_aplikasis">
@@ -107,27 +500,6 @@
       <Column Name="ip" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="created_at" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="updated_at" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_t_konseling_fatigue" Member="tbl_t_konseling_fatigues">
-    <Type Name="tbl_t_konseling_fatigue">
-      <Column Name="pid" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="tanggal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="nrp" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="Jam_tidur" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="is_minumobat" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="is_masalah" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Status_ftw" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="ftw_via" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Kategory_problem_fatigue" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="remarksCNC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Next_action" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Status_akumulasi" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Status_CNC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Komitment" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="CNC_by" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="CNC_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_m_user_login" Member="tbl_m_user_logins">
@@ -159,6 +531,21 @@
       <Column Name="statusfatigue" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="ftw_result" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="created_by" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_pln_service" Member="tbl_pln_services">
+    <Type Name="tbl_pln_service">
+      <Column Name="pid" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="tanggal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="egi" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cn_unit" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ps_type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="start_time" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="lead_time" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="estimasi_rfu" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="remarks" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="jenis" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_r_alasan_fatigue" Member="tbl_r_alasan_fatigues">
@@ -219,16 +606,151 @@
       <Column Name="status_sanksi" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.ASM_summary_catur" Member="ASM_summary_caturs">
-    <Type Name="ASM_summary_catur">
-      <Column Name="jml_opr_siap_diseeting" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="operator_terseeting" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="unit_kosong" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SHIFT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+  <Table Name="dbo.tbl_setting_fleet_vs_ftw_3s_ls" Member="tbl_setting_fleet_vs_ftw_3s_ls">
+    <Type Name="tbl_setting_fleet_vs_ftw_3s_l">
+      <Column Name="cn_unit" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="hauler" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="sektor" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="areachangeshift" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="cluster" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Nama" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="nrp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tanggal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="shift" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Departemen" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="waktu_absen" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="waktu_ftw" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="jenis_ftw" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="created_by" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="jenis_user" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="status_fatigue" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="remarks" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="pid" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_t_konseling_fatigue" Member="tbl_t_konseling_fatigues">
+    <Type Name="tbl_t_konseling_fatigue">
+      <Column Name="pid" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tanggal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="nrp" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Jam_tidur" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="is_minumobat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="is_masalah" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status_ftw" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ftw_via" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Kategory_problem_fatigue" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="remarksCNC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Next_action" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Status_akumulasi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status_CNC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Komitment" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CNC_by" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CNC_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_t_setting_fleet" Member="tbl_t_setting_fleets">
+    <Type Name="tbl_t_setting_fleet">
+      <Column Name="pid" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tanggal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="shift" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sektor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="front" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="disposal" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="group_leader" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_is_breadown" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hauler_is_breadown" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="loader_smartd_connection_status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_smartd_availability_delay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="loader_smartd_availability_category" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_vhms_eod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="loader_vhms_availability_category" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_smartd_connection_status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_smartd_availability_delay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hauler_smartd_availability_category" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_vhms_eod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hauler_vhms_availability_category" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_operator_nrp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_operator_nama" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_ftw_status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_ftw_jam_fatigue" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_absensi_in" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="loader_absensi_in_lokasi" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_operator_nrp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_operator_nama" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_ftw_status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_ftw_jam_fatigue" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_absensi_in" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="hauler_absensi_in_lokasi" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="loader_created_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="loader_updated_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loader_is_breakdown_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="loader_smartd_connection_status_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="loader_vhms_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="loader_operator_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="loader_ftw_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="loader_absensi_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="hauler_created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="hauler_created_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hauler_is_breakdown_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="hauler_smartd_connection_status_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="hauler_vhms_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="hauler_operator_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="hauler_ftw_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="hauler_absensi_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sektor_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="gl_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sektor_updated_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="front_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="front_updated_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="disposal_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="disposal_updated_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="jam_update" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="plan_speed" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="actual_speed" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="plan_jarak" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="actual_jarak" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="plan_produksi" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HD_plan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HD_actual" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HD_setting" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GL1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nrp_GL1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GL2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nrp_GL2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="change_shift" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ASM_UPDATE_FTW_OPERATOR" Method="ASM_UPDATE_FTW_OPERATOR">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_update_bandara_catur_parse1" Method="sp_update_bandara_catur_parse1">
+    <Parameter Name="NRP" Parameter="nRP" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="shift" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Validasi" Parameter="validasi" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="validate_by" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_dumping_setting_operator_deviasi" Method="sp_dumping_setting_operator_deviasi">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_dumping_vw_setting_fleet_vs_ftw_3s_ls_to_tbl_setting_fleet_vs_ftw_3s_ls" Method="sp_dumping_vw_setting_fleet_vs_ftw_3s_ls_to_tbl_setting_fleet_vs_ftw_3s_ls">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_insert_operator_follow_up" Method="sp_insert_operator_follow_up">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_insert_tbl_operator_fatigue_need_followup" Method="sp_insert_tbl_operator_fatigue_need_followup">
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.sp_update_bandara_catur" Method="sp_update_bandara_catur">
-    <Parameter Name="TGL" Parameter="tGL" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="shift" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="cn_unit" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Pengganti" Parameter="pengganti" Type="System.String" DbType="VarChar(50)" />

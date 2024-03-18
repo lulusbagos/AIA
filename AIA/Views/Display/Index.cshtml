@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDisplay.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body class="container">
+    <div class="row">
+        <div class="col">
+            <div id="loader" class="row"></div>
+            <hr size="5px" class="bg-black">
+            <div id="hauler" class="row"></div>
+        </div>
+    </div>
+</body>
+
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Include Perfect Scrollbar CSS and JS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.2/css/perfect-scrollbar.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.2/js/perfect-scrollbar.jquery.min.js"></script>
+
+
+<script>
+        var link = '@Url.Action("Function", "Controller")'
+        var controller_name = "@ViewBag.Controller"
+        var a
+
+    $(document).ready(function () {
+        getLoader('PIT S04')
+        autoReloadPage()
+        getHauler('PIT S04')
+    })
+
+
+    function getLoader(sektor) {
+            link = link.replace("Controller", "Display");
+            link = link.replace("Function", "GetLoader");
+            $.ajax({
+                type: "GET",
+                url: link + '?sektor=' + sektor ,
+                success: function (data) {
+                    if (data.status) {
+                        $("#loader").append(data.data);
+                    } else {
+                        alert(data.data)
+                    }
+                }
+            })
+            link = '@Url.Action("Function", "Controller")'
+    }
+
+    function getHauler(sektor) {
+            link = link.replace("Controller", "Display");
+            link = link.replace("Function", "GetHauler");
+            $.ajax({
+                type: "GET",
+                url: link + '?sektor=' + sektor ,
+                success: function (data) {
+                    if (data.status) {
+                        $("#hauler").append(data.data);
+                    } else {
+                        alert(data.data)
+                    }
+                }
+            })
+            link = '@Url.Action("Function", "Controller")'
+    }
+
+
+
+
+    function autoReloadPage() {
+        setInterval(function () {
+            location.reload();
+        }, 80000); // 30 detik (dalam milidetik)
+    }
+
+
+</script>
+
+</body>
+
+</html>
